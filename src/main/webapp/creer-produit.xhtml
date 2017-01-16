@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+<title>Tépabo - Créer un produit</title>
+</head>
+<body>
+	<form jsf:id="formCreateProduit">
+		<TABLE>
+			<tr>
+				<td>Nom:</td>
+				<td><input type="text" placeholder="Nom"
+					jsf:value="#{produitBeanController.nom}"></input></td>
+			</tr>
+			<tr>
+				<td>Description:</td>
+				<td><input type="text" placeholder="Prix"
+					jsf:value="#{produitBeanController.prix}"></input></td>
+			</tr>
+			<tr>
+				<td>Prix:</td>
+				<td><input type="text" placeholder="Description"
+					jsf:value="#{produitBeanController.description}"></input></td>
+			</tr>
+			<tr>
+				<td>Vendeur:</td>
+				<td><input type="text" placeholder="Vendeur"
+					jsf:value="#{produitBeanController.distributeur}"></input></td>
+			</tr>
+			<tr>
+				<td>
+					<button jsf:action="#{controlMBean.create()}">Create!</button>
+				</td>
+			</tr>
+		</TABLE>
+	</form>
+</body>
+
+</html>

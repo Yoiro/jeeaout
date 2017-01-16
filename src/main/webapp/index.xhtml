@@ -19,6 +19,11 @@
     	<form jsf:id="formFindOne">
     		<input type="text" placeholder="Rechercher un produit..."/>
     	</form>
+    	<form jsf:id="formCreate">
+    		<button jsf:action="#{produitBeanController.doCreate()}">
+    			Ajouter un produit à notre liste
+    		</button>
+    	</form>
     	
     </body>
 </html>

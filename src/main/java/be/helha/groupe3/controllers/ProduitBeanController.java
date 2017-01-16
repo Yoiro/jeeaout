@@ -6,8 +6,9 @@ import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
+import be.helha.groupe3.daos.DAOProduitLocalBean;
+import be.helha.groupe3.entities.Distributeur;
 import be.helha.groupe3.entities.Produit;
-import daobe.helha.groupe3.daos.DAOProduitLocalBean;
 
 @Named
 @RequestScoped
@@ -16,6 +17,7 @@ public class ProduitBeanController {
 	private String nom;
 	private double prix;
 	private String description;
+	private Distributeur distributeur;
 	private boolean stock;
 	
 	@EJB
@@ -54,16 +56,25 @@ public class ProduitBeanController {
 		this.stock = stock;
 	}
 	//------------------------------------------//
-	//------------------------------------------//
 	
 	//Méthodes de vues//
+	//------------------------------------------//
+	public String doCreateProduit(){
+		return "creer-produit.xhtml";
+	}
+	
 	public String doFindAll(){
 		return "tous-les-produits.xhtml";
 	}
 	//------------------------------------------//
 	
-	//------------------------------------------//
 	//Méthodes d'accès à la Base de Données//
+	//------------------------------------------//
+	public void create(){
+		Produit p=new Produit(nom,prix,description,distributeur);
+		daoProduitLocalBean.create(p);
+	}
+	
 	public List<Produit> getAll(){
 		return daoProduitLocalBean.getAll();
 	}

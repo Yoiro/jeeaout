@@ -26,22 +26,24 @@ public class Produit implements Serializable{
 	private String nom;
 	private double prix;
 	private String description;
-	private static int stock;
 	
 	@ManyToOne
 	private Distributeur distrib;
 	
 	public Produit(){}
+	public Produit(String nom, double prix, String description, Distributeur distrib){
+		super();
+		this.nom = nom;
+		this.prix = prix;
+		this.description = description;
+		this.distrib=distrib;
+	}
 	public Produit(Integer id, String nom, double prix, String description) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prix = prix;
 		this.description = description;
-		Produit.stock++;
-	}
-	public static void decrementStock(){
-		Produit.stock--;
 	}
 	public Integer getId() {
 		return id;
@@ -66,12 +68,6 @@ public class Produit implements Serializable{
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
-	public static int getStock() {
-		return stock;
-	}
-	public static void setStock(int stock) {
-		Produit.stock = stock;
 	}
 	
 }
