@@ -14,8 +14,8 @@
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://52.31.3.254:3306/db3" />
 			<!-- <property name="javax.persistence.schema-generation.database.action"value="create" /> -->
-			<property name="javax.persistence.jdbc.user" value="test" />
-			<property name="javax.persistence.jdbc.password" value="test" />
+			<property name="javax.persistence.jdbc.user" value="g3" />
+			<property name="javax.persistence.jdbc.password" value="3088" />
 		</properties>
 	</persistence-unit>
 	<!-- <persistence-unit name="groupe3" transaction-type="JTA"> <jta-data-source>jdbc/groupe3</jta-data-source> 

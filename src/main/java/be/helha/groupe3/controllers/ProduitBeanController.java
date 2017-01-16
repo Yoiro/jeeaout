@@ -24,6 +24,7 @@ public class ProduitBeanController {
 	DAOProduitLocalBean daoProduitLocalBean;
 	
 	//Getters & Setters
+	//------------------------------------------//
 	public String getLibelle() {
 		return libelle;
 	}
