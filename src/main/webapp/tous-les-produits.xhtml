@@ -9,7 +9,7 @@
 		<TITLE>Tépabo - Cherchez les produits</TITLE>
 	</head>
 	<body>
-		<h:dataTable value="#{produitBeanControler.getListPersonne()}" var="o"
+		<h:dataTable value="#{produitBeanControler.getAll()}" var="o"
     			styleClass="table"
     			headerClass="order-table-header"
     			rowClasses="order-table-odd-row,order-table-even-row">
@@ -42,3 +42,4 @@
     			 -->
     		</h:dataTable>
 	</body>
+</html>

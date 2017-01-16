@@ -10,7 +10,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     </head>
     <body>
-    	<button jsf:id="buttonFindAll" jsf:action="#{produitBeanController.doFindAll()}">Découvrir nos produits</button>
-        <input jsf:id="searchName" type="text"/>
+    	<form jsf:id="formFindAll">
+    		<button jsf:action="#{produitBeanController.doFindAll()}">
+    			Découvrir nos produits
+    		</button>
+    	</form>
+    	
+    	<form jsf:id="formFindOne">
+    		<input type="text" placeholder="Rechercher un produit..."/>
+    	</form>
+    	
     </body>
 </html>

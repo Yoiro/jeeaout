@@ -3,16 +3,21 @@ package be.helha.groupe3.controllers;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
 import be.helha.groupe3.entities.Produit;
 import daobe.helha.groupe3.daos.DAOProduitLocalBean;
 
+@Named
+@RequestScoped
 public class ProduitBeanController {
 	
 	private String nom;
 	private double prix;
 	private String description;
 	private boolean stock;
+	
 	@EJB
 	DAOProduitLocalBean daoProduitLocalBean;
 	

@@ -2,28 +2,24 @@
 <persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
-<!--
-	<persistence-unit name="Localgroupe3" transaction-type="RESOURCE_LOCAL">
+
+	<persistence-unit name="LocalGroupe3"
+		transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>be.helha.groupe3.entities.Produit</class>
 		<class>be.helha.groupe3.entities.Distributeur</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
-		
+
 		<properties>
-		    <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-		    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db3"/> 
-		    <property name="javax.persistence.schema-generation.database.action" value="create"/>
-		    <property name="javax.persistence.jdbc.user" value="test"/>
-			<property name="javax.persistence.jdbc.password" value="test"/>
-		</properties>
-	<persistence-unit name=""></persistence-unit>
--->
-	<persistence-unit name="groupe3" transaction-type="JTA">
-		<jta-data-source>jdbc/groupe3</jta-data-source> 
-		<class>be.helha.groupe3.entities.Produit</class>
-		<class>be.helha.groupe3.entities.Distributeur</class>
-		<exclude-unlisted-classes>false</exclude-unlisted-classes>
-		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://52.31.3.254:3306/db3" />
+			<!-- <property name="javax.persistence.schema-generation.database.action"value="create" /> -->
+			<property name="javax.persistence.jdbc.user" value="test" />
+			<property name="javax.persistence.jdbc.password" value="test" />
 		</properties>
 	</persistence-unit>
+	<!-- <persistence-unit name="groupe3" transaction-type="JTA"> <jta-data-source>jdbc/groupe3</jta-data-source> 
+		<class>be.helha.groupe3.entities.Produit</class> <class>be.helha.groupe3.entities.Distributeur</class> 
+		<exclude-unlisted-classes>false</exclude-unlisted-classes> <properties> </properties> 
+		</persistence-unit> -->
 </persistence>
