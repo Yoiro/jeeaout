@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	
+	<head>
+		<TITLE>Tépabo - Cherchez les produits</TITLE>
+	</head>
+	<body>
+		<h:dataTable value="#{produitBeanControler.getListPersonne()}" var="o"
+    			styleClass="table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row">
+
+    			<h:column>
+    				<!-- column header -->
+    				<f:facet name="header">Nom</f:facet>
+    				<!-- row record -->
+    				#{o.nom}
+    			</h:column>
+
+    			<h:column>
+    				<f:facet name="header">Prix</f:facet>
+    				#{o.prix}
+    			</h:column>
+    			<h:column>
+    				<f:facet name="header">Description</f:facet>
+    				#{o.description}
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">En stock</f:facet>
+    				#{o.stock}
+    			</h:column>
+    			<!-- 
+				<h:column>
+    				<f:facet name="header">Supprimer</f:facet>
+    				<button class="btn btn-danger" jsf:action="#{controlMBean.deletePersonne(o)}"><span class="glyphicon glyphicon-trash"></span></button>
+    			</h:column>
+    			 -->
+    		</h:dataTable>
+	</body>

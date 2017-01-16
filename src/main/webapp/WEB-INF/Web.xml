@@ -26,7 +26,7 @@
 	<security-role>
         <role-name>admin</role-name>
     </security-role>
- 
+ <!-- 
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>
@@ -43,4 +43,5 @@
         <auth-method>BASIC</auth-method>
         <realm-name>Evaluation Area</realm-name>
     </login-config>
+     -->
 </web-app>

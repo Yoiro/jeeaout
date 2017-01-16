@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
     <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Bienvenue sur Tépabo!</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     </head>
     <body>
-        <h1>Hello World!</h1>
+    	<button jsf:action="#{produitBeanController.getAll()}">Découvrir nos produits</button>
+        <input jsf:id="searchName" type="text"/>
     </body>
 </html>
