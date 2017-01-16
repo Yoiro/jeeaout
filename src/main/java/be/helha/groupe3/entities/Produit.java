@@ -23,7 +23,7 @@ public class Produit implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private String nom;
+	private String libelle;
 	private double prix;
 	private String description;
 	private int quantiteEnStock;
@@ -34,7 +34,7 @@ public class Produit implements Serializable{
 	public Produit(){}
 	public Produit(String nom, double prix, String description, Distributeur distrib){
 		super();
-		this.nom = nom;
+		this.libelle = nom;
 		this.prix = prix;
 		this.description = description;
 		this.distrib=distrib;
@@ -42,7 +42,7 @@ public class Produit implements Serializable{
 	public Produit(Integer id, String nom, double prix, String description) {
 		super();
 		this.id = id;
-		this.nom = nom;
+		this.libelle = nom;
 		this.prix = prix;
 		this.description = description;
 	}
@@ -52,11 +52,11 @@ public class Produit implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getNom() {
-		return nom;
+	public String getLibelle() {
+		return libelle;
 	}
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setLibelle(String nom) {
+		this.libelle = nom;
 	}
 	public double getPrix() {
 		return prix;

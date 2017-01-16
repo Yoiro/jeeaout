@@ -14,7 +14,7 @@ import be.helha.groupe3.entities.Produit;
 @RequestScoped
 public class ProduitBeanController {
 	
-	private String nom;
+	private String libelle;
 	private double prix;
 	private String description;
 	private Distributeur distributeur;
@@ -24,12 +24,12 @@ public class ProduitBeanController {
 	DAOProduitLocalBean daoProduitLocalBean;
 	
 	//Getters & Setters
-	public String getNom() {
-		return nom;
+	public String getLibelle() {
+		return libelle;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setLibelle(String nom) {
+		this.libelle = nom;
 	}
 
 	public double getPrix() {
@@ -71,7 +71,7 @@ public class ProduitBeanController {
 	//Méthodes d'accès à la Base de Données//
 	//------------------------------------------//
 	public void create(){
-		Produit p=new Produit(nom,prix,description,distributeur);
+		Produit p=new Produit(libelle,prix,description,distributeur);
 		daoProduitLocalBean.create(p);
 	}
 	
