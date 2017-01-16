@@ -22,5 +22,4 @@ public class DAOProduitLocalBean {
 		result=query.getResultList();
 		return result;
 	}
-	
 }
