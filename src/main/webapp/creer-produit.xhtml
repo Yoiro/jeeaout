@@ -9,7 +9,6 @@
 <title>Tépabo - Créer un produit</title>
 </head>
 
-<body>
 	<form jsf:id="formCreateProduit">
 		<TABLE>
 			<tr>
@@ -32,13 +31,13 @@
 				<td><input type="text" placeholder="Vendeur"
 					jsf:value="#{produitBeanController.distributeur}"></input></td>
 			</tr>
+			 
 			<tr>
 				<td>
-					<button jsf:action="#{produitBeanController.create()}">Create!</button>
+					<button jsf:action="#{produitBeanController.create()}">Créer mon produit!</button>
 				</td>
 			</tr>
 		</TABLE>
 	</form>
-</body>
 
 </html>

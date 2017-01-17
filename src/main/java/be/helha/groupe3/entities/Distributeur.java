@@ -33,6 +33,10 @@ public class Distributeur extends UtilisateurEnregistre implements Serializable{
 	
 	public Distributeur(){}
 	
+	public Distributeur(String nom){
+		super(nom);
+	}
+	
 	//Constructeur Distributeur avec utilisation de l'ID de la super classe UtilisateurEnregistre
 	public Distributeur(Integer id,String pseudoUtilisateur,String password,String email,String tel,int numRue,String nomRue,String localite,int codePostal,String biographie) {
 		super(id,pseudoUtilisateur,password,email,tel,numRue,nomRue,localite,codePostal);

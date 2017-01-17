@@ -20,11 +20,11 @@ import be.helha.groupe3.entities.Produit;
 @Named
 @RequestScoped
 public class ProduitBeanController implements Controller{
-	
+
 	private String libelle;
 	private double prix;
 	private String description;
-	private Distributeur distributeur;
+	private String nomDistributeur;
 	private boolean stock;
 	
 	@EJB
@@ -64,12 +64,12 @@ public class ProduitBeanController implements Controller{
 		this.stock = stock;
 	}
 	
-	public Distributeur getDistributeur(){
-		return distributeur;
+	public String getDistributeur(){
+		return nomDistributeur;
 	}
 	
-	public void setDistributeur(Distributeur distributeur){
-		this.distributeur=distributeur;
+	public void setDistributeur(String distributeur){
+		this.nomDistributeur=distributeur;
 	}
 	//------------------------------------------//
 	
@@ -91,9 +91,15 @@ public class ProduitBeanController implements Controller{
 	//Méthodes d'accès à la Base de Données//
 	//------------------------------------------//
 	public void create(){
-		Produit p=new Produit(libelle,prix,description,distributeur);
+		
+		if(nomDistributeur==null)nomDistributeur="";
+		Distributeur d=new Distributeur(nomDistributeur);
+		
+		if(libelle==null) libelle="";
+		if(description=="null") description="";
+		
+		Produit p=new Produit(libelle,prix,description,d);
 		daoProduitLocalBean.create(p);
-		doFindAll();
 	}
 	
 	public List<Produit> getAll(){
@@ -105,8 +111,8 @@ public class ProduitBeanController implements Controller{
 	//------------------------------------------//
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		return null;
+		return new ModelAndView("creer-produit.xhtml");
 	}
 	//------------------------------------------//
+
 }
