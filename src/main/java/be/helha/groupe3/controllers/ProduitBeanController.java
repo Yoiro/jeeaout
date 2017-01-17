@@ -101,9 +101,12 @@ public class ProduitBeanController implements Controller{
 	}
 	//------------------------------------------//
 
+	//Spring Method//
+	//------------------------------------------//
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		return null;
 	}
+	//------------------------------------------//
 }
