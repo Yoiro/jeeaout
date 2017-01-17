@@ -12,7 +12,7 @@
 		<welcome-file>index.xhtml</welcome-file>
 	</welcome-file-list>
 	
-	<!-- Définition du servlet et du s-mappin pour JSF -->
+	<!-- Définition du servlet et du s-mapping pour JSF -->
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>

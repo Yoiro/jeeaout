@@ -14,7 +14,6 @@ import javax.persistence.NamedQuery;
 	@NamedQuery(name="UtilisateurEnregistre.FindAll",
 				query="SELECT u from UtilisateurEnregistre u")
 })
-
 public class UtilisateurEnregistre implements Serializable {
 
 	/**
@@ -26,6 +25,8 @@ public class UtilisateurEnregistre implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	private String nom;
+	private String prenom;
 	private String pseudoUtilisateur;
 	private String password; 
 	private String email; 
@@ -37,6 +38,9 @@ public class UtilisateurEnregistre implements Serializable {
 	
 //------------------------------------Constructor-----------------------------------	
 	public UtilisateurEnregistre(){}
+	public UtilisateurEnregistre(String nom){
+		this.nom=nom;
+	}
 	public UtilisateurEnregistre(Integer id,String pseudoUtilisateur,String password,String email,String tel,int numRue,String nomRue,String localite,int codePostal){
 		this.setId(id);
 		this.pseudoUtilisateur=pseudoUtilisateur;
@@ -61,6 +65,18 @@ public class UtilisateurEnregistre implements Serializable {
 	
 	
 	//------------------------------Getter & Setter------------------------------------------
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getPrenom() {
+		return prenom;
+	}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
 	public void setId(Integer id) {
 		this.id=id;
 	}
