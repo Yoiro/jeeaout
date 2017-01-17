@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 @Entity
 public class Adresse implements Serializable {
 
-	
 	/**
 	 * 
 	 */
@@ -20,9 +19,8 @@ public class Adresse implements Serializable {
 	private Boolean isPointVente;
 	private String nomAdresse;
 	
-	
 	//---------------------------Constructor---------------------------------------
-	
+	public Adresse(){}
 	public Adresse(int numRue,String nomRue,int codePostal,String localite,Boolean isPointVente,String nomAdresse){
 		setNumRue(numRue);
 		setNomRue(nomRue);
@@ -32,9 +30,7 @@ public class Adresse implements Serializable {
 		if(isPointVente==true){
 			setNomAdresse(nomAdresse);
 		}else setNomAdresse("Domicile");
-		
 	}
-
 	
 	//---------------------------Getter & Setter-----------------------------------
 	public String getNomRue() {

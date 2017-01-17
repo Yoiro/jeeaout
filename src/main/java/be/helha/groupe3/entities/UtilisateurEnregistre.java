@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
@@ -21,7 +22,6 @@ public class UtilisateurEnregistre implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
@@ -31,10 +31,9 @@ public class UtilisateurEnregistre implements Serializable {
 	private String password; 
 	private String email; 
 	private String tel;
-	private int numRue;
-	private String nomRue;
-	private String localite;
-	private int codePostal;
+	
+	@ManyToOne
+	private Adresse adressePostale;
 	
 //------------------------------------Constructor-----------------------------------	
 	public UtilisateurEnregistre(){}
@@ -47,20 +46,12 @@ public class UtilisateurEnregistre implements Serializable {
 		this.password=password;
 		this.email = email;
 		this.tel=tel;
-		this.numRue=numRue;
-		this.nomRue=nomRue;
-		this.localite=localite;
-		this.codePostal=codePostal;
 	}
 	public UtilisateurEnregistre(String pseudoUtilisateur,String password,String email,String tel,int numRue,String nomRue,String localite,int codePostal){
 		this.pseudoUtilisateur=pseudoUtilisateur;
 		this.password=password;
 		this.email = email;
 		this.tel=tel;
-		this.numRue=numRue;
-		this.nomRue=nomRue;
-		this.localite=localite;
-		this.codePostal=codePostal;
 	}
 	
 	
@@ -108,38 +99,13 @@ public class UtilisateurEnregistre implements Serializable {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public int getNumRue() {
-		return numRue;
-	}
-	public void setNumRue(int numRue) {
-		this.numRue = numRue;
-	}
-	public String getNomRue() {
-		return nomRue;
-	}
-	public void setNomRue(String nomRue) {
-		this.nomRue = nomRue;
-	}
-	public String getLocalite() {
-		return localite;
-	}
-	public void setLocalite(String localite) {
-		this.localite = localite;
-	}
-	public int getCodePostal() {
-		return codePostal;
-	}
-	public void setCodePostal(int codePostal) {
-		this.codePostal = codePostal;
-	}
 	
 	
 	//----------------------------------------otherMethods()----------------------------------
 	@Override
 	public String toString() {
 		return "UtilisateurEnregistre [id=" + id + ", pseudoUtilisateur=" + pseudoUtilisateur + ", password=" + password
-				+ ", email=" + email + ", tel=" + tel + ", numRue=" + numRue + ", nomRue=" + nomRue + ", localite="
-				+ localite + ", codePostal=" + codePostal + "]";
+				+ ", email=" + email + ", tel=" + tel + "]";
 	}
 	@Override
 	public int hashCode() {
