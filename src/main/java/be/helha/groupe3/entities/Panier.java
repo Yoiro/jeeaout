@@ -3,6 +3,7 @@ package be.helha.groupe3.entities;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class Panier implements Serializable {
 	
 	
 	
-	//-----------------------Constructor-------------------
+	//-----------------------Constructor-----------------------------
 	public Panier(){}
 	public Panier(double prixTot){
 		mapProduit=new HashMap<>();
@@ -30,7 +31,7 @@ public class Panier implements Serializable {
 	}
 	
 	
-	//---------------------Getter & Setter ------------------
+	//---------------------Getter & Setter --------------------------
 	public HashMap<Produit, Integer> getMapProduit() {
 		return mapProduit;
 	}
@@ -45,7 +46,7 @@ public class Panier implements Serializable {
 	}
 	
 	
-	//---------------------otherMethods()----------------------
+	//---------------------otherMethods()----------------------------
 	
 	@Override
 	public String toString() {
@@ -56,17 +57,42 @@ public class Panier implements Serializable {
 		mapProduit.clear();
 	}
 	
+	//Ajout d'un produit et d'une quantité
 	public void ajouterProduitPanier(Produit p,Integer quantite){
-		mapProduit.put(p, quantite);
+		
+		if(!mapProduit.containsKey(p)){
+			mapProduit.put(p, quantite);
+		}
+		else{
+			Produit recu=p;
+			for(Entry<Produit,Integer>e:mapProduit.entrySet()){
+				if(recu.equals(e)){
+					int quantiteTot=quantite +e.getValue();
+					e.setValue(quantiteTot);
+				}
+			}
+		}
 	}
 	
+	
+	//Calcul du prix total du panier
 	public double calculerPrixPanier(){
-		for(int i = 0 ; i<=mapProduit.size();i++){
+		for (Entry<Produit, Integer> e : mapProduit.entrySet()) {
+				Produit p = e.getKey();
+				
+				prixTot += p.getPrix() * e.getValue();
+				
 			
-			prixTot+=mapProduit.get(i);
-		}
+			}
 		return prixTot;
 	}
+	
+	public void removeProduitPanier(Produit p,Integer quantite){
+		if(mapProduit.containsKey(p)){
+			
+		}
+	}
+	
 	
 	
 }
