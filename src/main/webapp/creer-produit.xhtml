@@ -6,7 +6,7 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 
 <head>
-	<title>Tépabo - Créer un produit</title>
+<title>Tépabo - Créer un produit</title>
 </head>
 
 <body>
@@ -15,17 +15,17 @@
 			<tr>
 				<td>Nom:</td>
 				<td><input type="text" placeholder="Nom"
-					jsf:value="#{produitBeanController.nom}"></input></td>
+					jsf:value="#{produitBeanController.libelle}"></input></td>
 			</tr>
 			<tr>
 				<td>Description:</td>
-				<td><input type="text" placeholder="Prix"
-					jsf:value="#{produitBeanController.prix}"></input></td>
+				<td><input type="text" placeholder="Description"
+					jsf:value="#{produitBeanController.description}"></input></td>
 			</tr>
 			<tr>
 				<td>Prix:</td>
-				<td><input type="text" placeholder="Description"
-					jsf:value="#{produitBeanController.description}"></input></td>
+				<td><input type="text" placeholder="Prix"
+					jsf:value="#{produitBeanController.prix}"></input></td>
 			</tr>
 			<tr>
 				<td>Vendeur:</td>
@@ -34,7 +34,7 @@
 			</tr>
 			<tr>
 				<td>
-					<button jsf:action="#{controlMBean.create()}">Create!</button>
+					<button jsf:action="#{produitBeanController.create()}">Create!</button>
 				</td>
 			</tr>
 		</TABLE>

@@ -56,10 +56,22 @@ public class ProduitBeanController {
 	public void setStock(boolean stock) {
 		this.stock = stock;
 	}
+	
+	public Distributeur getDistributeur(){
+		return distributeur;
+	}
+	
+	public void setDistributeur(Distributeur distributeur){
+		this.distributeur=distributeur;
+	}
 	//------------------------------------------//
 	
 	//Méthodes de vues//
 	//------------------------------------------//
+	public String doIndex(){
+		return "index.xhtml";
+	}
+	
 	public String doCreateProduit(){
 		return "creer-produit.xhtml";
 	}
@@ -74,6 +86,7 @@ public class ProduitBeanController {
 	public void create(){
 		Produit p=new Produit(libelle,prix,description,distributeur);
 		daoProduitLocalBean.create(p);
+		doFindAll();
 	}
 	
 	public List<Produit> getAll(){
