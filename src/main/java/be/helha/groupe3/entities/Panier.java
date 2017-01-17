@@ -12,12 +12,14 @@ import javax.persistence.Id;
 
 @Entity
 public class Panier implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
 	/**
 	 * 
 	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
 	private HashMap<Produit,Integer>mapProduit;
 	private double prixTot = 0.0;
 	
@@ -45,8 +47,15 @@ public class Panier implements Serializable {
 		this.prixTot = prixTot;
 	}
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	
 	//---------------------otherMethods()----------------------------
+	
 	
 	@Override
 	public String toString() {

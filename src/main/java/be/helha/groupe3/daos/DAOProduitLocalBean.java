@@ -16,13 +16,11 @@ import be.helha.groupe3.entities.Produit;
 @Stateless
 @LocalBean
 public class DAOProduitLocalBean {	
-	private EntityManagerFactory emf;
-	private EntityManager em; 
+	private EntityManagerFactory emf=Persistence.createEntityManagerFactory("LocalGroupe3");
+	private EntityManager em=emf.createEntityManager(); 
 	private EntityTransaction tr;
 	
 	public void create(Produit p){
-		emf=Persistence.createEntityManagerFactory("LocalGroupe3");
-		em=emf.createEntityManager();
 		tr=em.getTransaction();
 		tr.begin();
 		em.persist(p);
@@ -30,9 +28,12 @@ public class DAOProduitLocalBean {
 	}
 	
 	public List<Produit> getAll(){
+		tr=em.getTransaction();
+		tr.begin();
 		List<Produit> result=null;
 		TypedQuery<Produit> query=em.createNamedQuery("Produit.FindAll",Produit.class);
 		result=query.getResultList();
+		tr.commit();
 		return result;
 	}
 }
