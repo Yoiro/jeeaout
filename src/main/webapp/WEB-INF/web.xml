@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+	<display-name>groupe3</display-name>
+	
+	<!-- JSF Framework -->
+	<welcome-file-list>
+		<welcome-file>index.xhtml</welcome-file>
+	</welcome-file-list>
+	
+	<!-- Définition du servlet et du s-mappin pour JSF -->
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+	
+<!-- SPRING MVC Framework
+	<servlet>
+		<servlet-name>springapp</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>springapp</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
+	
+ -->	
+	
+	<security-role>
+		<role-name>admin</role-name>
+	</security-role>
+
+	<!-- <security-constraint> <web-resource-collection> <web-resource-name> 
+		List Security </web-resource-name> <url-pattern>/index.xhtml</url-pattern> 
+		</web-resource-collection> <auth-constraint> <role-name>admin</role-name> 
+		</auth-constraint> </security-constraint> <login-config> <auth-method>BASIC</auth-method> 
+		<realm-name>Evaluation Area</realm-name> </login-config> -->
+</web-app>
