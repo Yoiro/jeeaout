@@ -46,12 +46,14 @@ public class Commande implements Serializable {
 	
 	public Commande(){}
 	//Constructeur avec ID pour la Commande
-	public Commande(Integer id,String date,Panier produitCommande,Acheteur acheteur,String lieuLivraison){
+	public Commande(Integer id,String date,Panier produitCommande,Acheteur acheteur,String lieuLivraison,Boolean isSend,Boolean isPaid){
 		setId(id);
 		setDate(date);
 		setProduitCommande(produitCommande);
 		setIdentifiantAcheteur(acheteur.getID());
 		setLieuLivraison(lieuLivraison);
+		setIsSend(isSend);
+		setIsPaid(isPaid);
 	}
 	
 	
@@ -61,6 +63,8 @@ public class Commande implements Serializable {
 		setProduitCommande(produitCommande);
 		setIdentifiantAcheteur(acheteur.getID());
 		setLieuLivraison(lieuLivraison);
+		setIsSend(isSend);
+		setIsPaid(isPaid);
 	}
 	
 	

@@ -3,6 +3,7 @@ package be.helha.groupe3.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -25,7 +26,7 @@ public class Distributeur extends UtilisateurEnregistre implements Serializable{
 	private String biographie;
 	
 	@OneToMany
-	private List<Produit> produitsProposes;
+	private HashMap<Produit,Integer> mapProduitsPropose;
 	
 	
 	//---------------------------------Constructor---------------------------------
@@ -36,13 +37,13 @@ public class Distributeur extends UtilisateurEnregistre implements Serializable{
 	public Distributeur(Integer id,String pseudoUtilisateur,String password,String email,String tel,int numRue,String nomRue,String localite,int codePostal,String biographie) {
 		super(id,pseudoUtilisateur,password,email,tel,numRue,nomRue,localite,codePostal);
 		this.biographie = biographie;
-		this.produitsProposes=new ArrayList<Produit>();
+		this.mapProduitsPropose = new HashMap<Produit,Integer>();
 	}
 	//Constructeur Distributeur sans utiliation de l'ID de la super classe UtilisateurEnregistre
 	public Distributeur(String pseudoUtilisateur,String password,String email,String tel,int numRue,String nomRue,String localite,int codePostal,String biographie) {
 		super(pseudoUtilisateur,password,email,tel,numRue,nomRue,localite,codePostal);
 		this.biographie = biographie;
-		this.produitsProposes=new ArrayList<Produit>();
+		this.mapProduitsPropose = new HashMap<Produit,Integer>();
 	}
 	
 	//---------------------------Getter & Setter------------------------------
@@ -55,11 +56,20 @@ public class Distributeur extends UtilisateurEnregistre implements Serializable{
 
 	@Override
 	public String toString() {
-		return super.toString()+" Distributeur [biographie=" + biographie + ", produitsProposés="
-				+ produitsProposes + "]";
+		return super.toString()+" Distributeur [biographie=" + biographie + ", produits Proposés="
+				+ mapProduitsPropose + "]";
 	}
 
 	//---------------------------otherMetods()--------------------------------
+	
+	
+	public void ajouterProduitPropose(Produit p,Integer quantite){
+		if(!mapProduitsPropose.containsKey(p)){
+			
+		}
+		
+	}
+	
 	
 	@Override
 	public int hashCode() {
@@ -68,6 +78,8 @@ public class Distributeur extends UtilisateurEnregistre implements Serializable{
 		result = prime * result + ((getID() == null) ? 0 : getID().hashCode());
 		return result;
 	}
+	
+	
 
 	@Override
 	public boolean equals(Object obj) {

@@ -98,7 +98,11 @@ public class Panier implements Serializable {
 	
 	public void removeProduitPanier(Produit p,Integer quantite){
 		if(mapProduit.containsKey(p)){
-			
+			for(Entry<Produit,Integer> e : mapProduit.entrySet()){
+				if(e.getKey().equals(p) && e.getValue()>=quantite){
+					e.setValue(e.getValue()-quantite);
+				}
+			}
 		}
 	}
 	

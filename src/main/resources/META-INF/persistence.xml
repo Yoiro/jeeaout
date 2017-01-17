@@ -10,9 +10,10 @@
 		<class>be.helha.groupe3.entities.Distributeur</class>
 		<class>be.helha.groupe3.entities.Acheteur</class>
 		<class>be.helha.groupe3.entities.UtilisateurEnregistre</class>
+		<class>be.helha.groupe3.entities.Administrateur</class>
 		<class>be.helha.groupe3.entities.Commande</class>
 		<class>be.helha.groupe3.entities.Panier</class>
-		
+
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 
 		<properties>
