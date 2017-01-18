@@ -15,15 +15,9 @@ import javax.persistence.Id;
 
 @Entity
 public class Administrateur implements Serializable{
-
-	/**
-	 * 
-	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-
-	private static final long serialVersionUID = 1L;
 
 	private static final String PSEUDO="admin";
 	private static final String PASSWORD="mdp";

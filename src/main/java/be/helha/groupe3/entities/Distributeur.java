@@ -17,11 +17,6 @@ import be.helha.groupe3.entities.Produit;
 
 @Entity
 public class Distributeur extends UtilisateurEnregistre implements Serializable{
-
-	/**
-	 * 
-	 */
-	//private static final long serialVersionUID = 1L;
 	private String biographie;
 
 	@OneToMany(fetch=FetchType.LAZY)

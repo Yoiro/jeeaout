@@ -10,10 +10,11 @@ import javax.persistence.OneToOne;
 
 
 
-@Entity
-/** Classe qui rerésente l'acheteur qui est enregistré et connecté sur le site
+
+/** Classe qui représente l'acheteur qui est enregistré et connecté sur le site
  * 	Hérite de la super classe UtilisateurEnregistre 
  */
+@Entity
 public class Acheteur extends UtilisateurEnregistre implements Serializable{
 
 	@OneToOne

@@ -5,7 +5,6 @@
 
 	<persistence-unit name="LocalGroupe3"
 		transaction-type="RESOURCE_LOCAL">
-		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>be.helha.groupe3.entities.Produit</class>
 		<class>be.helha.groupe3.entities.Distributeur</class>
 		<class>be.helha.groupe3.entities.Acheteur</class>
@@ -20,13 +19,13 @@
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://52.31.3.254:3306/db3" />
-			<property name="javax.persistence.schema-generation.database.action"
-				value="reate" />
 			<property name="javax.persistence.jdbc.user" value="g3" />
 			<property name="javax.persistence.jdbc.password" value="3088" />
+			<property name="javax.persistence.schema-generation.database.action" value="create" />
 		</properties>
 
 	</persistence-unit>
+	
 	<persistence-unit name="JTAGroupe3" transaction-type="JTA">
 		<jta-data-source>jdbc/groupe3</jta-data-source>
 		<class>be.helha.groupe3.entities.Produit</class>
@@ -41,4 +40,32 @@
 		<properties>
 		</properties>
 	</persistence-unit>
+<!-- 	
+	Jacky Unit
+	
+	<persistence-unit name="db2" transaction-type="RESOURCE_LOCAL">
+  <class>be.helha.groupe2.entities.Produit</class>
+  <class>be.helha.groupe2.entities.Categorie</class>
+  <class>be.helha.groupe2.entities.Poids</class>
+  <class>be.helha.groupe2.entities.Producteur</class>
+  <class>be.helha.groupe2.entities.Adresse</class>
+  <class>be.helha.groupe2.entities.PointVente</class>
+  <class>be.helha.groupe2.entities.ProduitEnVente</class>
+  <class>be.helha.groupe2.entities.User</class>
+  <class>be.helha.groupe2.entities.Panier</class>
+  <class>be.helha.groupe2.entities.ProduitAchete</class>
+  <exclude-unlisted-classes>true</exclude-unlisted-classes>
+ 
+  <properties>
+ <property name="dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://52.31.3.254:3306/db2"/>
+    <property name="javax.persistence.jdbc.user" value="g2"/>
+   <property name="javax.persistence.jdbc.password" value="7422"/>
+   <property name="javax.persistence.schema-generation.database.action" value="create"/>
+    
+  </properties>
+ </persistence-unit>
+	 -->
+	
 </persistence>

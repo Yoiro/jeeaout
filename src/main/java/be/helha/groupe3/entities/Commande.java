@@ -16,14 +16,7 @@ import javax.persistence.NamedQuery;
 		@NamedQuery(name="CommandeFindAll.FindAll",
 				query="SELECT c from Commande c")
 })
-
 public class Commande implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
