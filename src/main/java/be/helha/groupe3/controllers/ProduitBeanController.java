@@ -9,7 +9,6 @@ import javax.inject.Named;
 import be.helha.groupe3.daos.DAOProduitLocalBean;
 import be.helha.groupe3.entities.Distributeur;
 import be.helha.groupe3.entities.Produit;
-import be.helha.groupe3.interfaces.ProduitManager;
 
 @Named
 @RequestScoped
