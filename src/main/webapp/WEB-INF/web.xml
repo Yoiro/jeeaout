@@ -23,20 +23,6 @@
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
 	
-<!-- SPRING MVC Framework
-	<servlet>
-		<servlet-name>springapp</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>springapp</servlet-name>
-		<url-pattern>*.htm</url-pattern>
-	</servlet-mapping>
-	
- -->	
-	
 	<security-role>
 		<role-name>admin</role-name>
 	</security-role>

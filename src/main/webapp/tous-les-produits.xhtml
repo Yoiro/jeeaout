@@ -3,9 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	
 <!-- URI introuvables:
-xmlns:jsf="http://xmlns.jcp.org/jsf"
 xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
  -->
 
@@ -19,54 +19,32 @@ xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </h:head>
 <h:body>
-	<!--  <c:forEach items="${model.listProduits}" var="prod"> -->
-	<h:dataTable value="${model.listProduits}" var="prod"
+	<h:dataTable value="#{produitBeanController.getAll()}" var="prod"
 		styleClass="table" headerclass="order-table-header"
 		rowClasses="order-table-odd-row,order-table-even-row">
 		<h:column>
 			<f:facet name="header">Libelle</f:facet>
-			${prod.libelle}
+			#{prod.libelle}
 		</h:column>
 		<h:column>
 			<f:facet name="header">Description</f:facet>
-			${prod.description}
+			#{prod.description}
 			</h:column>
 		<h:column>
 			<f:facet name="header">Prix</f:facet>
-			<i>€ "${prod.price}"</i>
+			<i>€ #{prod.price}</i>
 		</h:column>
 	</h:dataTable>
 
-	<!-- 
-		</c:forEach>
-		
-		<h:dataTable value="#{produitBeanControler.getAll()}" var="o"
-    			styleClass="table"
-    			headerClass="order-table-header"
-    			rowClasses="order-table-odd-row,order-table-even-row">
-
-    			<h:column>
-    				<f:facet name="header">Nom</f:facet>
-    				#{o.libelle}
-    			</h:column>
-
-    			<h:column>
-    				<f:facet name="header">Prix</f:facet>
-    				#{o.prix}
-    			</h:column>
-    			<h:column>
-    				<f:facet name="header">Description</f:facet>
-    				#{o.description}
-    			</h:column>
-    			
-    			<h:column>
-    				<f:facet name="header">Ajouter au panier</f:facet>
-    				<button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
-    			</h:column>
-    			<h:column>
-    				<f:facet name="header">En stock</f:facet>
-    				#{o.stock}
-    			</h:column>		
-    			 -->
+	<!--
+    	<h:column>
+    		<f:facet name="header">Ajouter au panier</f:facet>
+    		<button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
+    	</h:column>
+    	<h:column>
+    		<f:facet name="header">En stock</f:facet>
+    		#{o.stock}
+    	</h:column>		
+     -->
 </h:body>
 </html>

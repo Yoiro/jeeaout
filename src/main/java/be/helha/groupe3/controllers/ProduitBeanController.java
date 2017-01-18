@@ -11,9 +11,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
-
 import be.helha.groupe3.daos.DAOProduitLocalBean;
 import be.helha.groupe3.entities.Distributeur;
 import be.helha.groupe3.entities.Produit;
@@ -21,7 +18,7 @@ import be.helha.groupe3.interfaces.ProduitManager;
 
 @Named
 @RequestScoped
-public class ProduitBeanController implements Controller{
+public class ProduitBeanController{
 
 	private String libelle;
 	private double prix;
@@ -112,16 +109,6 @@ public class ProduitBeanController implements Controller{
 	
 	public List<Produit> getAll(){
 		return daoProduitLocalBean.getAll();
-	}
-	//------------------------------------------//
-
-	//Spring Method//
-	//------------------------------------------//
-	@Override
-	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Produit> myModel=new ArrayList<Produit>();
-		myModel=produitManager.getProduits();
-		return new ModelAndView("tous-les-produits.xhtml","model",myModel);
 	}
 	//------------------------------------------//
 
