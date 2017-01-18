@@ -21,6 +21,31 @@ public class InscriptionBeanController {
 	
 	//Getters & Setters//
 	//----------------------------------------------------//
+	
+	public String getNomRue() {
+		return nomRue;
+	}
+	public void setNomRue(String nomRue) {
+		this.nomRue = nomRue;
+	}
+	public String getNumRue() {
+		return numRue;
+	}
+	public void setNumRue(String numRue) {
+		this.numRue = numRue;
+	}
+	public String getLocalite() {
+		return localite;
+	}
+	public void setLocalite(String localite) {
+		this.localite = localite;
+	}
+	public int getCodePostal() {
+		return codePostal;
+	}
+	public void setCodePostal(int codePostal) {
+		this.codePostal = codePostal;
+	}
 	public String getNom() {
 		return nom;
 	}

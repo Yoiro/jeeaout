@@ -91,6 +91,14 @@ $(function () {
 });
 </SCRIPT>
 
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 </head>
 
 
@@ -130,12 +138,12 @@ $(function () {
 				<div class="form-group">
 					<input type="text" name="pseudoUtilisateur" id="pseudoUtilisateur"
 						class="form-control input-lg" placeholder="Pseudo" tabindex="3"
-						jsf:value="#{inscriptionBeanController.pseudo}"></input>
+						jsf:value="#{inscriptionBeanController.pseudoUtilisateur}"></input>
 				</div>
 				<div class="form-group">
 					<input type="email" name="emailUtilisateur" id="email"
 						class="form-control input-lg" placeholder="adresse@exemple.com"
-						tabindex="4" jsf:value="#{inscriptionBeanController.email"></input>
+						tabindex="4" jsf:value="#{inscriptionBeanController.email}"></input>
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-sm-6 col-md-6">
@@ -148,18 +156,49 @@ $(function () {
 					</div>
 					<div class="col-xs-12 col-sm-6 col-md-6">
 						<div class="form-group">
-							<input type="passwordUtilisateur" name="password_confirmation"
+							<input type="password" name="password_confirmation"
 								id="password_confirmation" class="form-control input-lg"
-								placeholder="Confirm Password" tabindex="6"
-								jsf:value="#{inscriptionBeanController.password"></input>
+								placeholder="Confirm Password" tabindex="6"></input>
 						</div>
 					</div>
 					<div class="col-xs-12 col-sm-6 col-md-6">
 						<div class="form-group">
 							<input type="text" name="numUtilisateur"
-								id="password_confirmation" class="form-control input-lg"
+								id="telephoneUser" class="form-control input-lg"
 								placeholder="04xx/000000" tabindex="6"
-								jsf:value="#{inscriptionBeanController.password"></input>
+								jsf:value="#{inscriptionBeanController.tel}"></input>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6">
+						<div class="form-group">
+							<input type="text" name="nomRue"
+								id="nomRue" class="form-control input-lg"
+								placeholder="Rue de l'exemple" tabindex="6"
+								jsf:value="#{inscriptionBeanController.nomRue}"></input>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6">
+						<div class="form-group">
+							<input type="text" name="numRue"
+								id="numRue" class="form-control input-lg"
+								placeholder="124B" tabindex="6"
+								jsf:value="#{inscriptionBeanController.numRue}"></input>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6">
+						<div class="form-group">
+							<input type="text" name="codePostal"
+								id="codePostal" class="form-control input-lg"
+								placeholder="7000" tabindex="6"
+								jsf:value="#{inscriptionBeanController.codePostal}"></input>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6">
+						<div class="form-group">
+							<input type="text" name="localite"
+								id="localite" class="form-control input-lg"
+								placeholder="Mons" tabindex="6"
+								jsf:value="#{inscriptionBeanController.localite}"></input>
 						</div>
 					</div>
 				</div>
@@ -186,7 +225,7 @@ $(function () {
 							class="btn btn-primary btn-block btn-lg" tabindex="7"></input>
 					</div>
 					<div class="col-xs-12 col-md-6">
-						<a href="#" jsf:action="#{inscriptionBeanController.inscription()"
+						<a href="#" jsf:action="#{inscriptionBeanController.inscriptionPersonne()}"
 							class="btn btn-success btn-block btn-lg">S'inscrire</a>
 					</div>
 				</div>
