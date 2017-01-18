@@ -1,9 +1,15 @@
 package be.helha.groupe3.daos;
 
+import java.util.List;
+
 public abstract class DAOLocalBean<T> {
 
 	//	public Connection connect = ConnectionPostgreSQL.getInstance();
 
+	/**
+	 * Permet d'effectuer une requête Select All
+	 */
+	public abstract List<T> findAll();
 	/**
 	 * Permet de récupérer un objet via son ID
 	 * @param id

@@ -97,7 +97,7 @@ public class ProduitBeanController{
 	}
 	
 	public List<Produit> getAll(){
-		return daoProduitLocalBean.getAll();
+		return daoProduitLocalBean.findAll();
 	}
 	//------------------------------------------//
 

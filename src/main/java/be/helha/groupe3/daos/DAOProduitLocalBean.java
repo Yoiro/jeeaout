@@ -14,12 +14,12 @@ import be.helha.groupe3.entities.Produit;
 
 @Stateless
 @LocalBean
-public class DAOProduitLocalBean {	
+public class DAOProduitLocalBean extends DAOLocalBean<Produit>{	
 	private EntityManagerFactory emf;
 	private EntityManager em; 
 	private EntityTransaction tr;
 	
-	public void create(Produit p){
+	public Produit create(Produit p){
 		emf=Persistence.createEntityManagerFactory("LocalGroupe3");
 		em=emf.createEntityManager();
 		tr=em.getTransaction();
@@ -27,9 +27,11 @@ public class DAOProduitLocalBean {
 		em.merge(p);
 		em.persist(p);
 		tr.commit();
+		return p;
 	}
 	
-	public List<Produit> getAll(){
+	@Override
+	public List<Produit> findAll(){
 		emf=Persistence.createEntityManagerFactory("LocalGroupe3");
 		em=emf.createEntityManager();
 		tr=em.getTransaction();
@@ -39,5 +41,23 @@ public class DAOProduitLocalBean {
 		result=query.getResultList();
 		tr.commit();
 		return result;
+	}
+
+	@Override
+	public Produit update(Produit obj) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(Produit obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Produit find(long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
