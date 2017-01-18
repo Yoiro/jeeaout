@@ -6,11 +6,17 @@ import javax.inject.Named;
 
 import be.helha.groupe3.daos.DAOUserLocalBean;
 import be.helha.groupe3.entities.UtilisateurEnregistre;
+import be.helha.groupe3.patterns.Builder;
 
 @Named
 @RequestScoped
 public class InscriptionBeanController {
+	
 	private String nom,prenom,pseudoUtilisateur,password,email,tel;
+	private String nomRue,numRue,localite;
+	private int codePostal;
+	Builder builder=new Builder();
+	
 	@EJB private DAOUserLocalBean daoUserLocalBean;
 	
 	//Getters & Setters//
@@ -62,11 +68,11 @@ public class InscriptionBeanController {
 	}
 	//----------------------------------------------------//
 	//DatabaseAccess//
-	public void inscription(){
-		UtilisateurEnregistre u=new UtilisateurEnregistre(nom,prenom,pseudoUtilisateur,password,email,tel);
+	public void inscriptionPersonne(){
+		builder.creerInformationsPersonne(nom, prenom, pseudoUtilisateur, password, email, tel);
+		builder.creerAdresse(nomRue, numRue, codePostal, localite);
+		UtilisateurEnregistre u=builder.getUser();
 		daoUserLocalBean.inscription(u);
 	}
-	
-
 	
 }

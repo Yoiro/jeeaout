@@ -28,12 +28,12 @@ public class Acheteur extends UtilisateurEnregistre implements Serializable{
 	public Acheteur(){}
 	//Constructeur avec utilisation de l'ID pour l'acheteur -> UtilisateurEnregistre (super)
 	public Acheteur(Integer id,String pseudoUtilisateur,String password,String email,String tel,int numRue,String nomRue,String localite,int codePostal){
-		super(id,pseudoUtilisateur,password,email,tel,numRue,nomRue,localite,codePostal);
+//		super(id,pseudoUtilisateur,password,email,tel,numRue,nomRue,localite,codePostal);
 		this.listeCommande=new ArrayList<Commande>();
 	}
 	//Constructeur sans utilisation de l'ID pour l'acheteur -> UtilisateurEnregistre (super)
 	public Acheteur(String pseudoUtilisateur,String password,String email,String tel,String numRue,String nomRue,String localite,int codePostal){
-		super(pseudoUtilisateur,password,email,tel,numRue,nomRue,localite,codePostal);
+//		super(pseudoUtilisateur,password,email,tel,numRue,nomRue,localite,codePostal);
 		this.listeCommande=new ArrayList<Commande>();
 	}
 	

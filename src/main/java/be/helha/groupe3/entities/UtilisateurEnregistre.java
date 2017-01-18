@@ -10,14 +10,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-import be.helha.groupe3.patterns.AbstractUtilisateurEnregistre;
-
 @Entity
 @NamedQueries({
 	@NamedQuery(name="UtilisateurEnregistre.FindAll",
 			query="SELECT u from UtilisateurEnregistre u")
 })
-public class UtilisateurEnregistre extends AbstractUtilisateurEnregistre implements Serializable {
+public class UtilisateurEnregistre implements Serializable {
 
 	/**
 	 * 
@@ -39,7 +37,7 @@ public class UtilisateurEnregistre extends AbstractUtilisateurEnregistre impleme
 
 	//------------------------------------Constructor-----------------------------------	
 	public UtilisateurEnregistre(){}
-
+/*
 	public UtilisateurEnregistre(String nom){
 		setNom(nom);setPrenom("");setPseudoUtilisateur("");
 		setPassword("");setEmail("");setTel("");
@@ -86,7 +84,7 @@ public class UtilisateurEnregistre extends AbstractUtilisateurEnregistre impleme
 		this.email=email2;
 		this.adressePostale=new Adresse(numRue,codePostal,nomRue,localite);
 	}
-
+*/
 	//------------------------------Getter & Setter------------------------------------------
 	public String getNom() {
 		return nom;
