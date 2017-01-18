@@ -3,6 +3,9 @@ package be.helha.groupe3.entities;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Adresse implements Serializable {
@@ -12,6 +15,10 @@ public class Adresse implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
+	
 	private String nomRue;
 	private int numRue;
 	private int codePostal;
@@ -19,8 +26,10 @@ public class Adresse implements Serializable {
 	private Boolean isPointVente;
 	private String nomAdresse;
 	
+	
 	//---------------------------Constructor---------------------------------------
 	public Adresse(){}
+	
 	public Adresse(int numRue,String nomRue,int codePostal,String localite,Boolean isPointVente,String nomAdresse){
 		setNumRue(numRue);
 		setNomRue(nomRue);

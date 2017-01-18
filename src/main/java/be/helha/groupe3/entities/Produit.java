@@ -28,7 +28,6 @@ public class Produit implements Serializable{
 	private String description;
 	private int quantiteEnStock;
 	
-	
 	@ManyToOne
 	private Distributeur distrib;
 	
@@ -70,6 +69,13 @@ public class Produit implements Serializable{
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public int getQuantiteEnStock() {
+		return quantiteEnStock;
+	}
+	public void setQuantiteEnStock(int quantiteEnStock) {
+		this.quantiteEnStock = quantiteEnStock;
 	}
 	@Override
 	public String toString() {

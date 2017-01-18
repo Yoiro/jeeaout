@@ -37,9 +37,12 @@ public class UtilisateurEnregistre implements Serializable {
 	
 //------------------------------------Constructor-----------------------------------	
 	public UtilisateurEnregistre(){}
+	
 	public UtilisateurEnregistre(String nom){
-		this.nom=nom;
+		setNom(nom);setPrenom("");setPseudoUtilisateur("");
+		setPassword("");setEmail("");setTel("");
 	}
+	
 	public UtilisateurEnregistre(Integer id,String pseudoUtilisateur,String password,String email,String tel,int numRue,String nomRue,String localite,int codePostal){
 		this.setId(id);
 		this.pseudoUtilisateur=pseudoUtilisateur;

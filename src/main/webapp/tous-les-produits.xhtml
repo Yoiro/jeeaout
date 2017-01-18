@@ -5,10 +5,13 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
 	
-	<head>
+	<h:head>
 		<TITLE>Tépabo - Cherchez des produits</TITLE>
-	</head>
-	<body>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>	
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</h:head>
+	<h:body>
 		<h:dataTable value="#{produitBeanControler.getAll()}" var="o"
     			styleClass="table"
     			headerClass="order-table-header"
@@ -18,7 +21,7 @@
     				<!-- column header -->
     				<f:facet name="header">Nom</f:facet>
     				<!-- row record -->
-    				#{o.nom}
+    				#{o.libelle}
     			</h:column>
 
     			<h:column>
@@ -31,15 +34,16 @@
     			</h:column>
     			
     			<h:column>
+    				<f:facet name="header">Ajouter au panier</f:facet>
+    				<button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
+    			</h:column>
+    			
+    			<!-- 
+    			<h:column>
     				<f:facet name="header">En stock</f:facet>
     				#{o.stock}
-    			</h:column>
-    			<!-- 
-				<h:column>
-    				<f:facet name="header">Supprimer</f:facet>
-    				<button class="btn btn-danger" jsf:action="#{controlMBean.deletePersonne(o)}"><span class="glyphicon glyphicon-trash"></span></button>
-    			</h:column>
+    			</h:column>		
     			 -->
     		</h:dataTable>
-	</body>
+	</h:body>
 </html>

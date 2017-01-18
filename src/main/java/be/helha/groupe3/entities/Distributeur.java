@@ -22,32 +22,32 @@ public class Distributeur extends UtilisateurEnregistre implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String biographie;
-	
+
 	@OneToMany
-	private HashMap<Produit,Integer> mapProduitsPropose;
-	
-	
+	private List<Produit> listProduitsPropose;
+
+
 	//---------------------------------Constructor---------------------------------
-	
+
 	public Distributeur(){}
-	
+
 	public Distributeur(String nom){
 		super(nom);
 	}
-	
+
 	//Constructeur Distributeur avec utilisation de l'ID de la super classe UtilisateurEnregistre
 	public Distributeur(Integer id,String pseudoUtilisateur,String password,String email,String tel,int numRue,String nomRue,String localite,int codePostal,String biographie) {
 		super(id,pseudoUtilisateur,password,email,tel,numRue,nomRue,localite,codePostal);
 		this.biographie = biographie;
-		this.mapProduitsPropose = new HashMap<Produit,Integer>();
+		this.listProduitsPropose = new ArrayList<Produit>();
 	}
 	//Constructeur Distributeur sans utiliation de l'ID de la super classe UtilisateurEnregistre
 	public Distributeur(String pseudoUtilisateur,String password,String email,String tel,int numRue,String nomRue,String localite,int codePostal,String biographie) {
 		super(pseudoUtilisateur,password,email,tel,numRue,nomRue,localite,codePostal);
 		this.biographie = biographie;
-		this.mapProduitsPropose = new HashMap<Produit,Integer>();
+		this.listProduitsPropose = new ArrayList<Produit>();
 	}
-	
+
 	//---------------------------Getter & Setter------------------------------
 	public String getBiographie() {
 		return biographie;
@@ -59,20 +59,30 @@ public class Distributeur extends UtilisateurEnregistre implements Serializable{
 	@Override
 	public String toString() {
 		return super.toString()+" Distributeur [biographie=" + biographie + ", produits Proposés="
-				+ mapProduitsPropose + "]";
+				+ listProduitsPropose + "]";
 	}
 
 	//---------------------------otherMetods()--------------------------------
-	
-	
-	public void ajouterProduitPropose(Produit p,Integer quantite){
-		if(!mapProduitsPropose.containsKey(p)){
-			
+
+
+	public void ajouterProduitPropose(Produit p, int qte){
+		if(qte>0){
+			//Si le produit n'existe pas dans la liste du fournisseur, on l'ajoute
+			if(!listProduitsPropose.contains(p)){
+				listProduitsPropose.add(p);
+			}else{
+				//Sinon, on va récupérer la quantité du produit déjà existant et rajouter
+				//celle passée en argument
+				int index=listProduitsPropose.indexOf(p);
+				int tmp=listProduitsPropose.get(index).getQuantiteEnStock();
+				listProduitsPropose.get(index).setQuantiteEnStock(tmp+qte);
+			}
+		}else{
+			System.out.println("Entrez une quantité positive non nulle");
 		}
-		
 	}
-	
-	
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -80,8 +90,8 @@ public class Distributeur extends UtilisateurEnregistre implements Serializable{
 		result = prime * result + ((getID() == null) ? 0 : getID().hashCode());
 		return result;
 	}
-	
-	
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -99,6 +109,6 @@ public class Distributeur extends UtilisateurEnregistre implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
+
+
 }

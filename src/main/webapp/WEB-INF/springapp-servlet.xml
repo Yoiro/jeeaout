@@ -8,8 +8,6 @@
   <!-- the application context definition for the springapp DispatcherServlet -->
 
   <bean name="/index.xhtml" class="be.helha.groupe3.controllers.ProduitBeanController"/>
-  <!-- 
   <bean name="/creer-produit.xhtml" class="be.helha.groupe3.controllers.ProduitBeanController"/>
   <bean name="/tous-les-produits.xhtml" class="be.helha.groupe3.controllers.ProduitBeanController"/>
- -->
 </beans>
