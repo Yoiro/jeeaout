@@ -19,15 +19,26 @@
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://52.31.3.254:3306/db3"/>
-			<!-- <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/> -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://52.31.3.254:3306/db3" />
+			<property name="javax.persistence.schema-generation.database.action"
+				value="reate" />
 			<property name="javax.persistence.jdbc.user" value="g3" />
 			<property name="javax.persistence.jdbc.password" value="3088" />
 		</properties>
 
 	</persistence-unit>
-	<!-- <persistence-unit name="groupe3" transaction-type="JTA"> <jta-data-source>jdbc/groupe3</jta-data-source> 
-		<class>be.helha.groupe3.entities.Produit</class> <class>be.helha.groupe3.entities.Distributeur</class> 
-		<exclude-unlisted-classes>false</exclude-unlisted-classes> <properties> </properties> 
-		</persistence-unit> -->
+	<persistence-unit name="JTAGroupe3" transaction-type="JTA">
+		<jta-data-source>jdbc/groupe3</jta-data-source>
+		<class>be.helha.groupe3.entities.Produit</class>
+		<class>be.helha.groupe3.entities.Distributeur</class>
+		<class>be.helha.groupe3.entities.Acheteur</class>
+		<class>be.helha.groupe3.entities.UtilisateurEnregistre</class>
+		<class>be.helha.groupe3.entities.Administrateur</class>
+		<class>be.helha.groupe3.entities.Commande</class>
+		<class>be.helha.groupe3.entities.Panier</class>
+		<class>be.helha.groupe3.entities.Adresse</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+		</properties>
+	</persistence-unit>
 </persistence>

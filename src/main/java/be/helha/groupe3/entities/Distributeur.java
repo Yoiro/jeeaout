@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,10 +21,10 @@ public class Distributeur extends UtilisateurEnregistre implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	//private static final long serialVersionUID = 1L;
 	private String biographie;
 
-	@OneToMany
+	@OneToMany(fetch=FetchType.LAZY)
 	private List<Produit> listProduitsPropose;
 
 

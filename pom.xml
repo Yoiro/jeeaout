@@ -28,8 +28,12 @@
 			<artifactId>eclipselink</artifactId>
 			<version>2.5.2</version>
 		</dependency>
-
-
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.40</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.webjars/angularjs -->
 		<dependency>
 			<groupId>org.webjars</groupId>
@@ -48,7 +52,6 @@
 			<artifactId>jquery</artifactId>
 			<version>2.1.4</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
