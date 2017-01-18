@@ -1,15 +1,10 @@
 package be.helha.groupe3.controllers;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import be.helha.groupe3.daos.DAOProduitLocalBean;
 import be.helha.groupe3.entities.Distributeur;
@@ -25,17 +20,12 @@ public class ProduitBeanController{
 	private String description;
 	private String nomDistributeur;
 	private boolean stock;
-	
-	private ProduitManager produitManager;
-	
+		
 	@EJB
 	private DAOProduitLocalBean daoProduitLocalBean;
 	
 	//Getters & Setters
 	//------------------------------------------//
-	public void setProduitManager(ProduitManager p){
-		produitManager=p;
-	}
 	
 	public String getLibelle() {
 		return libelle;
