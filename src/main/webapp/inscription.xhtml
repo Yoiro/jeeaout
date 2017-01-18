@@ -19,12 +19,12 @@
 			</tr>
 			<tr>
 				<td>Prénom:</td>
-				<td><input type="text" placeholder="Description"
+				<td><input type="text" placeholder="Prénom"
 					jsf:value="#{inscriptionBeanController.prenom}"></input></td>
 			</tr>
 			<tr>
 				<td>Pseudo:</td>
-				<td><input type="text" placeholder="Prix"
+				<td><input type="text" placeholder="Pseudo"
 					jsf:value="#{inscriptionBeanController.pseudoUtilisateur}"></input></td>
 			</tr>
 			<tr>
@@ -42,10 +42,9 @@
 				<td><input type="text" placeholder="04xx/xxxxxx"
 					jsf:value="#{inscriptionBeanController.tel}"></input></td>
 			</tr>
-			 
 			<tr>
 				<td>
-					<button jsf:action="#{inscriptionBeanController.()}">Continuer</button>
+					<button jsf:action="#{inscriptionBeanController.inscriptionPersonne()}">Continuer</button>
 				</td>
 			</tr>
 		</TABLE>
