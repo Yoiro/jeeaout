@@ -20,17 +20,17 @@ public class Adresse implements Serializable {
 	private Integer id;
 	
 	private String nomRue;
-	private int numRue;
+	private String numRue;
 	private int codePostal;
 	private String localite;
-	private Boolean isPointVente;
-	private String nomAdresse;
+	private Boolean isPointVente=false;
+	private String nomAdresse="domicile";
 	
 	
 	//---------------------------Constructor---------------------------------------
 	public Adresse(){}
 	
-	public Adresse(int numRue,String nomRue,int codePostal,String localite,Boolean isPointVente,String nomAdresse){
+	public Adresse(String numRue,int codePostal,String nomRue,String localite,Boolean isPointVente,String nomAdresse){
 		setNumRue(numRue);
 		setNomRue(nomRue);
 		setCodePostal(codePostal);
@@ -41,6 +41,14 @@ public class Adresse implements Serializable {
 		}else setNomAdresse("Domicile");
 	}
 	
+	public Adresse(String numRue2, int codePostal2, String nomRue2, String localite2) {
+		// TODO Auto-generated constructor stub
+		setNumRue(numRue2);
+		setCodePostal(codePostal2);
+		setNomRue(nomRue2);
+		setLocalite(localite2);
+	}
+
 	//---------------------------Getter & Setter-----------------------------------
 	public String getNomRue() {
 		return nomRue;
@@ -50,11 +58,11 @@ public class Adresse implements Serializable {
 		this.nomRue = nomRue;
 	}
 
-	public int getNumRue() {
+	public String getNumRue() {
 		return numRue;
 	}
 
-	public void setNumRue(int numRue) {
+	public void setNumRue(String numRue) {
 		this.numRue = numRue;
 	}
 

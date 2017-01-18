@@ -13,7 +13,7 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({
 	@NamedQuery(name="UtilisateurEnregistre.FindAll",
-				query="SELECT u from UtilisateurEnregistre u")
+			query="SELECT u from UtilisateurEnregistre u")
 })
 public class UtilisateurEnregistre implements Serializable {
 
@@ -21,7 +21,7 @@ public class UtilisateurEnregistre implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
@@ -31,18 +31,18 @@ public class UtilisateurEnregistre implements Serializable {
 	private String password; 
 	private String email; 
 	private String tel;
-	
+
 	@ManyToOne
 	private Adresse adressePostale;
-	
-//------------------------------------Constructor-----------------------------------	
+
+	//------------------------------------Constructor-----------------------------------	
 	public UtilisateurEnregistre(){}
-	
+
 	public UtilisateurEnregistre(String nom){
 		setNom(nom);setPrenom("");setPseudoUtilisateur("");
 		setPassword("");setEmail("");setTel("");
 	}
-	
+
 	public UtilisateurEnregistre(Integer id,String pseudoUtilisateur,String password,String email,String tel,int numRue,String nomRue,String localite,int codePostal){
 		this.setId(id);
 		this.pseudoUtilisateur=pseudoUtilisateur;
@@ -50,14 +50,41 @@ public class UtilisateurEnregistre implements Serializable {
 		this.email = email;
 		this.tel=tel;
 	}
-	public UtilisateurEnregistre(String pseudoUtilisateur,String password,String email,String tel,int numRue,String nomRue,String localite,int codePostal){
+	public UtilisateurEnregistre(String pseudoUtilisateur,String password,String email,String tel){
 		this.pseudoUtilisateur=pseudoUtilisateur;
 		this.password=password;
 		this.email = email;
 		this.tel=tel;
 	}
-	
-	
+	public UtilisateurEnregistre(String nom, String prenom,String pseudoUtilisateur,String password,String email,String tel){
+		this.nom=nom;
+		this.prenom=prenom;
+		this.pseudoUtilisateur=pseudoUtilisateur;
+		this.password=password;
+		this.email = email;
+		this.tel=tel;
+	}
+	public UtilisateurEnregistre(String nom, String prenom,String pseudoUtilisateur,String password,String email,String tel,
+			String numRue,int codePostal, String nomRue, String localite, Boolean isPointVente, String nomAdresse){
+		this.nom=nom;
+		this.prenom=prenom;
+		this.pseudoUtilisateur=pseudoUtilisateur;
+		this.password=password;
+		this.email = email;
+		this.tel=tel;
+		this.adressePostale=new Adresse(numRue,codePostal,nomRue,localite,isPointVente,nomAdresse);
+	}
+
+
+	public UtilisateurEnregistre(String pseudoUtilisateur2, String password2, String email2, String tel2, String numRue,
+			String nomRue, String localite, int codePostal) {
+		// TODO Auto-generated constructor stub
+		this.pseudoUtilisateur=pseudoUtilisateur2;
+		this.password=password2;
+		this.email=email2;
+		this.adressePostale=new Adresse(numRue,codePostal,nomRue,localite);
+	}
+
 	//------------------------------Getter & Setter------------------------------------------
 	public String getNom() {
 		return nom;
@@ -74,7 +101,7 @@ public class UtilisateurEnregistre implements Serializable {
 	public void setId(Integer id) {
 		this.id=id;
 	}
-	
+
 	public Integer getID (){
 		return id;
 	}
@@ -102,8 +129,8 @@ public class UtilisateurEnregistre implements Serializable {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	
-	
+
+
 	//----------------------------------------otherMethods()----------------------------------
 	@Override
 	public String toString() {
@@ -133,8 +160,8 @@ public class UtilisateurEnregistre implements Serializable {
 			return false;
 		return true;
 	} 
-	
-	
-	
-	
+
+
+
+
 }

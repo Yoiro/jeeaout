@@ -5,6 +5,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 import be.helha.groupe3.daos.DAOUserLocalBean;
+import be.helha.groupe3.entities.UtilisateurEnregistre;
 
 @Named
 @RequestScoped
@@ -59,8 +60,8 @@ public class InscriptionBeanController {
 	//----------------------------------------------------//
 	//DatabaseAccess//
 	public void inscription(){
-		daoUserLocalBean.inscription();
-		
+		UtilisateurEnregistre u=new UtilisateurEnregistre(nom,prenom,pseudoUtilisateur,password,email,tel);
+		daoUserLocalBean.inscription(u);
 	}
 	
 
