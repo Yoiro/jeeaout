@@ -1,6 +1,7 @@
 package be.helha.groupe3.controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.mvc.Controller;
 import be.helha.groupe3.daos.DAOProduitLocalBean;
 import be.helha.groupe3.entities.Distributeur;
 import be.helha.groupe3.entities.Produit;
+import be.helha.groupe3.interfaces.ProduitManager;
 
 @Named
 @RequestScoped
@@ -27,11 +29,17 @@ public class ProduitBeanController implements Controller{
 	private String nomDistributeur;
 	private boolean stock;
 	
+	private ProduitManager produitManager;
+	
 	@EJB
-	DAOProduitLocalBean daoProduitLocalBean;
+	private DAOProduitLocalBean daoProduitLocalBean;
 	
 	//Getters & Setters
 	//------------------------------------------//
+	public void setProduitManager(ProduitManager p){
+		produitManager=p;
+	}
+	
 	public String getLibelle() {
 		return libelle;
 	}
@@ -111,7 +119,9 @@ public class ProduitBeanController implements Controller{
 	//------------------------------------------//
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		return new ModelAndView("creer-produit.xhtml");
+		List<Produit> myModel=new ArrayList<Produit>();
+		myModel=produitManager.getProduits();
+		return new ModelAndView("tous-les-produits.xhtml","model",myModel);
 	}
 	//------------------------------------------//
 

@@ -1,26 +1,52 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:jsf="http://xmlns.jcp.org/jsf"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
-	
-	<h:head>
-		<TITLE>Tépabo - Cherchez des produits</TITLE>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>	
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	</h:head>
-	<h:body>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<!-- URI introuvables:
+xmlns:jsf="http://xmlns.jcp.org/jsf"
+xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+ -->
+
+<h:head>
+	<TITLE>Tépabo - Cherchez des produits</TITLE>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</h:head>
+<h:body>
+	<!--  <c:forEach items="${model.listProduits}" var="prod"> -->
+	<h:dataTable value="${model.listProduits}" var="prod"
+		styleClass="table" headerclass="order-table-header"
+		rowClasses="order-table-odd-row,order-table-even-row">
+		<h:column>
+			<f:facet name="header">Libelle</f:facet>
+			${prod.libelle}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Description</f:facet>
+			${prod.description}
+			</h:column>
+		<h:column>
+			<f:facet name="header">Prix</f:facet>
+			<i>€ "${prod.price}"</i>
+		</h:column>
+	</h:dataTable>
+
+	<!-- 
+		</c:forEach>
+		
 		<h:dataTable value="#{produitBeanControler.getAll()}" var="o"
     			styleClass="table"
     			headerClass="order-table-header"
     			rowClasses="order-table-odd-row,order-table-even-row">
 
     			<h:column>
-    				<!-- column header -->
     				<f:facet name="header">Nom</f:facet>
-    				<!-- row record -->
     				#{o.libelle}
     			</h:column>
 
@@ -37,13 +63,10 @@
     				<f:facet name="header">Ajouter au panier</f:facet>
     				<button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
     			</h:column>
-    			
-    			<!-- 
     			<h:column>
     				<f:facet name="header">En stock</f:facet>
     				#{o.stock}
     			</h:column>		
     			 -->
-    		</h:dataTable>
-	</h:body>
+</h:body>
 </html>
