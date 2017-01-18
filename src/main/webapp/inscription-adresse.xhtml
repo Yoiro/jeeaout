@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+<title>Tépabo - Inscription</title>
+</head>
+<!-- 	private String nom,prenom,pseudoUtilisateur,password,email,tel;
+ -->
+	<form jsf:id="formCreateUser2">
+	<!-- private String nomRue;
+	private String numRue;
+	private int codePostal;
+	private String localite; -->
+		<TABLE>
+			<tr>
+				<td>Nom de la rue:</td>
+				<td><input type="text" placeholder="Rue de l'exemple"
+					jsf:value="#{inscriptionBeanController.nomRue}"></input></td>
+			</tr>
+			<tr>
+				<td>Numéro de rue:</td>
+				<td><input type="text" placeholder="124B"
+					jsf:value="#{inscriptionBeanController.numRue}"></input></td>
+			</tr>
+			<tr>
+				<td>Code Postal::</td>
+				<td><input type="text" placeholder="7000"
+					jsf:value="#{inscriptionBeanController.codePostal}"></input></td>
+			</tr>
+			<tr>
+				<td>Localité:</td>
+				<td><input type="text" placeholder="Mons"
+					jsf:value="#{inscriptionBeanController.localite}"></input></td>
+			</tr>
+			<tr>
+				<td>
+					<button jsf:action="#{inscriptionBeanController.inscription()}">Continuer</button>
+				</td>
+			</tr>
+		</TABLE>
+	</form>
+
+</html>

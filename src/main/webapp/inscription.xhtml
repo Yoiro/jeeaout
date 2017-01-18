@@ -10,7 +10,7 @@
 </head>
 <!-- 	private String nom,prenom,pseudoUtilisateur,password,email,tel;
  -->
-	<form jsf:id="formCreateUser">
+	<form jsf:id="formCreateUser1">
 		<TABLE>
 			<tr>
 				<td>Nom:</td>
@@ -18,14 +18,14 @@
 					jsf:value="#{inscriptionBeanController.nom}"></input></td>
 			</tr>
 			<tr>
-				<td>Prénom":</td>
+				<td>Prénom:</td>
 				<td><input type="text" placeholder="Description"
 					jsf:value="#{inscriptionBeanController.prenom}"></input></td>
 			</tr>
 			<tr>
 				<td>Pseudo:</td>
 				<td><input type="text" placeholder="Prix"
-					jsf:value="#{inscriptionBeanController.pseudo}"></input></td>
+					jsf:value="#{inscriptionBeanController.pseudoUtilisateur}"></input></td>
 			</tr>
 			<tr>
 				<td>Mot de Passe:</td>
@@ -45,7 +45,7 @@
 			 
 			<tr>
 				<td>
-					<button jsf:action="#{inscriptionBeanController.inscription()}">S'inscrire</button>
+					<button jsf:action="#{inscriptionBeanController.doInscriptionAdresse()}">Continuer</button>
 				</td>
 			</tr>
 		</TABLE>

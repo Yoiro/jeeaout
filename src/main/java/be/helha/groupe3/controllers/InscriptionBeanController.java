@@ -57,6 +57,9 @@ public class InscriptionBeanController {
 	public String doInscription(){
 		return "inscription.xhtml";
 	}
+	public String doInscriptionAdresse(){
+		return "inscription-adresse.xhtml";
+	}
 	//----------------------------------------------------//
 	//DatabaseAccess//
 	public void inscription(){

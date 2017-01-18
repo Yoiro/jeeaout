@@ -10,12 +10,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
+import be.helha.groupe3.patterns.AbstractUtilisateurEnregistre;
+
 @Entity
 @NamedQueries({
 	@NamedQuery(name="UtilisateurEnregistre.FindAll",
 			query="SELECT u from UtilisateurEnregistre u")
 })
-public class UtilisateurEnregistre implements Serializable {
+public class UtilisateurEnregistre extends AbstractUtilisateurEnregistre implements Serializable {
 
 	/**
 	 * 
