@@ -25,7 +25,7 @@ public class DatabaseFiller {
 		em.persist(acheteur1);
 		//Distributeur 1
 		Distributeur distributeur1=new Distributeur("Clavie","Bryan","claviebra","test","bryan@clavie.be","0488/888888",
-				"58a","Rue du jardin","Leernes",6142,"Petite entreprise familiale, existe depuis peu. Spécialisé dans la vente de primeurs");
+				"58a","Rue du jardin","Leernes",6142,"Petite entreprise familiale, existe depuis peu. Spécialisé dans la vente de mineurs");
 		em.persist(distributeur1);
 		
 		//Produits
