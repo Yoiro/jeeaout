@@ -7,7 +7,7 @@ public class Builder {
 	
 	private UtilisateurEnregistre user;
 	
-	public Builder(){}
+	public Builder(){newUser();}
 	
 	public void newUser(){ user=new UtilisateurEnregistre();}
 	

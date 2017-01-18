@@ -24,6 +24,7 @@
 			<property name="javax.persistence.jdbc.user" value="g3" />
 			<property name="javax.persistence.jdbc.password" value="3088" />
 		</properties>
+
 	</persistence-unit>
 	<!-- <persistence-unit name="groupe3" transaction-type="JTA"> <jta-data-source>jdbc/groupe3</jta-data-source> 
 		<class>be.helha.groupe3.entities.Produit</class> <class>be.helha.groupe3.entities.Distributeur</class> 
