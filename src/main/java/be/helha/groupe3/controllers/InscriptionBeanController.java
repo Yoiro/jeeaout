@@ -1,12 +1,16 @@
 package be.helha.groupe3.controllers;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+
+import be.helha.groupe3.daos.DAOUserLocalBean;
 
 @Named
 @RequestScoped
 public class InscriptionBeanController {
 	private String nom,prenom,pseudoUtilisateur,password,email,tel;
+	@EJB private DAOUserLocalBean daoUserLocalBean;
 	
 	//Getters & Setters//
 	//----------------------------------------------------//
@@ -55,6 +59,7 @@ public class InscriptionBeanController {
 	//----------------------------------------------------//
 	//DatabaseAccess//
 	public void inscription(){
+		daoUserLocalBean.inscription();
 		
 	}
 	
