@@ -5,29 +5,219 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
 
-    <head>
-        <title>Bienvenue sur Tépabo!</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    </head>
-    <body>
-    	<div jsf:id="formUser">
-    		<a href="connexion.xhtml">Se connecter</a>
-    		<a href="inscription.xhtml">S'inscrire</a>
-    	</div>
-    	<form jsf:id="formFindAll">
-    		<button jsf:action="#{produitBeanController.doFindAll()}">
-    			Découvrir nos produits
-    		</button>
-    	</form>
-    	
-    	<form jsf:id="formFindOne">
-    		<input type="text" placeholder="Rechercher un produit..."/>
-    	</form>
-    	<form jsf:id="formCreate">
-    		<button jsf:action="#{produitBeanController.doCreateProduit()}">
-    			Ajouter un produit à notre liste
-    		</button>
-    	</form>
-    	
-    </body>
+<head>
+<title>Bienvenue sur Tépabo!</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<SCRIPT type="text/javascript">
+// Je sais pas à quoi ça sert mais bon lol quoi 
+
+$(function(){
+	$("#addClass").click(function () {
+	          $('#qnimate').addClass('popup-box-on');
+	            });
+	          
+	            $("#removeClass").click(function () {
+	          $('#qnimate').removeClass('popup-box-on');
+	            });
+	  })
+
+</SCRIPT>
+
+<STYLE type="text/css">
+
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body
+{
+    font-family: 'Open Sans', sans-serif;
+    }
+
+.popup-box-on {
+    display: block !important;
+}
+.off {
+    display: none;
+}
+.chat_box .chat_message_wrapper ul.chat_message > li + li {
+    margin-top: 4px;
+}
+
+#search.open {
+    opacity: 1;
+    transform: translate(0px, 0px) scale(1, 1);
+}
+#search {
+    background-color: #fff;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transition: all 0.5s ease-in-out 0s;
+    width: 100%;
+    z-index: 2000;
+    
+}
+#search .close {
+    color: #be5254;
+    font-size: 40px;
+    opacity: 1;
+    padding: 10px 17px;
+    position: fixed;
+    right: 15px;
+    top: 15px;
+}
+button.close {
+    background: transparent none repeat scroll 0 0;
+    border: 0 none;
+    cursor: pointer;
+}
+.close {
+    float: right;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+}
+
+#search input[type="text"] {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    color: #333;
+    font-family: "Open Sans",sans-serif;
+    font-size: 50px;
+    font-weight: 300;
+    margin: -51px auto 0;
+    outline: medium none;
+    padding-left: 30px;
+    padding-right: 30px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+}
+#search .btn {
+    left: 50%;
+    margin-top: 60px;
+    padding: 10px 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%);
+}
+nav {
+    background: #be5254 none repeat scroll 0 0 !important;
+    border: medium none !important;
+    border-radius: 151px !important;
+}
+.s-icon a {
+    background: #fff none repeat scroll 0 0 !important;
+    border-radius: 40px !important;
+    color: #be5254 !important;
+    font-size: 26px;
+    height: 44px;
+    margin: 3px -12px 0 0;
+    padding: 7px 0 0 !important;
+    text-align: center;
+    width: 44px;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+.navbar-inverse .navbar-brand {
+    background: #fff none repeat scroll 0 0 !important; 
+    border-radius: 50px;
+     color: #be5254 !important;
+    height: auto;
+    margin: 3px 0 2px -12px !important;
+    padding: 12px 20px !important;
+}
+.btn-lg, .btn-group-lg > .btn {
+    border-radius: 153px;
+    font-size: 29px;
+}
+.btn-site {
+    background: #be5254 none repeat scroll 0 0;
+    color: #fff !important;
+}
+
+</STYLE>
+
+</head>
+
+
+
+<body>
+<!-- Barre de navigation lol xD ptdr -->
+	<div class="container">
+    <div class="row">
+   <nav class="navbar navbar-inverse">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Click on search icon</a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-3">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Works</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+            <li class="s-icon">
+              <a href="#" id="addClass"><span class="glyphicon glyphicon-search"></span></a>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+        <div id="qnimate" class="off">
+            <div id="search" class="open">
+            <button data-widget="remove" id="removeClass" class="close" type="button">×</button>
+            <form action="http://bootsnipp.com/user/snippets/508jR" method="" autocomplete="off">
+                    <input type="text" placeholder="Type search keywords here" value="" name="term" id="term"></input>
+                    <button class="btn btn-lg btn-site" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button>
+            </form>
+            <small style="text-align: center; color: rgb(0, 0, 0); position: absolute; left: 0px; right: 0px; bottom: 70px; font-size: 16px;">Designed by <a target="_blank" title="gurdeeposahan" href="https://web.facebook.com/iamgurdeeposahan">IamGurdeepOsahan</a></small>
+            </div>
+        </div>
+        
+	</div>
+</div>
+
+<!--  Fin de barre de navigation  -->
+
+<!-- Boutton de base trololilol -->
+		<div jsf:id="formUser">
+		<a href="connexion.xhtml">Se connecter</a> <a href="inscription.xhtml">S'inscrire</a>
+	</div>
+	<form jsf:id="formFindAll">
+		<button jsf:action="#{produitBeanController.doFindAll()}">
+			Découvrir nos produits</button>
+	</form>
+
+	<form jsf:id="formFindOne">
+		<input type="text" placeholder="Rechercher un produit..." />
+	</form>
+	<form jsf:id="formCreate">
+		<button jsf:action="#{produitBeanController.doCreateProduit()}">
+			Ajouter un produit à notre liste</button>
+	</form>
+<!-- Fin de boutton de base -->
+</body>
 </html>
