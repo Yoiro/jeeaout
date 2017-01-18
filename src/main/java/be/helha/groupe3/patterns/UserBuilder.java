@@ -3,11 +3,11 @@ package be.helha.groupe3.patterns;
 import be.helha.groupe3.entities.Adresse;
 import be.helha.groupe3.entities.UtilisateurEnregistre;
 
-public class Builder {
+public class UserBuilder {
 	
 	private UtilisateurEnregistre user;
 	
-	public Builder(){newUser();}
+	public UserBuilder(){newUser();}
 	
 	public void newUser(){ user=new UtilisateurEnregistre();}
 	

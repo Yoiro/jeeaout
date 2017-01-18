@@ -6,7 +6,7 @@ import javax.inject.Named;
 
 import be.helha.groupe3.daos.DAOUserLocalBean;
 import be.helha.groupe3.entities.UtilisateurEnregistre;
-import be.helha.groupe3.patterns.Builder;
+import be.helha.groupe3.patterns.UserBuilder;
 
 @Named
 @RequestScoped
@@ -15,7 +15,7 @@ public class InscriptionBeanController {
 	private String nom,prenom,pseudoUtilisateur,password,email,tel;
 	private String nomRue,numRue,localite;
 	private int codePostal;
-	Builder builder=new Builder();
+	UserBuilder builder=new UserBuilder();
 	
 	@EJB private DAOUserLocalBean daoUserLocalBean;
 	

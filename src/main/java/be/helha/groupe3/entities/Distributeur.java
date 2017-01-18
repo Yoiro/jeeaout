@@ -49,6 +49,12 @@ public class Distributeur extends UtilisateurEnregistre implements Serializable{
 		this.listProduitsPropose = new ArrayList<Produit>();
 	}
 
+	public Distributeur(String nom,String prenom,String pseudoUtilisateur,String password,String email,String tel,
+			String numRue,String nomRue,String localite, int codePostal, String biographie) {
+		// TODO Auto-generated constructor stub
+		this.biographie=biographie;
+	}
+
 	//---------------------------Getter & Setter------------------------------
 	public String getBiographie() {
 		return biographie;

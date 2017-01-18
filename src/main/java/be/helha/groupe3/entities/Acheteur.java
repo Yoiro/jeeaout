@@ -9,14 +9,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 
+
 @Entity
+/** Classe qui rerésente l'acheteur qui est enregistré et connecté sur le site
+ * 	Hérite de la super classe UtilisateurEnregistre 
+ */
 public class Acheteur extends UtilisateurEnregistre implements Serializable{
 
-	/** Classe qui rerésente l'acheteur qui est enregistré et connecté sur le site
-	 * 	Hérite de la super classe UtilisateurEnregistre 
-	 */
-	private static final long serialVersionUID = 1L;
-	
 	@OneToOne
 	private Panier panier;
 	
@@ -24,7 +23,8 @@ public class Acheteur extends UtilisateurEnregistre implements Serializable{
 	private List<Commande>listeCommande;
 	
 	
-	
+	//CONSTRUCTORS//
+	//---------------------------------------------------------//
 	public Acheteur(){}
 	//Constructeur avec utilisation de l'ID pour l'acheteur -> UtilisateurEnregistre (super)
 	public Acheteur(Integer id,String pseudoUtilisateur,String password,String email,String tel,int numRue,String nomRue,String localite,int codePostal){
@@ -36,6 +36,13 @@ public class Acheteur extends UtilisateurEnregistre implements Serializable{
 //		super(pseudoUtilisateur,password,email,tel,numRue,nomRue,localite,codePostal);
 		this.listeCommande=new ArrayList<Commande>();
 	}
+	
+	public Acheteur(String nom,String prenom,String pseudoUtilisateur,String password,String email,String tel,
+			String numRue,String nomRue,String localite, int codePostal){
+		this.listeCommande=new ArrayList<Commande>();
+	}
+	
+	//--------------------------------------------------//
 	
 	public boolean ajouterCommande(Commande commande){
 		return listeCommande.add(commande);
