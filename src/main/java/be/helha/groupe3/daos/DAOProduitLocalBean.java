@@ -19,6 +19,7 @@ public class DAOProduitLocalBean extends DAOLocalBean<Produit>{
 	private EntityManager em; 
 	private EntityTransaction tr;
 	
+	@Override
 	public Produit create(Produit p){
 		emf=Persistence.createEntityManagerFactory("LocalGroupe3");
 		em=emf.createEntityManager();
