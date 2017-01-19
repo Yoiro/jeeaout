@@ -47,7 +47,10 @@ public class Distributeur extends UtilisateurEnregistre implements Serializable{
 	public Distributeur(String nom,String prenom,String pseudoUtilisateur,String password,String email,String tel,
 			String numRue,String nomRue,String localite, int codePostal, String biographie) {
 		// TODO Auto-generated constructor stub
+		super(nom,prenom,pseudoUtilisateur,password,email,tel,numRue,nomRue,localite,codePostal);
 		this.biographie=biographie;
+		
+		
 	}
 
 	//---------------------------Getter & Setter------------------------------

@@ -40,6 +40,7 @@ public class Acheteur extends UtilisateurEnregistre implements Serializable{
 	
 	public Acheteur(String nom,String prenom,String pseudoUtilisateur,String password,String email,String tel,
 			String numRue,String nomRue,String localite, int codePostal){
+		super(nom,prenom,pseudoUtilisateur,password,email,tel,numRue,nomRue,localite,codePostal);
 		this.listeCommande=new ArrayList<Commande>();
 	}
 	
