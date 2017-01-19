@@ -4,7 +4,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:jsf="http://xmlns.jcp.org/jsf">	
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
 <!-- URI introuvables:
 xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
  -->
@@ -17,12 +17,11 @@ xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		
-		
+	<script src="./script/functions.js"></script>
 </h:head>
 <h:body>
-<ui:include src="header.xhtml"/>
-	<h:dataTable value="#{produitBeanController.getAll()}" var="prod"
+	<ui:include src="header.xhtml" />
+	<h:dataTable id="datatable" value="#{produitBeanController.getAll()}" var="prod"
 		styleClass="table" headerclass="order-table-header"
 		rowClasses="order-table-odd-row,order-table-even-row">
 		<h:column>
@@ -35,15 +34,27 @@ xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
 			</h:column>
 		<h:column>
 			<f:facet name="header">Prix</f:facet>
-			<i>€ #{prod.prix}</i>
+			<i><label>€ </label><label id="prixUnitaire" class="prixUnit">#{prod.prix}</label></i>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Quantité</f:facet>
+			<input name="idProduit" type="number" min="0" class="nbProduit" oninput="updatePrixTotal(#{dataModel.getRowData()})" value="0"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Prix total</f:facet>
+			<p class="prixTot">€ 0,00</p>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Ajouter au panier</f:facet>
+			<button class="btn btn-primary">
+				<span class="glyphicon glyphicon-plus"></span>
+			</button>
 		</h:column>
 	</h:dataTable>
 
+
 	<!--
-    	<h:column>
-    		<f:facet name="header">Ajouter au panier</f:facet>
-    		<button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
-    	</h:column>
+    	
     	<h:column>
     		<f:facet name="header">En stock</f:facet>
     		#{o.stock}
