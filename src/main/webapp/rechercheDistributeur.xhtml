@@ -22,6 +22,124 @@
 
 <!--############################################ -->
 
+<SCRIPT type="text/javascript">
+
+/* try {
+    var mockbuilder = function() {
+        this.data = {
+        };
+    };
+    mockbuilder.prototype.add = function(id, name, description, url) {
+        this.data[id] = {
+            name: name,
+            description: description,
+            url: url,
+            image: "http://lorempixel.com/200/200/abstract/" + name
+        };
+        return this;
+    };
+    mockbuilder.prototype.build = function() {
+        return this.data;
+    };
+    
+    var npmsearchform = function() {
+        this.data = {
+            keywords: null
+        };
+    };
+    npmsearchform.prototype.keywords = function(keywords) {
+        this.data.keywords = keywords;
+        return this;
+    };
+    npmsearchform.prototype.submit = function(callback) {
+        var data = this.data;
+        var mock = new mockbuilder();
+        for(var index = 1; index < (1 + math.random() * 10); index++) {
+            mock.add("package" + index, "name" + index, "description" + index, "http://placehold.it/100x" + (10 * index));
+        }
+        settimeout(function() {
+            callback(null, mock.build());
+        }, 1);
+    };
+    
+    $(document).ready(function () {
+        var packagestemplate = $('.packages');
+        var packageselement = null;
+        
+        $("#npmsearchform").submit(function (event) {
+            try {
+                var keywords = $(this).find('input:text[name=keywords]').val();
+                console.log("keywords: %s", keywords);
+                
+                var action = function() {
+                    var callback = function(err, results) {
+                        if(err) {
+                            alert(err);
+                        } else {
+                            packageselement = packagestemplate.clone();
+                            packageselement.insertbefore(packagestemplate);
+                            var group = packageselement.find('.packages-group');
+                            var keys = object.keys(results);
+                            while(packageselement.find('.package').size() < keys.length) {
+                                group.clone().insertbefore(group);
+                            }
+                            var index = 0;
+                            packageselement.find('.package').each(function(i, e) {
+                                if (index < keys.length) {
+                                    var result = results[keys[index++]];
+                                    $(e).find('p.description').text(result.description);
+                                    $(e).find('img.package-image').attr('src', result.image);
+                                    $(e).find('h2.name').each(function(i, e) {
+                                        e.firstchild.data = " " + result.name + " ";
+                                        $(e).find('a').attr('href', result.url);
+                                    });
+                                    //$(e).find('.rating-desc').hide();
+                                } else {
+                                    $(e).hide();
+                                }
+                            });
+                            packageselement.fadein();
+                        }
+                    };
+                    
+                    new npmsearchform().keywords(keywords).submit(callback);
+                };
+                
+                if(packageselement) {
+                    packageselement.fadeout(function() {
+                        packageselement.remove();
+                        packageselement = null;
+                        action();
+                    });
+                } else {
+                    action();
+                }
+            } catch(err) {
+                console.log("throws err: %s", err);
+            }
+            event.preventdefault();
+        });
+    });
+} catch(err) {
+    alert("err: " + err);
+} */
+</SCRIPT>
+
+
+<STYLE type="text/css">
+body{ margin-top:0px; }
+.glyphicon { margin-right:5px;}
+.section-box h2 { margin-top:0px;}
+.section-box h2 a { font-size:15px; }
+.glyphicon-heart { color:#e74c3c;}
+.glyphicon-comment { color:#27ae60;}
+.separator { padding-right:5px;padding-left:5px; }
+.section-box hr {margin-top: 0;margin-bottom: 5px;border: 0;border-top: 1px solid rgb(199, 199, 199);}
+
+.packages { display: none; }
+
+</STYLE>
+
 
 </head>
 
@@ -32,7 +150,7 @@
 
 	<div class="container">
 		<form role="form" id="NPMSearchForm" action="#">
-			<h1 class="form-signin-heading">NPM Search Engine</h1>
+			<h1 class="form-signin-heading">Recherche Distributeur</h1>
 			<div class="input-group input-group-lg">
 				<span class="input-group-addon">Keywords</span> <input type="text"
 					class="form-control" placeholder="Ex: arykow npm" name="keywords"></input>
@@ -41,8 +159,7 @@
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
 			<br />
 		</form>
-		<section class="packages">
-			<div class="row packages-group">
+
 				<div class="col-md-6 package">
 					<div class="well well-sm">
 						<div class="row">
@@ -104,14 +221,7 @@
 						</div>
 					</div>
 				</div>
-		</section>
-		</div>
-	
-
-
-
-
-
+			</div>
 
 </body>
 
