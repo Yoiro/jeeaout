@@ -10,7 +10,7 @@
 
 <head>
 
-<title>Tépabo - Commandes</title>
+<title>Tépabo - Recherche Distributeur</title>
 
 <!--  IMPORT DES RESSOURCES POUR BOOTSTRAP   -->
 <link rel="stylesheet"
@@ -24,105 +24,7 @@
 
 <SCRIPT type="text/javascript">
 
-/* try {
-    var mockbuilder = function() {
-        this.data = {
-        };
-    };
-    mockbuilder.prototype.add = function(id, name, description, url) {
-        this.data[id] = {
-            name: name,
-            description: description,
-            url: url,
-            image: "http://lorempixel.com/200/200/abstract/" + name
-        };
-        return this;
-    };
-    mockbuilder.prototype.build = function() {
-        return this.data;
-    };
-    
-    var npmsearchform = function() {
-        this.data = {
-            keywords: null
-        };
-    };
-    npmsearchform.prototype.keywords = function(keywords) {
-        this.data.keywords = keywords;
-        return this;
-    };
-    npmsearchform.prototype.submit = function(callback) {
-        var data = this.data;
-        var mock = new mockbuilder();
-        for(var index = 1; index < (1 + math.random() * 10); index++) {
-            mock.add("package" + index, "name" + index, "description" + index, "http://placehold.it/100x" + (10 * index));
-        }
-        settimeout(function() {
-            callback(null, mock.build());
-        }, 1);
-    };
-    
-    $(document).ready(function () {
-        var packagestemplate = $('.packages');
-        var packageselement = null;
-        
-        $("#npmsearchform").submit(function (event) {
-            try {
-                var keywords = $(this).find('input:text[name=keywords]').val();
-                console.log("keywords: %s", keywords);
-                
-                var action = function() {
-                    var callback = function(err, results) {
-                        if(err) {
-                            alert(err);
-                        } else {
-                            packageselement = packagestemplate.clone();
-                            packageselement.insertbefore(packagestemplate);
-                            var group = packageselement.find('.packages-group');
-                            var keys = object.keys(results);
-                            while(packageselement.find('.package').size() < keys.length) {
-                                group.clone().insertbefore(group);
-                            }
-                            var index = 0;
-                            packageselement.find('.package').each(function(i, e) {
-                                if (index < keys.length) {
-                                    var result = results[keys[index++]];
-                                    $(e).find('p.description').text(result.description);
-                                    $(e).find('img.package-image').attr('src', result.image);
-                                    $(e).find('h2.name').each(function(i, e) {
-                                        e.firstchild.data = " " + result.name + " ";
-                                        $(e).find('a').attr('href', result.url);
-                                    });
-                                    //$(e).find('.rating-desc').hide();
-                                } else {
-                                    $(e).hide();
-                                }
-                            });
-                            packageselement.fadein();
-                        }
-                    };
-                    
-                    new npmsearchform().keywords(keywords).submit(callback);
-                };
-                
-                if(packageselement) {
-                    packageselement.fadeout(function() {
-                        packageselement.remove();
-                        packageselement = null;
-                        action();
-                    });
-                } else {
-                    action();
-                }
-            } catch(err) {
-                console.log("throws err: %s", err);
-            }
-            event.preventdefault();
-        });
-    });
-} catch(err) {
-    alert("err: " + err);
-} */
+
 </SCRIPT>
 
 
@@ -152,11 +54,11 @@ body{ margin-top:0px; }
 		<form role="form" id="NPMSearchForm" action="#">
 			<h1 class="form-signin-heading">Recherche Distributeur</h1>
 			<div class="input-group input-group-lg">
-				<span class="input-group-addon">Keywords</span> <input type="text"
-					class="form-control" placeholder="Ex: arykow npm" name="keywords"></input>
+				<span class="input-group-addon">Code Postal</span> <input type="text"
+					class="form-control" placeholder="Ex: 7000" name="CodePostal"></input>
 			</div>
 			<br />
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Rechercher</button>
 			<br />
 		</form>
 
@@ -169,54 +71,11 @@ body{ margin-top:0px; }
 							</div>
 							<div class="col-xs-9 col-md-9 section-box">
 								<h2 class="name">
-									Bootsnipp <a href="http://bootsnipp.com/" target="_blank"><span
-										class="glyphicon glyphicon-new-window"> </span></a>
+									Distributeur <a href="http://bootsnipp.com/" target="_blank"><span class="glyphicon glyphicon-new-window"> </span></a>
 								</h2>
-								<p class="description">Design elements, playground and code
-									snippets for Bootstrap HTML/CSS/JS framework</p>
-								<hr />
-								<div class="row rating-desc">
-									<div class="col-md-12">
-										<span class="glyphicon glyphicon-heart"></span><span
-											class="glyphicon glyphicon-heart"> </span><span
-											class="glyphicon glyphicon-heart"></span><span
-											class="glyphicon glyphicon-heart"> </span><span
-											class="glyphicon glyphicon-heart"></span>(36)<span
-											class="separator">|</span> <span
-											class="glyphicon glyphicon-comment"></span>(100 Comments)
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 package">
-					<div class="well well-sm">
-						<div class="row">
-							<div class="col-xs-3 col-md-3 text-center">
-								<img src="http://placehold.it/110x110" alt="jQuery2DotNet"
-									class="img-rounded img-responsive package-image" />
-							</div>
-							<div class="col-xs-9 col-md-9 section-box">
-								<h2 class="name">
-									jQuery2DotNet <a href="http://www.jquery2dotnet.com/"
-										target="_blank"><span
-										class="glyphicon glyphicon-new-window"> </span></a>
-								</h2>
-								<p class="description">Cool jQuery, CSS3,HTML5, MVC and C#
-									tutorials with examples</p>
-								<hr />
-								<div class="row rating-desc">
-									<div class="col-md-12">
-										<span class="glyphicon glyphicon-heart"></span><span
-											class="glyphicon glyphicon-heart"> </span><span
-											class="glyphicon glyphicon-heart"></span><span
-											class="glyphicon glyphicon-heart"> </span><span
-											class="glyphicon glyphicon-heart"></span>(36)<span
-											class="separator">|</span> <span
-											class="glyphicon glyphicon-comment"></span>(100 Comments)
-									</div>
-								</div>
+								<p class="codePostal">Se situe à 7000 Mons</p>
+								<p class="description">Vendeur de légume de père en fils !</p>
+								
 							</div>
 						</div>
 					</div>
