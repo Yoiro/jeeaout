@@ -112,12 +112,9 @@
 							<li><a href="index.xhtml">Tepabo</a></li>
 							<li jsf:id="findAll"> <a href="tous-les-produits.xhtml">Voir les produits</a></li>
 							<li><a href="/buy.html">Chercher un produit</a></li>
-							
+						
 							<li><a href="/svstrike.html">svStrike</a></li>
-							
-							
-							<li class="visible-xs-block"><a href="/about.html">About
-									Us</a></li>
+							<li class="visible-xs-block"><a href="/about.html">About Us</a></li>
 							<li class="visible-xs-block"><a href="/careers.html">Careers</a></li>
 							<li class="visible-xs-block"><a href="/press-release.html">Press
 									Release</a></li>
@@ -136,6 +133,34 @@
 						<ul jsf:id="formUser" class="nav navbar-nav navbar-right hidden-xs">
 							<a type="button" class="navbar-btn btn btn-gradient-blue" href="connexion.xhtml">Connexion</a>
 							<a type="button" class="navbar-btn btn btn-gradient-blue" href="inscription.xhtml">Inscription</a>
+				
+				
+							
+				<!--  DROPDOWN MENU DU PANIER AVEC ACCES A LA PAGE DE GESTION DU PANIER -->			
+							<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span> 7 - Items<span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-cart" role="menu">
+              
+              <!--  A mettre ici un truc qui fait s'afficher les miniatures des produits -->
+              <li>
+                  <span class="item">
+                    <span class="item-left">
+                        <img src="http://lorempixel.com/50/50/" alt="" />
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+              </li>
+              
+              <li class="divider"></li>
+              <li><a class="text-center" href="panier.xhtml">View Cart</a></li>
+          </ul>
+        </li>
 						</ul>
 
 
