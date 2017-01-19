@@ -20,67 +20,73 @@
 
 
 <STYLE type="text/css">
-@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
+@import
+	url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
+
 [am-LatoSans] {
-  font-family: 'Lato', sans-serif;
+	font-family: 'Lato', sans-serif;
 }
+
 [am-TopLogo] {
-    max-height: 70px;
-    max-width: 210px;
-    margin: 12px 11px;
+	max-height: 70px;
+	max-width: 210px;
+	margin: 12px 11px;
 }
+
 [am-CallNow] {
-    font-weight: 200;
-    color: #333;
-    vertical-align: middle;
-    line-height: 35px;
-    font-size: 19px;
-    padding-right: 8px;
+	font-weight: 200;
+	color: #333;
+	vertical-align: middle;
+	line-height: 35px;
+	font-size: 19px;
+	padding-right: 8px;
 }
 /*
   Relevant styles below
 */
 .topper {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
 }
 
 .navbar.navbar-inverse {
-  background-image: linear-gradient(#9f9f9f, #535353 3%, #1f1f1f 17%, #212121 49%, #191919 89%, #000000 100%);
-  border-top: 1px inset rgba(255, 255, 255, 0.1);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  margin-top: 10px;
+	background-image: linear-gradient(#9f9f9f, #535353 3%, #1f1f1f 17%, #212121 49%, #191919
+		89%, #000000 100%);
+	border-top: 1px inset rgba(255, 255, 255, 0.1);
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	margin-top: 10px;
 }
 
-.navbar .navbar-nav > li > a {
-  color: #d1d1d1;
-  font-weight: 700;
-  text-rendering: optimizeLegibility;
-  text-shadow: 0px -1px black, 0px 1px rgba(255, 255, 255, 0.25);
-  line-height: 18px;
+.navbar .navbar-nav>li>a {
+	color: #d1d1d1;
+	font-weight: 700;
+	text-rendering: optimizeLegibility;
+	text-shadow: 0px -1px black, 0px 1px rgba(255, 255, 255, 0.25);
+	line-height: 18px;
 }
 
-.navbar .navbar-nav > li.active {
-  color: #f8f8f8;
-  background-color: #080808;
-  box-shadow: inset 0px -28px 23px -21px rgba(255, 255, 255, 0.15);
-  border-left: 1px solid #2A2A2A;
-  border-right: 1px solid #272727;
+.navbar .navbar-nav>li.active {
+	color: #f8f8f8;
+	background-color: #080808;
+	box-shadow: inset 0px -28px 23px -21px rgba(255, 255, 255, 0.15);
+	border-left: 1px solid #2A2A2A;
+	border-right: 1px solid #272727;
 }
 
 .btn.btn-gradient-blue {
-  background-color: #0c5497 !important;
-  background-image: -webkit-linear-gradient(top, #127bde 0%, #072d50 100%);
-  background-image: -o-linear-gradient(top, #127bde 0%, #072d50 100%);
-  background-image: linear-gradient(to bottom, #127bde 0%, #072d50 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff127bde', endColorstr='#ff072d50', GradientType=0);
-  border-color: #072d50 #072d50 #0c5497;
-  color: #fff !important;
-  text-shadow: 0 -1px 0 rgba(31, 31, 31, 0.29);
-  -webkit-font-smoothing: antialiased;
+	background-color: #0c5497 !important;
+	background-image: -webkit-linear-gradient(top, #127bde 0%, #072d50 100%);
+	background-image: -o-linear-gradient(top, #127bde 0%, #072d50 100%);
+	background-image: linear-gradient(to bottom, #127bde 0%, #072d50 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff127bde',
+		endColorstr='#ff072d50', GradientType=0);
+	border-color: #072d50 #072d50 #0c5497;
+	color: #fff !important;
+	text-shadow: 0 -1px 0 rgba(31, 31, 31, 0.29);
+	-webkit-font-smoothing: antialiased;
 }
 </STYLE>
 
@@ -90,66 +96,76 @@
 
 <body>
 	<!-- Barre de navigation lol xD ptdr -->
-<div class="container">
-  <!-- Topper w/ logo -->
-  <div class="row hidden-xs topper">
- 
-    <div class="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-0 text-right ">
-     
-    </div>
-  </div> <!-- End Topper -->
-  <!-- Navigation -->
-  <div class="row">
-    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand visible-xs-inline-block nav-logo" href="/"><img src="/images/logo-dark-inset.png" class="img-responsive" alt=""></img></a>
-        </div>
+	<div class="container">
+		<!-- Topper w/ logo -->
+		<div class="row hidden-xs topper">
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav js-nav-add-active-class">
-            <li><a href="/index.html">Home</a></li>
-            <li jsf:id="findAll"><a href="tous-les-produits.xhtml">Voir les produits</a></li>
-            <li><a href="/buy.html">Chercher un produit</a></li>
-            <li><a href="/svstrike.html">svStrike</a></li>
-            <li><a href="/training.html">Training</a></li>
-            <li><a href="/contact.html">Contact Us</a></li>
-            <li class="visible-xs-block"><a href="/about.html">About Us</a></li>
-            <li class="visible-xs-block"><a href="/careers.html">Careers</a></li>
-            <li class="visible-xs-block"><a href="/press-release.html">Press Release</a></li>
-            <li class="visible-xs-block"><a href="https://susteen7.zendesk.com/hc/en-us">Support</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Company <b class="caret"></b></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="careers.html">Careers</a></li>
-                <li><a href="press-release.html">Press Release</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right hidden-xs">
-            <a type="button" class="navbar-btn btn btn-gradient-blue" am-latosans="bold" href="https://susteen7.zendesk.com/hc/en-us">Support</a>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div>
-    </nav>
-  </div>
-</div>
-<!--  Fin de barre de navigation  --> <!-- Boutton de base trololilol -->
-		
-	
-						<div jsf:id="formUser">
-		<a href="connexion.xhtml">Se connecter</a> 
-		<a href="inscription.xhtml">S'inscrire</a>
+			<div
+				class="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-0 text-right ">
+
+			</div>
+		</div>
+		<!-- End Topper -->
+		<!-- Navigation -->
+		<div class="row">
+			<nav class="navbar navbar-inverse" role="navigation">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+							data-target=".navbar-ex1-collapse">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand visible-xs-inline-block nav-logo" href="/"><img
+							src="/images/logo-dark-inset.png" class="img-responsive" alt=""></img></a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse navbar-ex1-collapse">
+						<ul class="nav navbar-nav js-nav-add-active-class">
+							<li><a href="/index.html">Home</a></li>
+							<li jsf:id="findAll"><a href="tous-les-produits.xhtml">Voir
+									les produits</a></li>
+							<li><a href="/buy.html">Chercher un produit</a></li>
+							
+							<li><a href="/svstrike.html">svStrike</a></li>
+							
+							
+							<li class="visible-xs-block"><a href="/about.html">About
+									Us</a></li>
+							<li class="visible-xs-block"><a href="/careers.html">Careers</a></li>
+							<li class="visible-xs-block"><a href="/press-release.html">Press
+									Release</a></li>
+							<li class="visible-xs-block"><a
+								href="https://susteen7.zendesk.com/hc/en-us">Support</a></li>
+							<li class="dropdown"><a href="#"
+								class="dropdown-toggle btn-gradient-blue" data-toggle="dropdown">Company
+									<b class="caret"></b>
+							</a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="about.html">About Us</a></li>
+									<li><a href="careers.html">Careers</a></li>
+									<li><a href="press-release.html">Press Release</a></li>
+								</ul></li>
+						</ul>
+						<ul jsf:id="formUser" class="nav navbar-nav navbar-right hidden-xs">
+							<a type="button" class="navbar-btn btn btn-gradient-blue" href="connexion.xhtml">Connexion</a>
+							<a type="button" class="navbar-btn btn btn-gradient-blue" href="inscription.xhtml">Inscription</a>
+						</ul>
+
+
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+			</nav>
+		</div>
 	</div>
+	<!--  Fin de barre de navigation  -->
+	<!-- Boutton de base trololilol -->
+
+
 
 	<form jsf:id="formFindOne">
 		<input type="text" placeholder="Rechercher un produit..." />
@@ -158,6 +174,6 @@
 		<button jsf:action="#{produitBeanController.doCreateProduit()}">
 			Ajouter un produit à notre liste</button>
 	</form>
-<!-- Fin de boutton de base -->
+	<!-- Fin de boutton de base -->
 </body>
 </html>
