@@ -49,6 +49,8 @@ public class Distributeur extends UtilisateurEnregistre implements Serializable{
 		// TODO Auto-generated constructor stub
 		super(nom,prenom,pseudoUtilisateur,password,email,tel,numRue,nomRue,localite,codePostal);
 		this.biographie=biographie;
+		
+		
 	}
 
 	//---------------------------Getter & Setter------------------------------
