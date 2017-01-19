@@ -40,6 +40,18 @@ public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
 		return result;
 	}
 
+
+	@Override
+	public Panier update(Panier obj) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(Panier obj) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	public double calculerPrixTot() {
@@ -70,23 +82,16 @@ public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
 	
 	@Override
 	public Panier find(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		tr.begin();
+		Panier result = null;
+		TypedQuery<Panier> query = em.createNamedQuery("Panier.FindOne",Panier.class).setParameter("id", id);
+		result = query.getSingleResult();
+		tr.commit();
+		return result;
 	}
 
 	
 
-	@Override
-	public Panier update(Panier obj) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void delete(Panier obj) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	
 

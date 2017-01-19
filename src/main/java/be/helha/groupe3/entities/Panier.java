@@ -17,6 +17,7 @@ import javax.persistence.NamedQuery;
 	@NamedQuery(name="Panier.FindAll",
 			query="SELECT p from Panier p")
 	
+	
 })
 public class Panier implements Serializable {
 	
