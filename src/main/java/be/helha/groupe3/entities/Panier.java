@@ -15,8 +15,9 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries ({
 	@NamedQuery(name="Panier.FindAll",
-			query="SELECT p from Panier p")
-	
+			query="SELECT p from Panier p"),
+	@NamedQuery(name="Panier.findOne",
+			query="SELECT p from Panier p where p.id = :id")
 	
 })
 public class Panier implements Serializable {
