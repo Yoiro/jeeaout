@@ -9,8 +9,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries ({
+	@NamedQuery(name="Panier.FindAll",
+			query="SELECT p from Panier p")
+	
+})
 public class Panier implements Serializable {
 	
 	@Id
