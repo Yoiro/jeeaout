@@ -6,9 +6,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
@@ -17,18 +19,18 @@ import javax.persistence.NamedQuery;
 	@NamedQuery(name="Panier.FindAll",
 			query="SELECT p from Panier p"),
 	@NamedQuery(name="Panier.findOne",
-			query="SELECT p from Panier p where p.id = :id")
-	
+			query="SELECT p from Panier p where p.id = :id"),
+	@NamedQuery(name="Panier.RemoveFromTable",
+			query="DELETE from Panier p where :id=p.id"),
 })
 public class Panier implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
-	private HashMap<Produit,Integer>mapProduit;
+	private Integer id;	
 	private double prixTot = 0.0;
-	
-	
+
+	private HashMap<Produit,Integer>mapProduit;
 	
 	//-----------------------Constructor-----------------------------
 	public Panier(){}

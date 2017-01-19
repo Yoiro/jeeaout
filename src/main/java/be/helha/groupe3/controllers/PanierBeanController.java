@@ -1,10 +1,12 @@
 package be.helha.groupe3.controllers;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 
 import be.helha.groupe3.daos.DAOPanierLocalBean;
@@ -12,12 +14,14 @@ import be.helha.groupe3.entities.Produit;
 import be.helha.groupe3.entities.Commande;
 import be.helha.groupe3.entities.Panier;
 
-@Named
-@RequestScoped
-public class PanierBeanController {
+@ManagedBean
+@SessionScoped
+public class PanierBeanController implements Serializable{
 
 	private HashMap<Produit,Integer>mapProduit;
 	private double prixtot;
+	
+	private Panier panier;
 	
 	@EJB
 	private DAOPanierLocalBean daoPanierLocalBean;
@@ -62,12 +66,14 @@ public class PanierBeanController {
 		return daoPanierLocalBean.calculerPrixTot();
 	}
 	
-	public void ajouterProduitPanier(){
-		daoPanierLocalBean.addPanier();
+	public void ajouterProduitPanier(Produit p, int qte){
+		if(p!=null&&qte>0)
+		daoPanierLocalBean.addPanier(p, qte);
 	}
 	
-	public void retirerProduitPanier(){
-		daoPanierLocalBean.removePanier();
+	public void retirerProduitPanier(Produit p){
+		if(panier.getMapProduit().containsKey(p))
+		daoPanierLocalBean.removePanier(p);
 	}
 	
 	public Commande validerPanier(){
