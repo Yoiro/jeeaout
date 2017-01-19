@@ -28,7 +28,7 @@ public class Distributeur extends UtilisateurEnregistre implements Serializable{
 	public Distributeur(){}
 
 	public Distributeur(String nom){
-//		super(nom);
+		super(nom);
 	}
 
 	//Constructeur Distributeur avec utilisation de l'ID de la super classe UtilisateurEnregistre
@@ -49,8 +49,6 @@ public class Distributeur extends UtilisateurEnregistre implements Serializable{
 		// TODO Auto-generated constructor stub
 		super(nom,prenom,pseudoUtilisateur,password,email,tel,numRue,nomRue,localite,codePostal);
 		this.biographie=biographie;
-		
-		
 	}
 
 	//---------------------------Getter & Setter------------------------------
