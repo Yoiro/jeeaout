@@ -41,7 +41,7 @@
 						<div class="col-md-6">
 							<input id="libelle" name="libelle" type="text"
 								placeholder="Libelle du produit" class="form-control input-md"
-								required jsf:value="#{produitBeanController.libelle}"></input>
+								 jsf:value="#{produitBeanController.libelle}"></input>
 						</div>
 					</div>
 
@@ -51,7 +51,7 @@
 							unitaire</label>
 						<div class="col-md-6">
 							<input id="prix" name="prix" type="number" placeholder="0.0"
-								class="form-control input-md" required jsf:value="produitBeanController.prix}"></input>
+								class="form-control input-md" jsf:value="produitBeanController.prix}"></input>
 						</div>
 					</div>
 
@@ -61,7 +61,7 @@
 						<div class="col-md-6">
 							<input id="description" name="description" type="text"
 								placeholder="Description du produit"
-								class="form-control input-md" required jsf:value="produitBeanController.description}"></input>
+								class="form-control input-md" jsf:value="#{produitBeanController.description}"></input>
 						</div>
 					</div>
 					
@@ -71,13 +71,17 @@
 						<div class="col-md-6">
 							<input id="ditrib" name="distrib" type="text"
 								placeholder="Nom du vendeur"
-								class="form-control input-md" required jsf:value="produitBeanController.nomDistributeur}"></input>
+								class="form-control input-md" jsf:value="#{produitBeanController.nomDistributeur}"></input>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="singlebutton"></label>
 						<div class="col-md-4">
-							<button id="submit" name="submit" class="btn btn-primary" jsf:action="#{produitBeanController.create()}">Ajouter un produit</button>
+							<h:commandButton id="submit" name="submit" 
+							class="btn btn-primary" 
+							action="#{produitBeanController.create()}" actionListener="#{produitBeanController.doFindAll()}">Ajouter un produit
+							</h:commandButton>
+							
 						</div>
 					</div>
 

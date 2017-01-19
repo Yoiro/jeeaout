@@ -62,11 +62,11 @@ public class ProduitBeanController{
 		this.stock = stock;
 	}
 	
-	public String getDistributeur(){
+	public String getNomDistributeur(){
 		return nomDistributeur;
 	}
 	
-	public void setDistributeur(String distributeur){
+	public void setNomDistributeur(String distributeur){
 		this.nomDistributeur=distributeur;
 	}
 	//------------------------------------------//
@@ -89,20 +89,13 @@ public class ProduitBeanController{
 	//Méthodes d'accès à la Base de Données//
 	//------------------------------------------//
 	public void create(){
-		
 		Distributeur distributeur=new Distributeur();
-		
 		if(nomDistributeur==null)nomDistributeur="";
 		if(daoUserLocalBean.findByName(nomDistributeur)!=null){
 			distributeur=(Distributeur)daoUserLocalBean.findByName(nomDistributeur);
 		}
-		else{
-			Distributeur d=new Distributeur(nomDistributeur);
-		}
-		
 		if(libelle==null) libelle="";
 		if(description=="null") description="";
-		
 		Produit p=new Produit(libelle,prix,description,distributeur);
 		daoProduitLocalBean.create(p);
 	}

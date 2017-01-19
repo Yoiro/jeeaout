@@ -23,7 +23,6 @@ public class DAOProduitLocalBean extends DAOLocalBean<Produit>{
 	@Override
 	public Produit create(Produit p){
 		tr.begin();
-		em.merge(p);
 		em.persist(p);
 		tr.commit();
 		return p;
