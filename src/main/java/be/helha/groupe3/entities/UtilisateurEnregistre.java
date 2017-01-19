@@ -2,7 +2,9 @@ package be.helha.groupe3.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,12 +29,12 @@ public class UtilisateurEnregistre implements Serializable {
 	private String email; 
 	private String tel;
 
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
 	private Adresse adressePostale;
 
 	//------------------------------------Constructor-----------------------------------	
 	public UtilisateurEnregistre(){}
-/*
+
 	public UtilisateurEnregistre(String nom){
 		setNom(nom);setPrenom("");setPseudoUtilisateur("");
 		setPassword("");setEmail("");setTel("");
@@ -60,14 +62,14 @@ public class UtilisateurEnregistre implements Serializable {
 		this.tel=tel;
 	}
 	public UtilisateurEnregistre(String nom, String prenom,String pseudoUtilisateur,String password,String email,String tel,
-			String numRue,int codePostal, String nomRue, String localite, Boolean isPointVente, String nomAdresse){
+			String numRue, String nomRue, String localite,int codePostal){
 		this.nom=nom;
 		this.prenom=prenom;
 		this.pseudoUtilisateur=pseudoUtilisateur;
 		this.password=password;
 		this.email = email;
 		this.tel=tel;
-		this.adressePostale=new Adresse(numRue,codePostal,nomRue,localite,isPointVente,nomAdresse);
+		this.adressePostale=new Adresse(numRue,codePostal,nomRue,localite,false,"domicile");
 	}
 
 
@@ -79,7 +81,7 @@ public class UtilisateurEnregistre implements Serializable {
 		this.email=email2;
 		this.adressePostale=new Adresse(numRue,codePostal,nomRue,localite);
 	}
-*/
+
 	//------------------------------Getter & Setter------------------------------------------
 	public String getNom() {
 		return nom;
