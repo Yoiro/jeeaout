@@ -38,11 +38,11 @@ xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
 		</h:column>
 		<h:column>
 			<f:facet name="header">Quantité</f:facet>
-			<input name="idProduit" type="number" min="0" class="nbProduit" oninput="updatePrixTotal(#{dataModel.getRowData()})" value="0"/>
+			<input name="idProduit" type="number" min="0" class="nbProduit" oninput="updatePrixTotal()" value="0"/>
 		</h:column>
 		<h:column>
 			<f:facet name="header">Prix total</f:facet>
-			<p class="prixTot">€ 0,00</p>
+			<b>€</b><b class="prixTot">0,00</b>
 		</h:column>
 		<h:column>
 			<f:facet name="header">Ajouter au panier</f:facet>
