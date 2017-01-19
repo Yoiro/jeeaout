@@ -111,23 +111,32 @@
 						<ul class="nav navbar-nav js-nav-add-active-class">
 							<li><a href="index.xhtml">Tepabo</a></li>
 							<li jsf:id="findAll"> <a href="tous-les-produits.xhtml">Voir les produits</a></li>
-							<li><a href="/buy.html">Chercher un produit</a></li>
+							
+								<li class="dropdown"><a href="#"
+								class="dropdown-toggle btn-gradient-blue" data-toggle="dropdown">Recherche
+									<b class="caret"></b>
+							</a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="rechercheDistributeur.xhtml">Rechercher un distributeur</a></li>
+									<li><a href="rechercheProduit.xhtml">Rechercher un produit</a></li>
+								</ul></li>
 						
-							<li><a href="/svstrike.html">svStrike</a></li>
-							<li class="visible-xs-block"><a href="/about.html">About Us</a></li>
+							<li><a href="commande.xhtml">Commandes</a></li>
+							<li><a href="creer-produit.xhtml">Créer produit</a></li>
+							
+							
+							<li class="visible-xs-block"><a href="/about.html">A propos de nous</a></li>
 							<li class="visible-xs-block"><a href="/careers.html">Careers</a></li>
 							<li class="visible-xs-block"><a href="/press-release.html">Press
 									Release</a></li>
 							<li class="visible-xs-block"><a
 								href="https://susteen7.zendesk.com/hc/en-us">Support</a></li>
 							<li class="dropdown"><a href="#"
-								class="dropdown-toggle btn-gradient-blue" data-toggle="dropdown">Company
-									<b class="caret"></b>
+								class="dropdown-toggle btn-gradient-blue" data-toggle="dropdown">A propos <b class="caret"></b>
 							</a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="about.html">About Us</a></li>
-									<li><a href="careers.html">Careers</a></li>
-									<li><a href="press-release.html">Press Release</a></li>
+									<li><a href="aboutUs.xhtml">Qui sommes-nous ?</a></li>
+									<li><a href="pourquoi.xhtml">Pourquoi ce projet?</a></li>
 								</ul></li>
 						</ul>
 						<ul jsf:id="formUser" class="nav navbar-nav navbar-right hidden-xs">
