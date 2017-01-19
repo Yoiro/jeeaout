@@ -15,13 +15,19 @@ public class InscriptionBeanController {
 	private String nom,prenom,pseudoUtilisateur,password,email,tel;
 	private String nomRue,numRue,localite;
 	private int codePostal;
-	UserBuilder builder=new UserBuilder();
+	private boolean isDistrib;
+	UserBuilder builder;
 	
 	@EJB private DAOUserLocalBean daoUserLocalBean;
 	
 	//Getters & Setters//
 	//----------------------------------------------------//
-	
+	public boolean getIsDistrib(){
+		return isDistrib;
+	}
+	public void setIsDistrib(boolean ditr){
+		isDistrib=ditr;
+	}
 	public String getNomRue() {
 		return nomRue;
 	}
@@ -93,7 +99,8 @@ public class InscriptionBeanController {
 	}
 	//----------------------------------------------------//
 	//DatabaseAccess//
-	public void inscriptionPersonne(){
+	public void inscriptionPersonne(boolean b){
+		builder=new UserBuilder(isDistrib);
 		builder.creerInformationsPersonne(nom, prenom, pseudoUtilisateur, password, email, tel);
 		builder.creerAdresse(nomRue, numRue, codePostal, localite);
 		UtilisateurEnregistre u=builder.getUser();

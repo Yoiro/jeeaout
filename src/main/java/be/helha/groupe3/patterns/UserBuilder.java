@@ -1,15 +1,19 @@
 package be.helha.groupe3.patterns;
 
+import be.helha.groupe3.entities.Acheteur;
 import be.helha.groupe3.entities.Adresse;
+import be.helha.groupe3.entities.Distributeur;
 import be.helha.groupe3.entities.UtilisateurEnregistre;
 
 public class UserBuilder {
 	
 	private UtilisateurEnregistre user;
 	
-	public UserBuilder(){newUser();}
+	public UserBuilder(boolean b){newUser(b);}
 	
-	public void newUser(){ user=new UtilisateurEnregistre();}
+	public void newUser(boolean b){ 
+		user=(b?new Distributeur():new Acheteur());
+	}
 	
 	public void creerInformationsPersonne(String nom, String prenom, String pseudoUtilisateur, String password, String email, String tel){
 		user.setNom(nom);user.setPrenom(prenom);user.setPseudoUtilisateur(pseudoUtilisateur);

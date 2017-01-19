@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:jsf="http://xmlns.jcp.org/jsf"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
 <head>
 <title>Tépabo - Inscription</title>
@@ -89,6 +90,8 @@ $(function () {
         init();
     });
 });
+
+
 </SCRIPT>
 
 <link rel="stylesheet"
@@ -101,7 +104,7 @@ $(function () {
 
 </head>
 
-
+<ui:include src="header.xhtml"/>
 
 <!-- 	private String nom,prenom,pseudoUtilisateur,password,email,tel;
  -->
@@ -112,14 +115,14 @@ $(function () {
 		<div class="row">
 			<div>
 				<h2>
-					Please Sign Up <small>It's free and always will be.</small>
+					Inscrivez-vous! <small>C'est gratuit et ça le restera.</small>
 				</h2>
 				<hr class="colorgraph"></hr>
 				<div class="row">
 					<div class="col-xs-12 col-sm-6 col-md-6">
 						<div class="form-group">
 							<input type="text" name="nomUtilisateur" id="nomUtilisateur"
-								class="form-control input-lg" placeholder="First Name"
+								class="form-control input-lg" placeholder="Nom"
 								tabindex="1" jsf:value="#{inscriptionBeanController.nom}"></input>
 						</div>
 					</div>
@@ -127,7 +130,7 @@ $(function () {
 						<div class="form-group">
 							<input type="text" name="prenomUtilisateur"
 								id="prenomUtilisateur" class="form-control input-lg"
-								placeholder="Last Name" tabindex="2"
+								placeholder="Prénom" tabindex="2"
 								jsf:value="#{inscriptionBeanController.prenom}"></input>
 
 						</div>
@@ -163,7 +166,7 @@ $(function () {
 						<div class="form-group">
 							<input type="text" name="numUtilisateur"
 								id="telephoneUser" class="form-control input-lg"
-								placeholder="04xx/000000" tabindex="6"
+								placeholder="04xx/xxxxxx" tabindex="6"
 								jsf:value="#{inscriptionBeanController.tel}"></input>
 						</div>
 					</div>
@@ -199,27 +202,34 @@ $(function () {
 								jsf:value="#{inscriptionBeanController.localite}"></input>
 						</div>
 					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6">
+						<div class="form-group">
+							<input type="checkbox" name="isDistributor"
+								id="isDistributor" class="form-control input-lg"
+								tabindex="6"
+								jsf:value="#{inscriptionBeanController.localite}">Je suis vendeur</input>
+						</div>
+					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-4 col-sm-3 col-md-3">
 						<span class="button-checkbox">
-							<button type="button" class="btn" data-color="info" tabindex="7">I
-								Agree</button> <input type="checkbox" name="t_and_c" id="t_and_c"
+							<button type="button" class="btn" data-color="info" tabindex="7">J'accepte</button> <input type="checkbox" name="t_and_c" id="t_and_c"
 							class="hidden" value="1"></input>
 						</span>
 					</div>
 					<div class="col-xs-8 col-sm-9 col-md-9">
-						By clicking <strong class="label label-primary">Register</strong>,
-						you agree to the <a href="#" data-toggle="modal"
-							data-target="#t_and_c_m">Terms and Conditions</a> set out by this
-						site, including our Cookie Use.
+						En cliquant sur <strong class="label label-primary">"M'inscrire"</strong>,
+						vous acceptez nos <a href="#" data-toggle="modal"
+							data-target="#t_and_c_m">Conditions Générales d'Utilisation</a> relatives à notre site,
+							en incluant notre utilisation des cookies.
 					</div>
 				</div>
 
 				<hr class="colorgraph"></hr>
 				<div class="row">
 					<div class="col-xs-12 col-md-6">
-						<input type="submit" value="Register"
+						<input type="submit" value="M'enregistrer"
 							class="btn btn-primary btn-block btn-lg" tabindex="7"></input>
 					</div>
 					<div class="col-xs-12 col-md-6">
@@ -240,9 +250,9 @@ $(function () {
 									conditions</h4>
 							</div>
 							<div class="modal-body">
-								<p>Que vous dépensez tout votre argent sur ce site !</p>
-								<p>Que vous n'ahèterez nulle part ailleurs !</p>
-								<p>MAaaah ouais !</p>
+								<p>Vous vous devez de dépenser tout votre argent sur ce site !</p>
+								<p>Vous n'achèterez plus nulle part ailleurs !</p>
+								<p>Maaaah ouais !</p>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-primary"

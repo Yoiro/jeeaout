@@ -3,8 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:jsf="http://xmlns.jcp.org/jsf">
-	
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">	
 <!-- URI introuvables:
 xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
  -->
@@ -21,6 +21,7 @@ xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
 		
 </h:head>
 <h:body>
+<ui:include src="header.xhtml"/>
 	<h:dataTable value="#{produitBeanController.getAll()}" var="prod"
 		styleClass="table" headerclass="order-table-header"
 		rowClasses="order-table-odd-row,order-table-even-row">
