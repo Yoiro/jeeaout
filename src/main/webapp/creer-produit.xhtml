@@ -6,87 +6,90 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
-	
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
+
 
 <head>
 <title>Tépabo - Créer un produit</title>
 </head>
 
 <body>
-	<ui:include src="header.xhtml"/>
+	<ui:include src="header.xhtml" />
 
 
-	
+
 	<!-- ############################# ICI SE TROUVE LE FORMULAIRE DE REMPLISSAGE POUR LES PRODUITS #################################### -->
-	
+
 	<div class="container">
-	<div class="row">
-<form class="form-horizontal">
-<fieldset>
+		<div class="row">
+			<form jsf:id="formCreateProduit" class="form-horizontal">
+				<fieldset>
+					<!-- Form Name -->
+					<div class="form-group">
+						<legend>Création d'un produit</legend>
+					</div>
 
-<!-- Form Name -->
-<div class="form-group">
-<legend>Création d'un produit</legend>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="libelle">Libelle</label>
+						<div class="col-md-6">
+							<input id="libelle" name="libelle" type="text"
+								placeholder="Libelle du produit" class="form-control input-md"
+								required jsf:value="#{produitBeanController.libelle}"></input>
+						</div>
+					</div>
 
-  
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="prix">Prix
+							unitaire</label>
+						<div class="col-md-6">
+							<input id="prix" name="prix" type="number" placeholder="0.0"
+								class="form-control input-md" required jsf:value="produitBeanController.prix}"></input>
+						</div>
+					</div>
 
-</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="description">Description</label>
+						<div class="col-md-6">
+							<input id="description" name="description" type="text"
+								placeholder="Description du produit"
+								class="form-control input-md" required jsf:value="produitBeanController.description}"></input>
+						</div>
+					</div>
+					
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="description">Nom du vendeur</label>
+						<div class="col-md-6">
+							<input id="ditrib" name="distrib" type="text"
+								placeholder="Nom du vendeur"
+								class="form-control input-md" required jsf:value="produitBeanController.nomDistributeur}"></input>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="singlebutton"></label>
+						<div class="col-md-4">
+							<button id="submit" name="submit" class="btn btn-primary" jsf:action="#{produitBeanController.create()}">Ajouter un produit</button>
+						</div>
+					</div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="lebelle">Libelle</label>  
-  <div class="col-md-6">
-  <input id="libelle" name="libelle" type="text" placeholder="Libelle du produit" class="form-control input-md" required=""></input>
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="prix">Prix unitaire</label>  
-  <div class="col-md-6">
-  <input id="prix" name="prix" type="double" placeholder="0.0" class="form-control input-md" required=""></input>
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="description">Description</label>  
-  <div class="col-md-6">
-  <input id="description" name="description" type="text" placeholder="Description du produit" class="form-control input-md" required=""></input>
-    
-  </div>
-</div>
-
-
-
-
-
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="singlebutton"></label>
-  <div class="col-md-4">
-    <button id="submit" name="submit" class="btn btn-primary">Send Request</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
+				</fieldset>
+			</form>
+		</div>
 	</div>
-</div>
-	
-	
+
+
 	<!-- ######################### ICI SE TROUVE LA FIN DU FORMULAIRE DE REMPLISSAGE POUR LES PRODUITS ################################# -->
-	
+
 </body>
-	
+
 
 </html>

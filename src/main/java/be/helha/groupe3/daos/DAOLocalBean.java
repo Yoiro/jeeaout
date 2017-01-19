@@ -15,8 +15,10 @@ public abstract class DAOLocalBean<T> {
 	 * @param id
 	 * @return
 	 */
-	public abstract T find(long id);
+	public abstract T findByName(String name);
 
+	public abstract T findById(long id);
+	
 	/**
 	 * Permet de créer une entrée dans la base de données
 	 * par rapport à un objet

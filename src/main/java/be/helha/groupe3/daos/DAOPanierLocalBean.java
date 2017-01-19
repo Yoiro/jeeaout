@@ -92,9 +92,13 @@ public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
 		return null;
 	}
 
+	@Override
+	public Panier findByName(String name){
+		return null;
+	}
 	
 	@Override
-	public Panier find(long id) {
+	public Panier findById(long id) {
 		tr.begin();
 		Panier result = null;
 		TypedQuery<Panier> query = em.createNamedQuery("Panier.FindOne",Panier.class).setParameter("id", id);

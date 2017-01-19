@@ -52,7 +52,13 @@ public class DAOProduitLocalBean extends DAOLocalBean<Produit>{
 	}
 
 	@Override
-	public Produit find(long id) {
+	public Produit findByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Produit findById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

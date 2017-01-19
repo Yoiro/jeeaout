@@ -15,7 +15,9 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({
 	@NamedQuery(name="UtilisateurEnregistre.FindAll",
-			query="SELECT u from UtilisateurEnregistre u")
+			query="SELECT u from UtilisateurEnregistre u"),
+	@NamedQuery(name="UtilisateurEnregistre.FindOne",
+			query="SELECT u from UtilisateurEnregistre u WHERE u.nom LIKE :nom")
 })
 public class UtilisateurEnregistre implements Serializable {
 

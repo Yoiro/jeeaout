@@ -59,7 +59,7 @@ public class PanierBeanController implements Serializable{
 	}
 	
 	public Panier find(long id){
-		return daoPanierLocalBean.find(id);
+		return daoPanierLocalBean.findById(id);
 	}
 	
 	public double getPrixPanier(){

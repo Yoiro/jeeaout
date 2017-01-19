@@ -7,6 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 import be.helha.groupe3.daos.DAOProduitLocalBean;
+import be.helha.groupe3.daos.DAOUserLocalBean;
 import be.helha.groupe3.entities.Distributeur;
 import be.helha.groupe3.entities.Produit;
 
@@ -22,6 +23,9 @@ public class ProduitBeanController{
 		
 	@EJB
 	private DAOProduitLocalBean daoProduitLocalBean;
+	
+	@EJB
+	private DAOUserLocalBean daoUserLocalBean;
 	
 	//Getters & Setters
 	//------------------------------------------//
@@ -86,13 +90,20 @@ public class ProduitBeanController{
 	//------------------------------------------//
 	public void create(){
 		
+		Distributeur distributeur=new Distributeur();
+		
 		if(nomDistributeur==null)nomDistributeur="";
-		Distributeur d=new Distributeur(nomDistributeur);
+		if(daoUserLocalBean.findByName(nomDistributeur)!=null){
+			distributeur=(Distributeur)daoUserLocalBean.findByName(nomDistributeur);
+		}
+		else{
+			Distributeur d=new Distributeur(nomDistributeur);
+		}
 		
 		if(libelle==null) libelle="";
 		if(description=="null") description="";
 		
-		Produit p=new Produit(libelle,prix,description,d);
+		Produit p=new Produit(libelle,prix,description,distributeur);
 		daoProduitLocalBean.create(p);
 	}
 	
