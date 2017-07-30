@@ -1,4 +1,4 @@
-package be.helha.groupe3.controllers;
+package be.helha.groupe5.controllers;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -9,10 +9,10 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 
-import be.helha.groupe3.daos.DAOPanierLocalBean;
-import be.helha.groupe3.entities.Produit;
-import be.helha.groupe3.entities.Commande;
-import be.helha.groupe3.entities.Panier;
+import be.helha.groupe5.daos.DAOPanierLocalBean;
+import be.helha.groupe5.entities.Commande;
+import be.helha.groupe5.entities.Panier;
+import be.helha.groupe5.entities.Produit;
 
 @ManagedBean
 @SessionScoped

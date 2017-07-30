@@ -1,4 +1,4 @@
-package be.helha.groupe3.daos;
+package be.helha.groupe5.daos;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import be.helha.groupe3.entities.Produit;
+import be.helha.groupe5.entities.Produit;
 
 @Stateless
 @LocalBean

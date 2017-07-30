@@ -1,4 +1,4 @@
-package be.helha.groupe3.exceptions;
+package be.helha.groupe5.exceptions;
 
 public class InvalidIdException extends Exception{
 	public InvalidIdException(){

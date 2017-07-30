@@ -1,4 +1,4 @@
-package be.helha.groupe3.entities;
+package be.helha.groupe5.entities;
 
 import java.io.Serializable;
 import java.util.HashMap;

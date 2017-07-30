@@ -1,13 +1,14 @@
-package be.helha.groupe3.util;
+package be.helha.groupe5.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.EntityTransaction;
 
-import be.helha.groupe3.entities.Acheteur;
-import be.helha.groupe3.entities.Distributeur;
-import be.helha.groupe3.entities.Produit;
+import be.helha.groupe5.entities.Acheteur;
+import be.helha.groupe5.entities.Distributeur;
+import be.helha.groupe5.entities.Produit;
+
+import javax.persistence.EntityTransaction;
 
 //cette classe va s'occuper de remplir chaque Table de la DB
 public class DatabaseFiller {	

@@ -1,12 +1,12 @@
-package be.helha.groupe3.controllers;
+package be.helha.groupe5.controllers;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
-import be.helha.groupe3.daos.DAOUserLocalBean;
-import be.helha.groupe3.entities.UtilisateurEnregistre;
-import be.helha.groupe3.patterns.UserBuilder;
+import be.helha.groupe5.daos.DAOUserLocalBean;
+import be.helha.groupe5.entities.UtilisateurEnregistre;
+import be.helha.groupe5.patterns.UserBuilder;
 
 @Named
 @RequestScoped

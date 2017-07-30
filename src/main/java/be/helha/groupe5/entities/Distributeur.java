@@ -1,5 +1,5 @@
 
-package be.helha.groupe3.entities;
+package be.helha.groupe5.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import be.helha.groupe3.entities.Produit;
+import be.helha.groupe5.entities.Produit;
 
 @Entity
 public class Distributeur extends UtilisateurEnregistre implements Serializable{

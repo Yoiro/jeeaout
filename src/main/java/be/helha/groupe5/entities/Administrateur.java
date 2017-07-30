@@ -1,8 +1,6 @@
-package be.helha.groupe3.entities;
+package be.helha.groupe5.entities;
 
 
-
-import be.helha.groupe3.entities.UtilisateurEnregistre;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import be.helha.groupe5.entities.UtilisateurEnregistre;
 
 @Entity
 public class Administrateur implements Serializable{

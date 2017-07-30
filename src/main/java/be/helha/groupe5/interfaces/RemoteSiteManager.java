@@ -1,11 +1,11 @@
-package be.helha.groupe3.interfaces;
+package be.helha.groupe5.interfaces;
 
 import java.util.List;
 
 import javax.ejb.Remote;
 
-import be.helha.groupe3.entities.Produit;
-import be.helha.groupe3.entities.UtilisateurEnregistre;
+import be.helha.groupe5.entities.Produit;
+import be.helha.groupe5.entities.UtilisateurEnregistre;
 
 @Remote
 public interface RemoteSiteManager {

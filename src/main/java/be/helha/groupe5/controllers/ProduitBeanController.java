@@ -1,4 +1,4 @@
-package be.helha.groupe3.controllers;
+package be.helha.groupe5.controllers;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
-import be.helha.groupe3.daos.DAOProduitLocalBean;
-import be.helha.groupe3.daos.DAOUserLocalBean;
-import be.helha.groupe3.entities.Distributeur;
-import be.helha.groupe3.entities.Produit;
+import be.helha.groupe5.daos.DAOProduitLocalBean;
+import be.helha.groupe5.daos.DAOUserLocalBean;
+import be.helha.groupe5.entities.Distributeur;
+import be.helha.groupe5.entities.Produit;
 
 @Named
 @RequestScoped

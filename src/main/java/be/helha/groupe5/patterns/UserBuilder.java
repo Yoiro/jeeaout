@@ -1,9 +1,9 @@
-package be.helha.groupe3.patterns;
+package be.helha.groupe5.patterns;
 
-import be.helha.groupe3.entities.Acheteur;
-import be.helha.groupe3.entities.Adresse;
-import be.helha.groupe3.entities.Distributeur;
-import be.helha.groupe3.entities.UtilisateurEnregistre;
+import be.helha.groupe5.entities.Acheteur;
+import be.helha.groupe5.entities.Adresse;
+import be.helha.groupe5.entities.Distributeur;
+import be.helha.groupe5.entities.UtilisateurEnregistre;
 
 public class UserBuilder {
 	

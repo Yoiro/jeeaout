@@ -1,4 +1,4 @@
-package be.helha.groupe3.daos;
+package be.helha.groupe5.daos;
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,9 +10,9 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import be.helha.groupe3.entities.Commande;
-import be.helha.groupe3.entities.Panier;
-import be.helha.groupe3.entities.Produit;
+import be.helha.groupe5.entities.Commande;
+import be.helha.groupe5.entities.Panier;
+import be.helha.groupe5.entities.Produit;
 
 public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
 
