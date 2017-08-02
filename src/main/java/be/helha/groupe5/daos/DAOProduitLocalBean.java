@@ -1,5 +1,6 @@
 package be.helha.groupe5.daos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -15,7 +16,8 @@ import be.helha.groupe5.entities.Produit;
 @Stateless
 @LocalBean
 public class DAOProduitLocalBean extends DAOLocalBean<Produit>{	
-	private EntityManagerFactory emf=Persistence.createEntityManagerFactory("LocalGroupe3");;
+	
+	private EntityManagerFactory emf=Persistence.createEntityManagerFactory("LocalGroupe5");;
 	private EntityManager em=emf.createEntityManager();
 	private EntityTransaction tr=em.getTransaction();
 	
@@ -31,7 +33,7 @@ public class DAOProduitLocalBean extends DAOLocalBean<Produit>{
 	@Override
 	public List<Produit> findAll(){
 		tr.begin();
-		List<Produit> result=null;
+		List<Produit> result=new ArrayList<>();
 		TypedQuery<Produit> query=em.createNamedQuery("Produit.FindAll",Produit.class);
 		result=query.getResultList();
 		tr.commit();
@@ -41,6 +43,7 @@ public class DAOProduitLocalBean extends DAOLocalBean<Produit>{
 	@Override
 	public Produit update(Produit obj) {
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

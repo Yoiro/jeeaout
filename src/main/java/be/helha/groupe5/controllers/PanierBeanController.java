@@ -1,9 +1,13 @@
 package be.helha.groupe5.controllers;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
@@ -26,10 +30,23 @@ public class PanierBeanController implements Serializable{
 	@EJB
 	private DAOPanierLocalBean daoPanierLocalBean;
 	
+	@PostConstruct
+	public void init() {
+		System.out.println("PanierBeanController initialized");
+		panier = new Panier();
+		mapProduit = panier.getMapProduit();
+		prixtot = panier.getPrixTot();
+	}
+	
 	//Getters & Setters 
 	//-------------------------------------------
 	
-	public HashMap<Produit, Integer> getHashMap(){
+	public List<Map.Entry<Produit, Integer>> getProduits(){
+		Set<Map.Entry<Produit, Integer>> productSet = mapProduit.entrySet();
+		return new ArrayList<Map.Entry<Produit, Integer>>(productSet);
+	}
+	
+	public HashMap<Produit, Integer> getMapProduit(){
 		return mapProduit;
 	}
 	
@@ -44,10 +61,19 @@ public class PanierBeanController implements Serializable{
 	public void setPrixTot(double prixTot){
 		this.prixtot=prixTot;
 	}
+	
+	public int getNbProduits() {
+		int qte = 0;
+		for (Produit p: mapProduit.keySet()) {
+			qte ++;
+		}
+		return qte;
+	}
 	//---------------------------------------------
 	
 	//METHODE D'ACCES A LA BASE DE DONNEES
 	//---------------------------------------------
+	
 	
 	public void create(){
 		Panier obj = new Panier(0.0);
@@ -67,13 +93,22 @@ public class PanierBeanController implements Serializable{
 	}
 	
 	public void ajouterProduitPanier(Produit p, int qte){
-		if(p!=null&&qte>0)
-		daoPanierLocalBean.addPanier(p, qte);
+//		int qte;
+//		try {
+//			qte = Integer.parseInt(nb);
+//		} catch(NumberFormatException e) {
+//			qte = 0;
+//		}
+		System.out.println("Trying to add "+p.toString()+" "+qte+" to cart");
+		if(p!=null&&qte>0) {
+			daoPanierLocalBean.addToCart(p, qte);
+			System.out.println("added!");
+		}
 	}
 	
 	public void retirerProduitPanier(Produit p){
 		if(panier.getMapProduit().containsKey(p))
-		daoPanierLocalBean.removePanier(p);
+		daoPanierLocalBean.removeFromCart(p);
 	}
 	
 	public Commande validerPanier(){

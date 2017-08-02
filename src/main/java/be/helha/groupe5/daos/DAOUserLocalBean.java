@@ -8,7 +8,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import be.helha.groupe5.entities.UtilisateurEnregistre;
@@ -16,13 +15,12 @@ import be.helha.groupe5.entities.UtilisateurEnregistre;
 @Stateless
 @LocalBean
 public class DAOUserLocalBean extends DAOLocalBean<UtilisateurEnregistre>{
-	private EntityManagerFactory emf=Persistence.createEntityManagerFactory("LocalGroupe3");
+	private EntityManagerFactory emf=Persistence.createEntityManagerFactory("LocalGroupe5");
 	private EntityManager em=emf.createEntityManager(); 
 	private EntityTransaction tr=em.getTransaction();
 	
 	public void inscription(UtilisateurEnregistre u){
 		tr.begin();
-		em.merge(u);
 		em.persist(u);
 		tr.commit();
 	}
@@ -40,9 +38,9 @@ public class DAOUserLocalBean extends DAOLocalBean<UtilisateurEnregistre>{
 		TypedQuery<UtilisateurEnregistre> query=em.createNamedQuery("UtilisateurEnregistre.FindOne",UtilisateurEnregistre.class)
 				.setParameter("nom", name);
 		UtilisateurEnregistre user=query.getSingleResult();
-		em.persist(user);
-		em.flush();
-		tr.commit();
+//		em.persist(user);
+//		em.flush();
+//		tr.commit();
 		return user;
 	}
 

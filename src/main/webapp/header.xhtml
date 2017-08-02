@@ -1,12 +1,11 @@
-<ui:composition 
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-   	xmlns:jsf="http://xmlns.jcp.org/jsf">
-    
-    
-    <STYLE type="text/css">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+
+	<STYLE type="text/css">
 @import
 	url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
 
@@ -76,9 +75,9 @@
 	-webkit-font-smoothing: antialiased;
 }
 </STYLE>
-    
-    
-   	<!-- Barre de navigation lol xD ptdr -->
+
+
+	<!-- Barre de navigation lol xD ptdr -->
 	<div class="container">
 		<!-- Topper w/ logo -->
 		<div class="row hidden-xs topper">
@@ -101,7 +100,7 @@
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
-						
+
 						<a class="navbar-brand visible-xs-inline-block nav-logo" href="/"><img
 							src="/images/logo-dark-inset.png" class="img-responsive" alt=""></img></a>
 					</div>
@@ -110,66 +109,79 @@
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<ul class="nav navbar-nav js-nav-add-active-class">
 							<li><a href="index.xhtml">Tepabo</a></li>
-							<li jsf:id="findAll"> <a href="tous-les-produits.xhtml">Voir les produits</a></li>
-							
-								<li class="dropdown"><a href="#"
+							<li jsf:id="findAll"><a href="tous-les-produits.xhtml">Voir
+									les produits</a></li>
+
+							<li class="dropdown"><a href="#"
 								class="dropdown-toggle btn-gradient-blue" data-toggle="dropdown">Recherche
 									<b class="caret"></b>
 							</a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="rechercheDistributeur.xhtml">Rechercher un distributeur</a></li>
-									<li><a href="rechercheProduit.xhtml">Rechercher un produit</a></li>
+									<li><a href="rechercheDistributeur.xhtml">Rechercher
+											un distributeur</a></li>
+									<li><a href="rechercheProduit.xhtml">Rechercher un
+											produit</a></li>
 								</ul></li>
-						
+
 							<li><a href="commande.xhtml">Commandes</a></li>
 							<li><a href="creer-produit.xhtml">Créer produit</a></li>
-							
-							
-							<li class="visible-xs-block"><a href="/about.html">A propos de nous</a></li>
+
+
+							<li class="visible-xs-block"><a href="/about.html">A
+									propos de nous</a></li>
 							<li class="visible-xs-block"><a href="/careers.html">Careers</a></li>
-							<li class="visible-xs-block"><a href="/press-release.html">Press
-									Release</a></li>
-							<li class="visible-xs-block"><a
-								href="https://susteen7.zendesk.com/hc/en-us">Support</a></li>
 							<li class="dropdown"><a href="#"
-								class="dropdown-toggle btn-gradient-blue" data-toggle="dropdown">A propos <b class="caret"></b>
+								class="dropdown-toggle btn-gradient-blue" data-toggle="dropdown">A
+									propos <b class="caret"></b>
 							</a>
 								<ul class="dropdown-menu" role="menu">
 									<li><a href="aboutUs.xhtml">Qui sommes-nous ?</a></li>
 									<li><a href="pourquoi.xhtml">Pourquoi ce projet?</a></li>
 								</ul></li>
 						</ul>
-						<ul jsf:id="formUser" class="nav navbar-nav navbar-right hidden-xs">
-							<a type="button" class="navbar-btn btn btn-gradient-blue" href="connexion.xhtml">Connexion</a>
-							<a type="button" class="navbar-btn btn btn-gradient-blue" href="inscription.xhtml">Inscription</a>
-				
-				
-							
-				<!--  DROPDOWN MENU DU PANIER AVEC ACCES A LA PAGE DE GESTION DU PANIER -->			
-							<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span> 7 - Items<span class="caret"></span></a>
-          <ul class="dropdown-menu dropdown-cart" role="menu">
-              
-              <!--  A mettre ici un truc qui fait s'afficher les miniatures des produits -->
-              <li>
-                  <span class="item">
-                    <span class="item-left">
-                        <img src="http://lorempixel.com/50/50/" alt="" />
-                        <span class="item-info">
-                            <span>Item name</span>
-                            <span>23$</span>
-                        </span>
-                    </span>
-                    <span class="item-right">
-                        <button class="btn btn-xs btn-danger pull-right">x</button>
-                    </span>
-                </span>
-              </li>
-              
-              <li class="divider"></li>
-              <li><a class="text-center" href="panier.xhtml">View Cart</a></li>
-          </ul>
-        </li>
+						<ul jsf:id="formUser"
+							class="nav navbar-nav navbar-right hidden-xs">
+							<a type="button" class="navbar-btn btn btn-gradient-blue"
+								href="connexion.xhtml">Connexion</a>
+							<a type="button" class="navbar-btn btn btn-gradient-blue"
+								href="inscription.xhtml">Inscription</a>
+
+
+
+							<!--  DROPDOWN MENU DU PANIER AVEC ACCES A LA PAGE DE GESTION DU PANIER -->
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-expanded="false">
+									<span class="glyphicon glyphicon-shopping-cart"></span>#{panierBeanController.getNbProduits()}
+									<span class="caret"></span>
+							</a>
+								<ul class="dropdown-menu dropdown-cart" role="menu">
+
+									<!--  A mettre ici un truc qui fait s'afficher les miniatures des produits -->
+									<h:dataTable id="minCart"
+										value="#{panierBeanController.getProduits()}" var="item"
+										styleClass="table" headerclass="order-table-header"
+										rowClasses="order-table-odd-row,order-table-even-row">
+										<span class="item-info"> <h:column>
+												<span>#{item.key.libelle}</span>
+											</h:column> <h:column>
+												<span>#{item.value}</span>
+											</h:column>
+										</span>
+									</h:dataTable>
+									<li class="divider"></li>
+									<li><a class="text-center" href="panier.xhtml">View
+											Cart</a></li>
+									<!-- <li><span class="item"> <span class="item-left">
+												<img src="http://lorempixel.com/50/50/" alt="" /> <span
+												class="item-info"> <span>Item name</span> <span>23$</span>
+											</span>
+										</span> <span class="item-right">
+												<button class="btn btn-xs btn-danger pull-right">x</button>
+										</span>
+									</span></li>
+
+									-->
+								</ul></li>
 						</ul>
 
 
@@ -179,16 +191,16 @@
 			</nav>
 		</div>
 	</div>
-	<!--  Fin de barre de navigation  --> 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+	<!--  Fin de barre de navigation  -->
+
+
+
+
+
+
+
+
+
+
+
 </ui:composition>

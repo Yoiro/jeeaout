@@ -1,6 +1,7 @@
 package be.helha.groupe5.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -21,25 +23,26 @@ public class Commande implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private String date;
+	private Date date;
 	private double prixCommande;
 	private Boolean isPaid;
 	private Boolean isSend;
 	private Integer identifiantAcheteur;
 
-	@ManyToOne
+	@OneToOne
 	private Panier produitCommande;
 	
-	@ManyToOne
+	@OneToOne
 	private Acheteur acheteur;
 
-	private String lieuLivraison;
+	@OneToOne
+	private Adresse lieuLivraison;
 
 	//----------------------------Constructor-----------------------------
 	
 	public Commande(){}
 	//Constructeur avec ID pour la Commande
-	public Commande(Integer id,String date,Panier produitCommande,Acheteur acheteur,String lieuLivraison,Boolean isSend,Boolean isPaid){
+	public Commande(Integer id,Date date,Panier produitCommande,Acheteur acheteur,Adresse lieuLivraison,Boolean isSend,Boolean isPaid){
 		setId(id);
 		setDate(date);
 		setProduitCommande(produitCommande);
@@ -51,7 +54,7 @@ public class Commande implements Serializable {
 	
 	
 	//Constructeur sans utilisation de l'ID pour la Commande
-	public Commande(String date,Panier produitCommande,Acheteur acheteur,String lieuLivraison){
+	public Commande(Date date,Panier produitCommande,Acheteur acheteur,Adresse lieuLivraison){
 		setDate(date);
 		setProduitCommande(produitCommande);
 		setIdentifiantAcheteur(acheteur.getID());
@@ -88,10 +91,10 @@ public class Commande implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	public Panier getProduitCommande() {
@@ -106,10 +109,10 @@ public class Commande implements Serializable {
 	public void setIdentifiantAcheteur(Integer identifiantAcheteur) {
 		this.identifiantAcheteur = identifiantAcheteur;
 	}
-	public String getLieuLivraison() {
+	public Adresse getLieuLivraison() {
 		return lieuLivraison;
 	}
-	public void setLieuLivraison(String lieuLivraison) {
+	public void setLieuLivraison(Adresse lieuLivraison) {
 		this.lieuLivraison = lieuLivraison;
 	}
 	

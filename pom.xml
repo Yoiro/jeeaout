@@ -53,12 +53,12 @@
 		</dependency>
 
 
-		<!-- https://mvnrepository.com/artifact/org.glassfish.main.appclient/gf-client-module -->
+<!-- 		https://mvnrepository.com/artifact/org.glassfish.main.appclient/gf-client-module 
 		<dependency>
 			<groupId>org.glassfish.main.appclient</groupId>
 			<artifactId>gf-client-module</artifactId>
 			<version>4.1.1</version>
-		</dependency>
+		</dependency> -->
 
 
 	</dependencies>

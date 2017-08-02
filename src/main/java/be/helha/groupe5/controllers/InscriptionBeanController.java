@@ -99,7 +99,7 @@ public class InscriptionBeanController {
 	}
 	//----------------------------------------------------//
 	//DatabaseAccess//
-	public void inscriptionPersonne(boolean b){
+	public void inscriptionPersonne(){
 		builder=new UserBuilder(isDistrib);
 		builder.creerInformationsPersonne(nom, prenom, pseudoUtilisateur, password, email, tel);
 		builder.creerAdresse(nomRue, numRue, codePostal, localite);

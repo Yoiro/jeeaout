@@ -4,7 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
-	
+
 <head>
 
 
@@ -15,15 +15,65 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-</head>	
-	
+</head>
+
 <body>
 	<ui:include src="header.xhtml" />
-	
+
 	<div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-md-10 col-md-offset-1">
-            <table class="table table-hover">
+		<div class="row">
+			<div class="col-sm-12 col-md-10 col-md-offset-1">
+				<h:dataTable id="datatable"
+					value="#{panierBeanController.getProduits()}" var="item"
+					styleClass="table" headerclass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row">
+					<h:column>
+						<f:facet name="header">Libelle</f:facet>
+						#{item.key.libelle}
+					</h:column>
+					<h:column>
+					<f:facet name="header">Prix</f:facet>
+					<i><label>€ </label><label id="prixUnitaire" class="prixUnit">#{item.key.prix}</label></i>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Quantité</f:facet>
+						<input name="idProduit" type="number" min="0" class="nbProduit"
+							oninput="updatePrixTotal()" value="#{item.value}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Prix total</f:facet>
+						<b>€</b>
+						<b class="prixTot">#{item.key.prix * item.qte}</b>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Retirer du panier</f:facet>
+						<button class="btn btn-primary">
+							<span class="glyphicon glyphicon-remove"
+								jsf:action="#{panierBeanController.retirerProduitPanier(prod)}"></span>
+						</button>
+					</h:column>
+				</h:dataTable>
+
+				<table>
+					<tr>
+						<td><a href="./tous-les-produits.xhtml" role="button"
+							class="btn btn-default"> <span
+								class="glyphicon glyphicon-shopping-cart"></span> Continuer mes
+								achats
+						</a></td>
+						<td><a href="./valider-commande.xhtml" role="button"
+							class="btn btn-success"> <span
+								class="glyphicon glyphicon-play"></span> Valider ma commande
+						</a></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+<!--  Vieux Tableau
+
+<table class="table table-hover">
                 <thead>
                     <tr>
                         <th>Produit</th>
@@ -34,7 +84,7 @@
                     </tr>
                 </thead>
                 <tbody>
-      <!--  FIN DE LA FICHE DU PRODUIT PANIER -->
+       FIN DE LA FICHE DU PRODUIT PANIER
                     <tr>
                         <td class="col-sm-8 col-md-6">
                         <div class="media">
@@ -52,10 +102,10 @@
                         <td class="col-sm-1 col-md-1 text-center"><strong>€14.61</strong></td>
                         <td class="col-sm-1 col-md-1">
                         <button type="button" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-remove"></span> Retirer
+                            <span class="glyphicon glyphicon-remove"></span> Retirer du panier
                         </button></td>
                     </tr>
-      <!--  FIN DE LA FICHE DU PRODUIT PANIER -->
+       FIN DE LA FICHE DU PRODUIT PANIER
                     <tr>
                         <td>   </td>
                         <td>   </td>
@@ -80,20 +130,7 @@
                     <tr>
                         <td>   </td>
                         <td>   </td>
-                        <td>   </td>
-                        <td>
-                        <button type="button" class="btn btn-default"  href="tous-les-produits.xhtml">
-                            <span class="glyphicon glyphicon-shopping-cart"></span> Retour au magasin
-                        </button></td>
-                        <td>
-                        <button type="button" class="btn btn-success"> Valider la commande <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-	
+                        <td>   </td> -->
+
 </body>
 </html>

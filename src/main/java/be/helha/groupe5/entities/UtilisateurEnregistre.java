@@ -128,7 +128,13 @@ public class UtilisateurEnregistre implements Serializable {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
+	public Adresse getAdressePostale() {
+		return adressePostale;
+	}
 
+	public void setAdressePostale(Adresse adressePostale) {
+		this.adressePostale = adressePostale;
+	}
 
 	//----------------------------------------otherMethods()----------------------------------
 	@Override

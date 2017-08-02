@@ -33,9 +33,12 @@ public class Panier implements Serializable {
 	private HashMap<Produit,Integer>mapProduit;
 	
 	//-----------------------Constructor-----------------------------
-	public Panier(){}
+	public Panier(){
+		mapProduit = new HashMap<>();
+		prixTot = 0.0;
+	}
 	public Panier(double prixTot){
-		mapProduit=new HashMap<>();
+		mapProduit = new HashMap<>();
 		setPrixTot(prixTot);
 	}
 	

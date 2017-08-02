@@ -14,7 +14,7 @@ import javax.persistence.EntityTransaction;
 public class DatabaseFiller {	
 	public static void main(String[]args){
 		
-		EntityManagerFactory emf=Persistence.createEntityManagerFactory("LocalGroupe3");
+		EntityManagerFactory emf=Persistence.createEntityManagerFactory("LocalGroupe5");
 		EntityManager em=emf.createEntityManager();
 		EntityTransaction transaction=em.getTransaction();
 		
