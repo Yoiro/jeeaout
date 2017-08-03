@@ -1,17 +1,15 @@
 package be.helha.groupe5.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
-
 
 @Entity
 @NamedQueries({
@@ -19,7 +17,6 @@ import javax.persistence.OneToOne;
 				query="SELECT c from Commande c")
 })
 public class Commande implements Serializable {
-
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;

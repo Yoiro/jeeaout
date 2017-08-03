@@ -1,9 +1,6 @@
 package be.helha.groupe5.daos;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
+import java.sql.Date;
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -73,7 +70,6 @@ public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
 		tr.commit();		
 	}
 	
-	
 	public double calculerPrixTot() {
 		// TODO Auto-generated method stub
 		System.out.println(panier);
@@ -99,7 +95,8 @@ public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
 	public Commande validatePanier() {
 		// TODO Auto-generated method stub
 		//Commande(String date,Panier produitCommande,Acheteur acheteur,String lieuLivraison)
-		Date date = new Date();
+		Date date = new Date(System.currentTimeMillis());
+		System.out.println(date);
 		Acheteur buyer = new Acheteur();
 		Adresse lieuLivraison = buyer.getAdressePostale();
 		Commande commande = new Commande(date, panier, buyer, lieuLivraison);

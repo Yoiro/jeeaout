@@ -9,8 +9,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 
-
-
 /** Classe qui représente l'acheteur qui est enregistré et connecté sur le site
  * 	Hérite de la super classe UtilisateurEnregistre 
  */

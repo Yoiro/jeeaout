@@ -21,8 +21,9 @@ xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
 </h:head>
 <h:body>
 	<ui:include src="header.xhtml" />
-	<h:dataTable id="tableAllProducts" value="#{produitBeanController.getAll()}"
-		var="prod" styleClass="table" headerclass="order-table-header"
+	<h:dataTable id="tableAllProducts"
+		value="#{produitBeanController.getAll()}" var="prod"
+		styleClass="table" headerclass="order-table-header"
 		rowClasses="order-table-odd-row,order-table-even-row">
 		<h:column>
 			<f:facet name="header">Libelle</f:facet>
@@ -34,12 +35,12 @@ xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
 			</h:column>
 		<h:column>
 			<f:facet name="header">Prix</f:facet>
-			<i><label>€ </label><label id="prixUnitaire" class="currency">#{prod.prix}</label></i>
+			<i><label>€ </label><label id="prixUnitaire" class="prixUnitaire">#{prod.prix}</label></i>
 		</h:column>
 		<h:column>
 			<f:facet name="header">Quantité</f:facet>
-			<input id="inputQte" name="inputQte" type="number" min="0"
-				class="nbProduit" oninput="updatePrixTotal()" value="0"/>
+			<input id="inputQte" name="inputQte" type="number" min="0" value="#{panierBeanController.qte}"
+				class="nbProduit" oninput="updatePrixTotal()" />
 		</h:column>
 		<h:column>
 			<f:facet name="header">Prix total</f:facet>
@@ -50,7 +51,7 @@ xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
 			<f:facet name="header">Ajouter au panier</f:facet>
 			<h:form id="formAddtoCart">
 				<a href="./panier.xhtml" role="submit" class="btn btn-success"
-					jsf:action="#{panierBeanController.ajouterProduitPanier(prod, inputQte.value)}">
+					jsf:action="#{panierBeanController.ajouterProduitPanier(prod)}">
 					<span class="glyphicon glyphicon-plus"></span>
 				</a>
 			</h:form>
@@ -70,4 +71,19 @@ xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
     	</h:column>		
      -->
 </h:body>
+
+<!-- <script type="text/javascript">
+	function updatePrixTotal() {
+		var listProduits = new Array();
+		var rows = $("#tableAllProducts").find('tr');
+		for (var i = 0; i &lt; rows.length; i++) {
+			var r = $(rows[i]);
+			var nbProduitForThisRow = Number(r.find(".nbProduit").val());
+			var number = Number(r.find(".prixUnitaire").text());
+			var prixTot = (nbProduitForThisRow * number);
+			prixTot = parseFloat(prixTot).toFixed(2);
+			r.find((".prixTot")).text(prixTot);
+		}
+	}
+</script> -->
 </html>
