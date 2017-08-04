@@ -4,10 +4,9 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:jsf="http://xmlns.jcp.org/jsf">
-<!-- URI introuvables:
-xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
- -->
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt">
+
 
 <h:head>
 	<TITLE>Tépabo - Cherchez des produits</TITLE>
@@ -21,10 +20,12 @@ xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
 </h:head>
 <h:body>
 	<ui:include src="header.xhtml" />
+	<form jsf:id = "addToCartForm">
 	<h:dataTable id="tableAllProducts"
 		value="#{produitBeanController.getAll()}" var="prod"
 		styleClass="table" headerclass="order-table-header"
 		rowClasses="order-table-odd-row,order-table-even-row">
+		<p class="hidden" id="prodId">#{prod.id}</p>
 		<h:column>
 			<f:facet name="header">Libelle</f:facet>
 			#{prod.libelle}
@@ -39,8 +40,8 @@ xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
 		</h:column>
 		<h:column>
 			<f:facet name="header">Quantité</f:facet>
-			<input id="inputQte" name="inputQte" type="number" min="0" value="#{panierBeanController.qte}"
-				class="nbProduit" oninput="updatePrixTotal()" />
+			<input id="inputQte" name="inputQte" type="number" min="0"
+				class="nbProduit" oninput="updatePrixTotal()"></input>
 		</h:column>
 		<h:column>
 			<f:facet name="header">Prix total</f:facet>
@@ -49,18 +50,20 @@ xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
 		</h:column>
 		<h:column>
 			<f:facet name="header">Ajouter au panier</f:facet>
-			<h:form id="formAddtoCart">
-				<a href="./panier.xhtml" role="submit" class="btn btn-success"
-					jsf:action="#{panierBeanController.ajouterProduitPanier(prod)}">
-					<span class="glyphicon glyphicon-plus"></span>
-				</a>
-			</h:form>
-			<!-- <div class="col-xs col-md">
-				<input type="submit" class="btn btn-success btn-lg" tabindex="7"
-					jsf:action="#{panierBeanController.ajouterProduitPanier(prod, inputQte)}"></input>
-			</div> -->
+				<h:commandButton class="btn btn-success" value="+" action="#{panierBeanController.ajouterProduitPanier(prodId.value, inputQte.value)}"/>
+			<!-- <h:commandButton class="btn btn-success" value="+"
+					action="#{panierBeanController.ajouterProduitPanier()}" target="{panierBeanController.doPanier()}"> -->
+			<!-- <f:param name="prod-to-add" value="#{prod.id}" />
+				<f:param name="qte" value="#{inputQte.value}" /> -->
+			<!-- <input type="submit" class="btn btn-success"
+				jsf:action="#{panierBeanController.ajouterProduitPanier(prod.id, inputQte.value)}"/> 
+			</h:commandButton>-->
+							<!-- <input type="submit" class="btn btn-success"
+					jsf:action="#{panierBeanController.ajouterProduitPanier()}"><span
+					class="glyphicon glyphicon-add"></span></input> -->
 		</h:column>
 	</h:dataTable>
+	</form>
 
 
 	<!--

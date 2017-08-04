@@ -7,32 +7,37 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.inject.Named;
 
 import be.helha.groupe5.daos.DAOPanierLocalBean;
+import be.helha.groupe5.daos.DAOProduitLocalBean;
 import be.helha.groupe5.entities.Commande;
 import be.helha.groupe5.entities.Panier;
 import be.helha.groupe5.entities.Produit;
 
-@ManagedBean
 @SessionScoped
+@ManagedBean
 public class PanierBeanController implements Serializable{
+	private final FacesContext facesContext = FacesContext.getCurrentInstance();
 	private final String sessionID = FacesContext.getCurrentInstance().getExternalContext().getSessionId(true);
 	private Panier panier = new Panier();
 	private HashMap<Produit,Integer>mapProduit = panier.getMapProduit();
 	private double prixtot = 0.0;
-	private int qte = 0;
+
+	
+	@EJB
+	private DAOProduitLocalBean daoProduitLocalBean;
 
 	@EJB
 	private DAOPanierLocalBean daoPanierLocalBean;
 
 	//Getters & Setters 
 	//-------------------------------------------
+	
+	
 
 	public List<Map.Entry<Produit, Integer>> getProduits(){
 		Set<Map.Entry<Produit, Integer>> productSet = mapProduit.entrySet();
@@ -62,16 +67,16 @@ public class PanierBeanController implements Serializable{
 		}
 		return qte;
 	}
-	
-	public int getQte() {
-		return qte;
-	}
-
-	public void setQte(int qte) {
-		this.qte = qte;
-	}
 	//---------------------------------------------
-
+	
+	//ACCES AUX VUES
+	//---------------------------------------------
+	public String doPanier() {
+		return "panier.xhtml";
+	}
+	
+	
+	//---------------------------------------------
 	//METHODE D'ACCES A LA BASE DE DONNEES
 	//---------------------------------------------
 
@@ -92,12 +97,17 @@ public class PanierBeanController implements Serializable{
 		return daoPanierLocalBean.calculerPrixTot();
 	}
 
-	public void ajouterProduitPanier(Produit p){
+	public void ajouterProduitPanier(String prodId, String quant){
+		Integer prodid = Integer.parseInt(prodId);
+		Integer qte = Integer.parseInt(quant);
+		Produit p = daoProduitLocalBean.findById(prodid);
 		System.out.println(p.toString());
 		System.out.println(qte);
-		if(p != null && qte > 0) {
-			//daoPanierLocalBean.addToCart(p, qte);
+		if(p != null && ( qte > 0)) {
+			//daoPanierLocalBean.addToCart(p, quantite);
+			prixtot = panier.calculerPrixPanier();
 			System.out.println("added!");
+			System.out.println("Nouveau prix: "+prixtot);
 		}
 	}
 

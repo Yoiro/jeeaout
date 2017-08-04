@@ -17,7 +17,7 @@ import be.helha.groupe5.entities.Produit;
 @LocalBean
 public class DAOProduitLocalBean extends DAOLocalBean<Produit>{	
 	
-	private EntityManagerFactory emf=Persistence.createEntityManagerFactory("LocalGroupe5");;
+	private EntityManagerFactory emf=Persistence.createEntityManagerFactory("LocalGroupe5");
 	private EntityManager em=emf.createEntityManager();
 	private EntityTransaction tr=em.getTransaction();
 	
@@ -62,6 +62,12 @@ public class DAOProduitLocalBean extends DAOLocalBean<Produit>{
 	@Override
 	public Produit findById(long id) {
 		// TODO Auto-generated method stub
-		return null;
+		System.out.println("DAOPRODUIT// findById: "+id);
+		tr.begin();
+		TypedQuery<Produit> query = em.createNamedQuery("Produit.FindOne", Produit.class);
+		query.setParameter("id", id);
+		Produit p = query.getSingleResult();
+		tr.commit();
+		return p;
 	}
 }
