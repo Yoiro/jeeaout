@@ -19,6 +19,7 @@ import be.helha.groupe5.entities.Produit;
 public class AllProductsController implements Serializable{
 	private List<Produit> produits;
 	private Panier panier;
+	private int panierID;
 	
 	@EJB
 	private DAOProduitLocalBean daoProduitLocalBean;
@@ -30,6 +31,7 @@ public class AllProductsController implements Serializable{
 	public void init() {
 		produits = daoProduitLocalBean.findAll();
 		panier = daoPanierLocalBean.create(new Panier());
+		panierID = panier.getId();
 	}
 
 	//Getters & Setters
@@ -43,13 +45,13 @@ public class AllProductsController implements Serializable{
 	}
 	//----------------------------------------------------
 	
-	public String addToCart(String id, String quantity) {
+	public String addToCart(String id) {
 		System.out.println(id);
-		System.out.println(quantity);
 		Integer prodId = Integer.parseInt(id);
-		Integer qte = Integer.parseInt(quantity);
 		Produit p = daoProduitLocalBean.findById((long)prodId);
-		panier.ajouterProduitPanier(p, qte);
-		return "./panier.xhtml";
+		daoPanierLocalBean.addToCart(p, 1);
+		panier = daoPanierLocalBean.findById((long)panierID);
+		System.out.println(panier);
+		return null;
 	}
 }

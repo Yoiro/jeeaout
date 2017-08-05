@@ -20,73 +20,41 @@
 </h:head>
 <h:body>
 	<ui:include src="header.xhtml" />
-	<form jsf:id = "addToCartForm">
-	<h:dataTable id="tableAllProducts"
-		value="#{produitBeanController.getAll()}" var="prod"
-		styleClass="table" headerclass="order-table-header"
-		rowClasses="order-table-odd-row,order-table-even-row">
-		<p class="hidden" id="prodId">#{prod.id}</p>
-		<h:column>
-			<f:facet name="header">Libelle</f:facet>
+	<form jsf:id="addToCartForm">
+		<h:dataTable id="tableAllProducts"
+			value="#{allProductsController.produits}" var="prod"
+			styleClass="table" headerclass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row">
+			<p class="hidden" id="prodId">#{prod.id}</p>
+			<h:column>
+				<f:facet name="header">Libelle</f:facet>
 			#{prod.libelle}
 		</h:column>
-		<h:column>
-			<f:facet name="header">Description</f:facet>
+			<h:column>
+				<f:facet name="header">Description</f:facet>
 			#{prod.description}
 			</h:column>
-		<h:column>
-			<f:facet name="header">Prix</f:facet>
-			<i><label>€ </label><label id="prixUnitaire" class="prixUnitaire">#{prod.prix}</label></i>
-		</h:column>
-		<h:column>
-			<f:facet name="header">Quantité</f:facet>
-			<input id="inputQte" name="inputQte" type="number" min="0"
-				class="nbProduit" oninput="updatePrixTotal()"></input>
-		</h:column>
-		<h:column>
-			<f:facet name="header">Prix total</f:facet>
-			<b>€</b>
-			<b class="prixTot">0.00</b>
-		</h:column>
-		<h:column>
-			<f:facet name="header">Ajouter au panier</f:facet>
-				<h:commandButton class="btn btn-success" value="+" action="#{panierBeanController.ajouterProduitPanier(prodId.value, inputQte.value)}"/>
-			<!-- <h:commandButton class="btn btn-success" value="+"
-					action="#{panierBeanController.ajouterProduitPanier()}" target="{panierBeanController.doPanier()}"> -->
-			<!-- <f:param name="prod-to-add" value="#{prod.id}" />
-				<f:param name="qte" value="#{inputQte.value}" /> -->
-			<!-- <input type="submit" class="btn btn-success"
-				jsf:action="#{panierBeanController.ajouterProduitPanier(prod.id, inputQte.value)}"/> 
-			</h:commandButton>-->
-							<!-- <input type="submit" class="btn btn-success"
-					jsf:action="#{panierBeanController.ajouterProduitPanier()}"><span
-					class="glyphicon glyphicon-add"></span></input> -->
-		</h:column>
-	</h:dataTable>
+			<h:column>
+				<f:facet name="header">Prix</f:facet>
+				<i><label>€ </label><label id="prixUnitaire"
+					class="prixUnitaire">#{prod.prix}</label></i>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Quantité</f:facet>
+				<input id="inputQte" name="inputQte" type="number" min="0"
+					class="nbProduit" oninput="updatePrixTotal()"></input>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Prix total</f:facet>
+				<b>€</b>
+				<b class="prixTot">0.00</b>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Ajouter au panier</f:facet>
+				<h:commandButton class="btn btn-success" value="+"
+					action="#{allProductsController.addToCart(prod.id)}" />
+			</h:column>
+		</h:dataTable>
 	</form>
-
-
-	<!--
-    	
-    	<h:column>
-    		<f:facet name="header">En stock</f:facet>
-    		#{o.stock}
-    	</h:column>		
-     -->
 </h:body>
-
-<!-- <script type="text/javascript">
-	function updatePrixTotal() {
-		var listProduits = new Array();
-		var rows = $("#tableAllProducts").find('tr');
-		for (var i = 0; i &lt; rows.length; i++) {
-			var r = $(rows[i]);
-			var nbProduitForThisRow = Number(r.find(".nbProduit").val());
-			var number = Number(r.find(".prixUnitaire").text());
-			var prixTot = (nbProduitForThisRow * number);
-			prixTot = parseFloat(prixTot).toFixed(2);
-			r.find((".prixTot")).text(prixTot);
-		}
-	}
-</script> -->
 </html>

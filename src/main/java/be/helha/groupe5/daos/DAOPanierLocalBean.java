@@ -34,62 +34,72 @@ public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
 	@Override
 	public Panier create(Panier obj) {
 		tr.begin();
-		em.persist(obj);
-		tr.commit();
+		panier = obj;
+		em.persist(panier);
+		if(tr.isActive()) tr.commit();;
 		return obj;
 	}
 	
 	@Override
 	public List<Panier> findAll() {
-		tr.begin();
+		if (!tr.isActive()) tr.begin();
 		List<Panier> result = null;
 		TypedQuery<Panier> query = em.createNamedQuery("Panier.FindAll",Panier.class);
 		result = query.getResultList();
-		tr.commit();
+		if(tr.isActive()) tr.commit();
 		return result;
 	}
-
 
 	@Override
 	public Panier update(Panier obj) {
 		// TODO Auto-generated method stub
-		tr.begin();
+		if (!tr.isActive()) tr.begin();
 		panier = obj;
 		em.flush();
-		tr.commit();
+		if(tr.isActive()) tr.commit();
 		return panier;
 	}
 
 	@Override
 	public void delete(Panier obj) {
 		// TODO Auto-generated method stub
-		tr.begin();
+		if (!tr.isActive()) tr.begin();
 		Query query=em.createNamedQuery("Panier.RemoveFromTable",Panier.class).setParameter(":id", obj.getId());
 		query.executeUpdate();
 		em.flush();
-		tr.commit();		
+		if(tr.isActive()) tr.commit();	
 	}
 	
 	public double calculerPrixTot() {
 		// TODO Auto-generated method stub
-		System.out.println(panier);
 		return panier.calculerPrixPanier();
 	}
 
 	public void addToCart(Produit p,int qte) {
 		// TODO Auto-generated method stub
-		tr.begin();
-		panier.getMapProduit().put(p, qte);
-		em.flush();
-		tr.commit();
+		if (!tr.isActive()) tr.begin();
+		if(panier.getMapProduit().containsKey(p)) {
+			System.out.println("Old: "+ p + " " +panier.getMapProduit().get(p));
+			panier.getMapProduit().put(p, panier.getMapProduit().get(p) + qte);
+			System.out.println("New: "+ p + " " +panier.getMapProduit().get(p));
+			update(panier);
+		}
+		else { 
+			panier.getMapProduit().put(p, qte);
+			System.out.println("Added new entry: "+ p + " "+panier.getMapProduit().get(p));
+			update(panier);
+		}
+		panier.setPrixTot(calculerPrixTot());
+		if(tr.isActive()) tr.commit();
 	}
 
 	public void removeFromCart(Produit p) {
 		// TODO Auto-generated method stub
-		tr.begin();
+		if (!tr.isActive()) tr.begin();
 		panier.getMapProduit().remove(p);
+		panier.setPrixTot(calculerPrixTot());
 		em.flush();
-		tr.commit();
+		if(tr.isActive()) tr.commit();
 	}
 
 	public Commande validatePanier() {
@@ -106,6 +116,7 @@ public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
 	public Object cleanPanier() {
 		// TODO Auto-generated method stub
 		panier.getMapProduit().clear();
+		panier.setPrixTot(calculerPrixTot());
 		return panier;
 	}
 
@@ -116,11 +127,11 @@ public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
 	
 	@Override
 	public Panier findById(long id) {
-		tr.begin();
+		if (!tr.isActive()) tr.begin();
 		Panier result = null;
 		TypedQuery<Panier> query = em.createNamedQuery("Panier.FindOne",Panier.class).setParameter("id", id);
 		result = query.getSingleResult();
-		tr.commit();
+		if(tr.isActive()) tr.commit();
 		return result;
 	}
 

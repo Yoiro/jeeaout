@@ -18,7 +18,7 @@ import javax.persistence.NamedQuery;
 @NamedQueries ({
 	@NamedQuery(name="Panier.FindAll",
 			query="SELECT p from Panier p"),
-	@NamedQuery(name="Panier.findOne",
+	@NamedQuery(name="Panier.FindOne",
 			query="SELECT p from Panier p where p.id = :id"),
 	@NamedQuery(name="Panier.RemoveFromTable",
 			query="DELETE from Panier p where :id=p.id"),
@@ -28,7 +28,7 @@ public class Panier implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;	
-	private double prixTot = 0.0;
+	private double prixTot;
 
 	private HashMap<Produit,Integer>mapProduit;
 	
@@ -96,13 +96,12 @@ public class Panier implements Serializable {
 	
 	//Calcul du prix total du panier
 	public double calculerPrixPanier(){
+		prixTot = 0.0;
 		for (Entry<Produit, Integer> e : mapProduit.entrySet()) {
 				Produit p = e.getKey();
-				
 				prixTot += p.getPrix() * e.getValue();
-				
-			
 			}
+		System.out.println("CALCULERPRIXPANIER// "+prixTot);
 		return prixTot;
 	}
 	
