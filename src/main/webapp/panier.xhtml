@@ -23,36 +23,36 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 col-md-10 col-md-offset-1">
-				<h:dataTable id="datatable"
-					value="#{panierBeanController.getProduits()}" var="item"
-					styleClass="table" headerclass="order-table-header"
-					rowClasses="order-table-odd-row,order-table-even-row">
-					<h:column>
-						<f:facet name="header">Libelle</f:facet>
+				<h:form id="viewCartForm">
+					<h:dataTable id="cartDataTable" value="#{cartController.entries}"
+						var="item" styleClass="table" headerclass="order-table-header"
+						rowClasses="order-table-odd-row,order-table-even-row">
+						<h:column>
+							<f:facet name="header">Libelle</f:facet>
 						#{item.key.libelle}
 					</h:column>
-					<h:column>
-					<f:facet name="header">Prix</f:facet>
-					<i><label>€ </label><label id="prixUnitaire" class="prixUnit">#{item.key.prix}</label></i>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Quantité</f:facet>
-						<input name="idProduit" type="number" min="0" class="nbProduit"
-							oninput="updatePrixTotal()" value="#{item.value}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Prix total</f:facet>
-						<b>€</b>
-						<b class="prixTot">#{item.key.prix * item.qte}</b>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Retirer du panier</f:facet>
-						<button class="btn btn-primary">
-							<span class="glyphicon glyphicon-remove"
-								jsf:action="#{panierBeanController.retirerProduitPanier(prod)}"></span>
-						</button>
-					</h:column>
-				</h:dataTable>
+						<h:column>
+							<f:facet name="header">Prix</f:facet>
+							<i><label>€ </label><label id="prixUnitaire" class="prixUnit">#{item.key.prix}</label></i>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Quantité</f:facet>
+							<input name="idProduit" type="number" min="0" class="nbProduit"
+								oninput="updatePrixTotal()" value="#{item.value}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Prix total</f:facet>
+							<b>€</b>
+							<b class="prixTot">#{item.key.prix * item.value}</b>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Retirer du panier</f:facet>
+							<h:commandButton class="btn btn-primary" value="x"
+								action="#{cartController.retirerProduitPanier(item.key)}"
+								redirect="#" />
+						</h:column>
+					</h:dataTable>
+				</h:form>
 
 				<table>
 					<tr>
@@ -71,7 +71,7 @@
 		</div>
 	</div>
 
-<!--  Vieux Tableau
+	<!--  Vieux Tableau
 
 <table class="table table-hover">
                 <thead>

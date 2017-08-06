@@ -18,10 +18,17 @@ import be.helha.groupe5.entities.Commande;
 import be.helha.groupe5.entities.Panier;
 import be.helha.groupe5.entities.Produit;
 import be.helha.groupe5.entities.UtilisateurEnregistre;
+import be.helha.groupe5.patterns.DBObservable;
+import be.helha.groupe5.patterns.DBObserver;
 
 @Stateless
 @LocalBean
-public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
+public class DAOPanierLocalBean extends DBObservable {
+	
+	/**
+	 * Cette classe va implémenter une sorte de Singleton personnalisé afin de s'assurer qu'il n'y ait qu'un et un seul panier présent
+	 * dans toute la session/application.
+	 */
 
 	private EntityManagerFactory emf=Persistence.createEntityManagerFactory("LocalGroupe5");;
 	private EntityManager em=emf.createEntityManager();
@@ -31,8 +38,14 @@ public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
 	
 	private Acheteur acheteur;
 	
-	@Override
-	public Panier create(Panier obj) {
+	public Panier getPanier() {
+		if(panier == null) {
+			panier = create(new Panier());
+		}
+		return panier;
+	}
+	
+	private Panier create(Panier obj) {
 		tr.begin();
 		panier = obj;
 		em.persist(panier);
@@ -40,7 +53,6 @@ public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
 		return obj;
 	}
 	
-	@Override
 	public List<Panier> findAll() {
 		if (!tr.isActive()) tr.begin();
 		List<Panier> result = null;
@@ -50,17 +62,13 @@ public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
 		return result;
 	}
 
-	@Override
 	public Panier update(Panier obj) {
 		// TODO Auto-generated method stub
-		if (!tr.isActive()) tr.begin();
 		panier = obj;
 		em.flush();
-		if(tr.isActive()) tr.commit();
+		notifyObservers();
 		return panier;
 	}
-
-	@Override
 	public void delete(Panier obj) {
 		// TODO Auto-generated method stub
 		if (!tr.isActive()) tr.begin();
@@ -79,14 +87,11 @@ public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
 		// TODO Auto-generated method stub
 		if (!tr.isActive()) tr.begin();
 		if(panier.getMapProduit().containsKey(p)) {
-			System.out.println("Old: "+ p + " " +panier.getMapProduit().get(p));
 			panier.getMapProduit().put(p, panier.getMapProduit().get(p) + qte);
-			System.out.println("New: "+ p + " " +panier.getMapProduit().get(p));
 			update(panier);
 		}
 		else { 
 			panier.getMapProduit().put(p, qte);
-			System.out.println("Added new entry: "+ p + " "+panier.getMapProduit().get(p));
 			update(panier);
 		}
 		panier.setPrixTot(calculerPrixTot());
@@ -98,7 +103,7 @@ public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
 		if (!tr.isActive()) tr.begin();
 		panier.getMapProduit().remove(p);
 		panier.setPrixTot(calculerPrixTot());
-		em.flush();
+		update(panier);
 		if(tr.isActive()) tr.commit();
 	}
 
@@ -117,15 +122,14 @@ public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
 		// TODO Auto-generated method stub
 		panier.getMapProduit().clear();
 		panier.setPrixTot(calculerPrixTot());
+		update(panier);
 		return panier;
 	}
 
-	@Override
 	public Panier findByName(String name){
 		return null;
 	}
 	
-	@Override
 	public Panier findById(long id) {
 		if (!tr.isActive()) tr.begin();
 		Panier result = null;
@@ -133,6 +137,14 @@ public class DAOPanierLocalBean extends DAOLocalBean<Panier> {
 		result = query.getSingleResult();
 		if(tr.isActive()) tr.commit();
 		return result;
+	}
+
+	@Override
+	public void notifyObservers() {
+		// TODO Auto-generated method stub
+		for (DBObserver o: observers) {
+			o.onUpdate();
+		}
 	}
 
 	

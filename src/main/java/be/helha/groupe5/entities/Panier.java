@@ -1,7 +1,7 @@
 package be.helha.groupe5.entities;
 
 import java.io.Serializable;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -30,24 +30,24 @@ public class Panier implements Serializable {
 	private Integer id;	
 	private double prixTot;
 
-	private HashMap<Produit,Integer>mapProduit;
+	private LinkedHashMap<Produit,Integer>mapProduit;
 	
 	//-----------------------Constructor-----------------------------
 	public Panier(){
-		mapProduit = new HashMap<>();
+		mapProduit = new LinkedHashMap<>();
 		prixTot = 0.0;
 	}
 	public Panier(double prixTot){
-		mapProduit = new HashMap<>();
+		mapProduit = new LinkedHashMap<>();
 		setPrixTot(prixTot);
 	}
 	
 	
 	//---------------------Getter & Setter --------------------------
-	public HashMap<Produit, Integer> getMapProduit() {
+	public LinkedHashMap<Produit, Integer> getMapProduit() {
 		return mapProduit;
 	}
-	public void setMapProduit(HashMap<Produit, Integer> mapProduit) {
+	public void setMapProduit(LinkedHashMap<Produit, Integer> mapProduit) {
 		this.mapProduit = mapProduit;
 	}
 	public double getPrixTot() {
@@ -101,7 +101,6 @@ public class Panier implements Serializable {
 				Produit p = e.getKey();
 				prixTot += p.getPrix() * e.getValue();
 			}
-		System.out.println("CALCULERPRIXPANIER// "+prixTot);
 		return prixTot;
 	}
 	

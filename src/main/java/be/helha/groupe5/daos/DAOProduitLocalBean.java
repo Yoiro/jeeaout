@@ -62,7 +62,6 @@ public class DAOProduitLocalBean extends DAOLocalBean<Produit>{
 	@Override
 	public Produit findById(long id) {
 		// TODO Auto-generated method stub
-		System.out.println("DAOPRODUIT// findById: "+id);
 		tr.begin();
 		TypedQuery<Produit> query = em.createNamedQuery("Produit.FindOne", Produit.class);
 		query.setParameter("id", id);

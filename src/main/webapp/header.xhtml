@@ -151,25 +151,24 @@
 							<!--  DROPDOWN MENU DU PANIER AVEC ACCES A LA PAGE DE GESTION DU PANIER -->
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown" role="button" aria-expanded="false">
-									<span class="glyphicon glyphicon-shopping-cart"></span>#{panierBeanController.getNbProduits()}
+									<span class="glyphicon glyphicon-shopping-cart"></span> #{headerCartController.nbProduits}
 									<span class="caret"></span>
 							</a>
 								<ul class="dropdown-menu dropdown-cart" role="menu">
-
 									<!--  A mettre ici un truc qui fait s'afficher les miniatures des produits -->
 									<h:dataTable id="minCart"
-										value="#{panierBeanController.getProduits()}" var="item"
+										value="#{headerCartController.produits}" var="item"
 										styleClass="table" headerclass="order-table-header"
 										rowClasses="order-table-odd-row,order-table-even-row">
 										<span class="item-info"> <h:column>
-												<span>#{item.key.libelle}</span>
+												<span>#{item.libelle}</span>
 											</h:column> <h:column>
-												<span>#{item.value}</span>
+												<span>#{item.prix}</span>
 											</h:column>
 										</span>
 									</h:dataTable>
 									<li class="divider"></li>
-									<li><a class="text-center" href="panier.xhtml">View
+									<li><a class="text-center" href="./panier.xhtml">View
 											Cart</a></li>
 									<!-- <li><span class="item"> <span class="item-left">
 												<img src="http://lorempixel.com/50/50/" alt="" /> <span
