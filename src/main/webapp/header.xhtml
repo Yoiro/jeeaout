@@ -74,6 +74,12 @@
 	text-shadow: 0 -1px 0 rgba(31, 31, 31, 0.29);
 	-webkit-font-smoothing: antialiased;
 }
+
+h5.headerText{
+	color: #DDD;
+	font-weight: bold;
+	text-align: center;
+}
 </STYLE>
 
 
@@ -141,9 +147,9 @@
 						</ul>
 						<ul jsf:id="formUser"
 							class="nav navbar-nav navbar-right hidden-xs">
-							<li><a>Bienvenue, #{headerUserController.headText}</a></li>
-							<li><a href="connexion.xhtml" class="btn btn-blue">Se Connecter</a></li>
-							<li><a href="inscription.xhtml" class="btn btn-blue">S'inscrire</a></li>
+							<h5 class="headerText">Bienvenue, #{headerUserController.headText}</h5>
+							<h:outputText value="#{headerUserController.leftButton}" escape="false"/>
+							<h:outputText value="#{headerUserController.rightButton}" escape="false"/>
 
 							<!--  DROPDOWN MENU DU PANIER AVEC ACCES A LA PAGE DE GESTION DU PANIER -->
 							<li class="dropdown"><a href="#" class="dropdown-toggle"

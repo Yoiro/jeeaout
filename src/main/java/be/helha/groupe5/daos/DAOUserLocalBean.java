@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
@@ -25,11 +26,10 @@ public class DAOUserLocalBean extends DBObservable{
 	private static UtilisateurEnregistre user;
 	
 	public UtilisateurEnregistre getUser() {
+		if(user == null) {
+			user = new UtilisateurEnregistre();
+		}
 		return user;
-	}
-
-	public void setUser(UtilisateurEnregistre u) {
-		user = u;
 	}
 
 	public List<UtilisateurEnregistre> findAll() {
@@ -45,12 +45,18 @@ public class DAOUserLocalBean extends DBObservable{
 		if(!tr.isActive())tr.begin();
 		TypedQuery<UtilisateurEnregistre> query=em.createNamedQuery("UtilisateurEnregistre.FindOne",UtilisateurEnregistre.class)
 				.setParameter("nom", name);
-		UtilisateurEnregistre user=query.getSingleResult();
-		if(tr.isActive())tr.commit();
-		if (user.getPseudoUtilisateur().equals(name)) {
-			return user;
-		}
-		return null;
+		try{
+			UtilisateurEnregistre user=query.getSingleResult();
+			if (user.getPseudoUtilisateur().equals(name)) {
+				if(tr.isActive())tr.commit();
+				return user;
+			}
+			if(tr.isActive())tr.commit();
+			return null;
+		} catch (NoResultException e) {
+			if(tr.isActive())tr.commit();
+			return null;
+		} 
 	}
 
 	public UtilisateurEnregistre update(UtilisateurEnregistre obj) {
@@ -58,7 +64,9 @@ public class DAOUserLocalBean extends DBObservable{
 		if(!tr.isActive())tr.begin();
 		user = obj;
 		if(tr.isActive())tr.commit();
-		return null;
+		//notifyObservers();
+		System.out.println(user);
+		return user;
 	}
 
 	public void delete(UtilisateurEnregistre obj) {

@@ -2,7 +2,6 @@ package be.helha.groupe5.controllers;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.regex.Pattern;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -19,6 +18,7 @@ public class LoginController implements Serializable{
 	private String password;
 	private UtilisateurEnregistre user;
 	private List<UtilisateurEnregistre> users;
+	private String error;
 	
 	public UtilisateurEnregistre getUser() {
 		return user;
@@ -44,6 +44,13 @@ public class LoginController implements Serializable{
 		this.password = password;
 	}
 
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
+	}
 
 	@EJB
 	private DAOUserLocalBean daoUserLocalBean;
@@ -52,16 +59,25 @@ public class LoginController implements Serializable{
 	public void init() {
 		user = daoUserLocalBean.getUser();
 		users = daoUserLocalBean.findAll();
+		error = "";
 	}
 
 	public String login() {
 		UtilisateurEnregistre res = daoUserLocalBean.findByName(uName);
 		if (res != null) {
 			if (res.getPassword().equals(password)) {
-				return "success";
+				error = "";
+				daoUserLocalBean.update(res);
+				return doRedirectToIndex();
 			}
-			return "wrong-password";
+			error = "Mauvais mot de passe. Réessayez";
+			return null;
 		}
-		return "wrong-log";
+		error = "Mauvais nom d'utilisateur. Réessayez";
+		return null;
+	}
+	
+	public String doRedirectToIndex() {
+		return "index.xhtml?faces-redirect=true";
 	}
 }

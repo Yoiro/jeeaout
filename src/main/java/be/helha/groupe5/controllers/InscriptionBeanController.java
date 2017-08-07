@@ -115,7 +115,7 @@ public class InscriptionBeanController {
 			builder.creerAdresse(nomRue, numRue, codePostal, localite);
 			UtilisateurEnregistre u=builder.getUser();
 			UtilisateurEnregistre res = daoUserLocalBean.create(u);
-			daoUserLocalBean.setUser(res);
+			daoUserLocalBean.update(res);
 			return "index.xhtml";
 		}
 		return "register-failed";

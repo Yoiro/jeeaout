@@ -37,6 +37,63 @@
 }
 </STYLE>
 
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="./script/functions.js"></script>
+	
+<link rel="stylesheet"
+	href="./styles/snackbar.css"></link>
+
+</head>
+
+<body>
+
+<ui:include src="header.xhtml"/>
+
+	<div class="container col-lg-4 col-lg-offset-4">
+
+		<div class="row" style="margin-top: 100px">
+			<h:form role="form" id="loginForm">
+				<fieldset>
+					<h2>Bon retour sur Tepabo,</h2>
+					<h3>Connectez-vous!</h3>
+					<hr class="colorgraph"></hr>
+					<div class="form-group">
+						<input type="text" name="text" id="text"
+							class="form-control input-lg" placeholder="Pseudo" jsf:value="#{loginController.uName}"></input>
+					</div>
+					<div class="form-group">
+						<input type="password" name="password" id="password"
+							class="form-control input-lg" placeholder="Mot de passe" jsf:value="#{loginController.password}"></input>
+					</div>
+					<span class="button-checkbox">
+						<button type="button" class="btn" data-color="info">Se
+							souvenir de moi !</button> <input type="checkbox" name="remember_me"
+						id="remember_me" checked="checked" class="hidden"></input><a
+						href="" class="btn btn-link pull-right">Vous avez oublié votre mot de passe?</a>
+					</span>
+					<hr class="colorgraph"></hr>
+					<div class="row">
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<h:commandButton class="btn btn-lg btn-success btn-block" value="Se Connecter" action="#{loginController.login()}" onclick="snackbar();"/>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<a href="" class="btn btn-lg btn-primary btn-block">Pas encore inscrit? S'enregistrer</a>
+						</div>
+					</div>
+					<div id="snackbar" class="row">
+						#{loginController.error}
+					</div>
+				</fieldset>
+			</h:form>
+
+		</div>
+
+	</div>
 <SCRIPT type="text/javascript">
 	$(function() {
 		$('.button-checkbox')
@@ -106,60 +163,6 @@
 						});
 	});
 </SCRIPT>
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-</head>
-
-<body>
-
-<ui:include src="header.xhtml"/>
-
-	<div class="container col-lg-4 col-lg-offset-4">
-
-		<div class="row" style="margin-top: 100px">
-			<form role="form">
-				<fieldset>
-					<h2>Bon retour sur Tepabo,</h2>
-					<h3>Connectez-vous!</h3>
-					<hr class="colorgraph"></hr>
-					<div class="form-group">
-						<input type="text" name="text" id="text"
-							class="form-control input-lg" placeholder="Pseudo" jsf:value="#{loginController.uName}"></input>
-					</div>
-					<div class="form-group">
-						<input type="password" name="password" id="password"
-							class="form-control input-lg" placeholder="Mot de passe" jsf:value="#{loginController.password}"></input>
-					</div>
-					<span class="button-checkbox">
-						<button type="button" class="btn" data-color="info">Se
-							souvenir de moi !</button> <input type="checkbox" name="remember_me"
-						id="remember_me" checked="checked" class="hidden"></input><a
-						href="" class="btn btn-link pull-right">Vous avez oublié votre mot de passe?</a>
-					</span>
-					<hr class="colorgraph"></hr>
-					<div class="row">
-						<div class="col-xs-6 col-sm-6 col-md-6">
-							<input type="submit" class="btn btn-lg btn-success btn-block"
-								value="Sign In" jsf:action="{loginController.login()}"></input>
-						</div>
-						<div class="col-xs-6 col-sm-6 col-md-6">
-							<a href="" class="btn btn-lg btn-primary btn-block">Pas encore inscrit? S'enregistrer</a>
-						</div>
-					</div>
-
-				</fieldset>
-			</form>
-
-		</div>
-
-	</div>
-
 </body>
 
 </html>
