@@ -41,7 +41,7 @@ public class CartController implements Serializable, DBObserver{
 	@Override
 	public void onUpdate() {
 		panier = daoPanierLocalBean.getPanier();
-		System.out.println(panier);
+		System.out.println("Cart.onUpdate\n"+panier);
 		hashProduits = panier.getMapProduit();
 		System.out.println(hashProduits);
 		entries = new ArrayList<>(hashProduits.entrySet());
@@ -69,7 +69,6 @@ public class CartController implements Serializable, DBObserver{
 	}
 
 	public void retirerProduitPanier(Produit p) {
-		System.out.println(p);
 		daoPanierLocalBean.removeFromCart(p);
 		System.out.println("cérétiré lol");
 	}

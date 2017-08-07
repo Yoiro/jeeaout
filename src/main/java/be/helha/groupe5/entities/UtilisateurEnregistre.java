@@ -17,7 +17,11 @@ import javax.persistence.NamedQuery;
 	@NamedQuery(name="UtilisateurEnregistre.FindAll",
 			query="SELECT u from UtilisateurEnregistre u"),
 	@NamedQuery(name="UtilisateurEnregistre.FindOne",
-			query="SELECT u from UtilisateurEnregistre u WHERE u.nom LIKE :nom")
+			query="SELECT u from UtilisateurEnregistre u WHERE u.pseudoUtilisateur LIKE :nom"),
+	@NamedQuery(name="UtilisateurEnregistre.FindById",
+			query="SELECT u from UtilisateurEnregistre u WHERE u.id = :id"),
+	@NamedQuery(name="UtilisateurEnregistre.RemoveFromTable",
+			query="DELETE from UtilisateurEnregistre u where :id=u.id")
 })
 public class UtilisateurEnregistre implements Serializable {
 

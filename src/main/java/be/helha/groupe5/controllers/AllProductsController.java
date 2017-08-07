@@ -1,6 +1,7 @@
 package be.helha.groupe5.controllers;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -44,10 +45,12 @@ public class AllProductsController implements Serializable, DBObserver{
 	public void setProduits(List<Produit> produits) {
 		this.produits = produits;
 	}
+
 	//----------------------------------------------------
 	
 	public String addToCart(String id) {
 		Integer prodId = Integer.parseInt(id);
+		//System.out.println(quantites.get(prodId));
 		Produit p = daoProduitLocalBean.findById((long)prodId);
 		daoPanierLocalBean.addToCart(p, 1);
 		return null;
@@ -57,6 +60,5 @@ public class AllProductsController implements Serializable, DBObserver{
 	public void onUpdate() {
 		// TODO Auto-generated method stub
 		panier = daoPanierLocalBean.getPanier();
-		
 	}
 }

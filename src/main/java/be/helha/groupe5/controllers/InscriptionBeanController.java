@@ -1,5 +1,8 @@
 package be.helha.groupe5.controllers;
 
+import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
@@ -17,8 +20,14 @@ public class InscriptionBeanController {
 	private int codePostal;
 	private boolean isDistrib;
 	UserBuilder builder;
+	private List<UtilisateurEnregistre> users;
 	
 	@EJB private DAOUserLocalBean daoUserLocalBean;
+	
+	@PostConstruct
+	public void init() {
+		users = daoUserLocalBean.findAll();
+	}
 	
 	//Getters & Setters//
 	//----------------------------------------------------//
@@ -99,12 +108,17 @@ public class InscriptionBeanController {
 	}
 	//----------------------------------------------------//
 	//DatabaseAccess//
-	public void inscriptionPersonne(){
-		builder=new UserBuilder(isDistrib);
-		builder.creerInformationsPersonne(nom, prenom, pseudoUtilisateur, password, email, tel);
-		builder.creerAdresse(nomRue, numRue, codePostal, localite);
-		UtilisateurEnregistre u=builder.getUser();
-		daoUserLocalBean.inscription(u);
+	public String inscriptionPersonne(){
+		if(daoUserLocalBean.findByName(pseudoUtilisateur)== null) {
+			builder=new UserBuilder(isDistrib);
+			builder.creerInformationsPersonne(nom, prenom, pseudoUtilisateur, password, email, tel);
+			builder.creerAdresse(nomRue, numRue, codePostal, localite);
+			UtilisateurEnregistre u=builder.getUser();
+			UtilisateurEnregistre res = daoUserLocalBean.create(u);
+			daoUserLocalBean.setUser(res);
+			return "index.xhtml";
+		}
+		return "register-failed";
 	}
 	
 }

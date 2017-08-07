@@ -141,12 +141,9 @@
 						</ul>
 						<ul jsf:id="formUser"
 							class="nav navbar-nav navbar-right hidden-xs">
-							<a type="button" class="navbar-btn btn btn-gradient-blue"
-								href="connexion.xhtml">Connexion</a>
-							<a type="button" class="navbar-btn btn btn-gradient-blue"
-								href="inscription.xhtml">Inscription</a>
-
-
+							<li><a>Bienvenue, #{headerUserController.headText}</a></li>
+							<li><a href="connexion.xhtml" class="btn btn-blue">Se Connecter</a></li>
+							<li><a href="inscription.xhtml" class="btn btn-blue">S'inscrire</a></li>
 
 							<!--  DROPDOWN MENU DU PANIER AVEC ACCES A LA PAGE DE GESTION DU PANIER -->
 							<li class="dropdown"><a href="#" class="dropdown-toggle"

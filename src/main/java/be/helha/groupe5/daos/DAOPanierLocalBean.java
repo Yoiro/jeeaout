@@ -34,7 +34,7 @@ public class DAOPanierLocalBean extends DBObservable {
 	private EntityManager em=emf.createEntityManager();
 	private EntityTransaction tr=em.getTransaction();
 	
-	private Panier panier;
+	private static Panier panier;
 	
 	private Acheteur acheteur;
 	
@@ -50,7 +50,7 @@ public class DAOPanierLocalBean extends DBObservable {
 		panier = obj;
 		em.persist(panier);
 		if(tr.isActive()) tr.commit();;
-		return obj;
+		return panier;
 	}
 	
 	public List<Panier> findAll() {
@@ -65,6 +65,7 @@ public class DAOPanierLocalBean extends DBObservable {
 	public Panier update(Panier obj) {
 		// TODO Auto-generated method stub
 		panier = obj;
+		panier.setPrixTot(calculerPrixTot());
 		em.flush();
 		notifyObservers();
 		return panier;
@@ -101,8 +102,7 @@ public class DAOPanierLocalBean extends DBObservable {
 	public void removeFromCart(Produit p) {
 		// TODO Auto-generated method stub
 		if (!tr.isActive()) tr.begin();
-		panier.getMapProduit().remove(p);
-		panier.setPrixTot(calculerPrixTot());
+		panier.getMapProduit().remove(p, panier.getMapProduit().get(p));
 		update(panier);
 		if(tr.isActive()) tr.commit();
 	}
@@ -118,10 +118,9 @@ public class DAOPanierLocalBean extends DBObservable {
 		return null;
 	}
 
-	public Object cleanPanier() {
+	public Panier cleanPanier() {
 		// TODO Auto-generated method stub
 		panier.getMapProduit().clear();
-		panier.setPrixTot(calculerPrixTot());
 		update(panier);
 		return panier;
 	}

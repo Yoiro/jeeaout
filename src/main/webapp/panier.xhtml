@@ -48,11 +48,21 @@
 						<h:column>
 							<f:facet name="header">Retirer du panier</f:facet>
 							<h:commandButton class="btn btn-primary" value="x"
-								action="#{cartController.retirerProduitPanier(item.key)}"
-								redirect="#" />
+								action="#{cartController.retirerProduitPanier(item.key)}"/>
 						</h:column>
 					</h:dataTable>
 				</h:form>
+				<table class="table table-hover">
+					<tr>
+						<tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h5>TOTAL</h5></td>
+                        <td class="text-right"><h5><strong>€#{cartController.panier.calculerPrixPanier()}</strong></h5></td>
+                    </tr>
+					</tr>
+				</table>
 
 				<table>
 					<tr>
