@@ -61,6 +61,12 @@ public class LoginController implements Serializable{
 		users = daoUserLocalBean.findAll();
 		error = "";
 	}
+	
+	public String logout() {
+		daoUserLocalBean.update(null);
+		System.out.println("login.logout "+user);
+		return "index.xhtml?faces-redirect=true";
+	}
 
 	public String login() {
 		UtilisateurEnregistre res = daoUserLocalBean.findByName(uName);

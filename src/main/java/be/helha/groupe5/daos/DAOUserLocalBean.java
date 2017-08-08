@@ -26,9 +26,6 @@ public class DAOUserLocalBean extends DBObservable{
 	private static UtilisateurEnregistre user;
 	
 	public UtilisateurEnregistre getUser() {
-		if(user == null) {
-			user = new UtilisateurEnregistre();
-		}
 		return user;
 	}
 
@@ -64,8 +61,7 @@ public class DAOUserLocalBean extends DBObservable{
 		if(!tr.isActive())tr.begin();
 		user = obj;
 		if(tr.isActive())tr.commit();
-		//notifyObservers();
-		System.out.println(user);
+		notifyObservers();
 		return user;
 	}
 
@@ -100,7 +96,7 @@ public class DAOUserLocalBean extends DBObservable{
 	public void notifyObservers() {
 		// TODO Auto-generated method stub
 		for (DBObserver o: observers) {
-			o.notify();
+			o.onUpdate();
 		}
 	}
 }
